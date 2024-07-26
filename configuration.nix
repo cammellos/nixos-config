@@ -15,18 +15,13 @@
     ./pkgs/fonts.nix
     ./pkgs/docker.nix
     ./pkgs/localization.nix
+    ./pkgs/gnupg.nix
     ./users/cammellos
   ];
 
   hardware.enableAllFirmware = true;
 
   services.udev.packages = with pkgs; [ pkgs.yubikey-personalization uhk-agent ];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
 
   # programs
   programs.neovim = {
