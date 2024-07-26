@@ -106,8 +106,8 @@ hardware.pulseaudio.support32Bit = true;
   services.xserver = {
     enable = true;
     autorun = true;
-    layout = "us";
-    xkbVariant = "workman";
+    xkb.layout = "us";
+    xkb.variant = "workman";
     displayManager.lightdm.enable = true;
     windowManager.i3.enable = true;
   };
@@ -200,7 +200,7 @@ users.groups.plugdev = {};
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
   ];
@@ -240,7 +240,7 @@ services = {
     avahi = {
     openFirewall = true;
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
 
     printing = {
