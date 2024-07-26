@@ -6,4 +6,3 @@
     home.homeDirectory = "/home/cammellos";
   };
 }
-

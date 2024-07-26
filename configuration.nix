@@ -92,9 +92,6 @@ users.groups.plugdev = {};
     viAlias = true;
     vimAlias = true;
   };
-  programs.git = {
-    enable = true;
-  };
   programs.fish.enable = true;
 
   programs.adb.enable = true;
