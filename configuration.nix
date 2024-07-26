@@ -7,7 +7,7 @@
     ./boot.nix
     ./networking/shared.nix
     ./networking/host.nix
-    ./modules/home-manager.nix
+    ./pkgs/home-manager.nix
     ./pkgs/audio.nix
     ./pkgs/x.nix
     ./pkgs/printing.nix
