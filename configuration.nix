@@ -36,8 +36,6 @@ let
         KERNEL=="hidraw*", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="612[0-7]", MODE="0666", GROUP="plugdev"
         EOF
       '';
-
-      neovim = import ./vim.nix { pkgs = super; };
   };
 
 in {
@@ -45,6 +43,7 @@ in {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      ./boot.nix
     ];
 
 
@@ -52,9 +51,6 @@ in {
     custom_pkgs
   ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   hardware.enableAllFirmware = true;
   hardware.pulseaudio.enable = true;
