@@ -18,8 +18,6 @@
       todoist
       arandr
       gnupg
-      nodejs_20
-      go
       gcc
       sakura
       keepassxc

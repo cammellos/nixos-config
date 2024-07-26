@@ -9,5 +9,6 @@
     ./pkgs/gaming.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix
+    ./pkgs/golang.nix
   ];
 }
