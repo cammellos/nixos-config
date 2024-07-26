@@ -8,6 +8,7 @@
       ./boot.nix
       ./networking/shared.nix
       ./networking/host.nix
+      ./modules/home-manager.nix
     ];
 
   hardware.enableAllFirmware = true;
