@@ -8,5 +8,6 @@
     ./pkgs/status.nix
     ./pkgs/gaming.nix
     ./pkgs/clojure.nix
+    ./pkgs/media.nix
   ];
 }

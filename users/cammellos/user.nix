@@ -15,16 +15,13 @@
       unzip
       ack
       xclip # for nvim copy to clipboard
-      vlc
       todoist
       arandr
       gnupg
       nodejs_20
       go
       gcc
-      chromium
       sakura
-      spotify
       keepassxc
       dropbox
       feh
