@@ -6,19 +6,13 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       ./boot.nix
+      ./networking/shared.nix
+      ./networking/host.nix
     ];
 
   hardware.enableAllFirmware = true;
   hardware.pulseaudio.enable = true;
 hardware.pulseaudio.support32Bit = true;
-  networking.hostName = "moosel"; # Define your hostname.
-  networking.useDHCP = true;
-  networking.enableIPv6 = false;
-  networking.networkmanager.enable = true;
-  networking.wireless = {
-    enable = true;  # Enables wireless support via wpa_supplicant.
-    interfaces = ["wlp1s0"];
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
