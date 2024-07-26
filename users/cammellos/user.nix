@@ -11,15 +11,12 @@
       openvpn
       gh
       dunst
-      leiningen
-      clj-kondo
       gnumake
       unzip
       ack
       xclip # for nvim copy to clipboard
       vlc
       todoist
-      gitg
       arandr
       gnupg
       nodejs_20
