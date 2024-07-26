@@ -1,4 +1,4 @@
-{config, pkgs}:
+{config, pkgs, ...}:
 {
   users.users.cammellos = {
     isNormalUser = true;
@@ -13,7 +13,6 @@
       dunst
       leiningen
       clj-kondo
-      ledger-live-desktop
       gnumake
       unzip
       ack

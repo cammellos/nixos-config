@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
-
-let
-  user = import ./user.nix { inherit config pkgs; };
-in
 {
-  imports = [ user ];
+  imports = [
+    ./user.nix
+    ./pkgs/ledger.nix
+  ];
 }
