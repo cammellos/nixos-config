@@ -6,5 +6,6 @@
     ./pkgs/ledger.nix
     ./pkgs/git.nix
     ./pkgs/status.nix
+    ./pkgs/gaming.nix
   ];
 }

@@ -33,8 +33,6 @@
       feh
       libnotify
       rofi
-      lutris
-      wine64
     ];
   };
 }
