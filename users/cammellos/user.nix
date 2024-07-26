@@ -35,7 +35,6 @@
       rofi
       lutris
       wine64
-      genymotion
     ];
   };
 }
