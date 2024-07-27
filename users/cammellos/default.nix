@@ -9,7 +9,7 @@
     ./pkgs/gaming.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix
-    ./pkgs/tmux
+    (import ../../pkgs/tmux {user = "cammellos"; config = config; pkgs = pkgs;})
     ./pkgs/golang.nix
   ];
 }

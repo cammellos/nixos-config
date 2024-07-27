@@ -6,8 +6,4 @@ in
   imports = [
     (import "${home-manager}/nixos")
   ];
-
-  home-manager.users.cammellos = {
-    home.stateVersion = "24.05";
-  };
 }

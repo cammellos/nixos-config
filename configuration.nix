@@ -16,6 +16,7 @@
     ./pkgs/docker.nix
     ./pkgs/localization.nix
     ./pkgs/gnupg.nix
+    ./users/root
     ./users/cammellos
   ];
 
