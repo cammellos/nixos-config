@@ -1,4 +1,5 @@
 function fish_prompt --description 'Write out the prompt'
+  function fish_prompt
 	if not set -q __fish_git_prompt_show_informative_status
 		set -g __fish_git_prompt_show_informative_status 1
 	end
@@ -89,4 +90,5 @@ function fish_prompt --description 'Write out the prompt'
 	echo -n "$suffix "
 
 	set_color normal
+      end
 end
