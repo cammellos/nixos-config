@@ -1,90 +1,92 @@
-function fish_prompt
-    set -l __last_command_exit_status $status
+function fish_prompt --description 'Write out the prompt'
+	if not set -q __fish_git_prompt_show_informative_status
+		set -g __fish_git_prompt_show_informative_status 1
+	end
+	if not set -q __fish_git_prompt_hide_untrackedfiles
+		set -g __fish_git_prompt_hide_untrackedfiles 1
+	end
 
-    if not set -q -g __fish_arrow_functions_defined
-        set -g __fish_arrow_functions_defined
-        function _git_branch_name
-            set -l branch (git symbolic-ref --quiet HEAD 2>/dev/null)
-            if set -q branch[1]
-                echo (string replace -r '^refs/heads/' '' $branch)
-            else
-                echo (git rev-parse --short HEAD 2>/dev/null)
-            end
-        end
+	if not set -q __fish_git_prompt_color_branch
+		set -g __fish_git_prompt_color_branch magenta --bold
+	end
+	if not set -q __fish_git_prompt_showupstream
+		set -g __fish_git_prompt_showupstream "informative"
+	end
+	if not set -q __fish_git_prompt_char_upstream_ahead
+		set -g __fish_git_prompt_char_upstream_ahead "↑"
+	end
+	if not set -q __fish_git_prompt_char_upstream_behind
+		set -g __fish_git_prompt_char_upstream_behind "↓"
+	end
+	if not set -q __fish_git_prompt_char_upstream_prefix
+		set -g __fish_git_prompt_char_upstream_prefix ""
+	end
 
-        function _is_git_dirty
-            not command git diff-index --cached --quiet HEAD -- &>/dev/null
-            or not command git diff --no-ext-diff --quiet --exit-code &>/dev/null
-        end
+	if not set -q __fish_git_prompt_char_stagedstate
+		set -g __fish_git_prompt_char_stagedstate "●"
+	end
+	if not set -q __fish_git_prompt_char_dirtystate
+		set -g __fish_git_prompt_char_dirtystate "✚"
+	end
+	if not set -q __fish_git_prompt_char_untrackedfiles
+		set -g __fish_git_prompt_char_untrackedfiles "…"
+	end
+	if not set -q __fish_git_prompt_char_conflictedstate
+		set -g __fish_git_prompt_char_conflictedstate "✖"
+	end
+	if not set -q __fish_git_prompt_char_cleanstate
+		set -g __fish_git_prompt_char_cleanstate "✔"
+	end
 
-        function _is_git_repo
-            type -q git
-            or return 1
-            git rev-parse --git-dir >/dev/null 2>&1
-        end
+	if not set -q __fish_git_prompt_color_dirtystate
+		set -g __fish_git_prompt_color_dirtystate blue
+	end
+	if not set -q __fish_git_prompt_color_stagedstate
+		set -g __fish_git_prompt_color_stagedstate yellow
+	end
+	if not set -q __fish_git_prompt_color_invalidstate
+		set -g __fish_git_prompt_color_invalidstate red
+	end
+	if not set -q __fish_git_prompt_color_untrackedfiles
+		set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
+	end
+	if not set -q __fish_git_prompt_color_cleanstate
+		set -g __fish_git_prompt_color_cleanstate green --bold
+	end
 
-        function _hg_branch_name
-            echo (hg branch 2>/dev/null)
-        end
+	set -l last_status $status
 
-        function _is_hg_dirty
-            set -l stat (hg status -mard 2>/dev/null)
-            test -n "$stat"
-        end
+	if not set -q __fish_prompt_normal
+		set -g __fish_prompt_normal (set_color normal)
+	end
 
-        function _is_hg_repo
-            fish_print_hg_root >/dev/null
-        end
+	set -l color_cwd
+	set -l prefix
+	switch $USER
+	case root toor
+		if set -q fish_color_cwd_root
+			set color_cwd $fish_color_cwd_root
+		else
+			set color_cwd $fish_color_cwd
+		end
+		set suffix '#'
+	case '*'
+		set color_cwd $fish_color_cwd
+		set suffix '$'
+	end
 
-        function _repo_branch_name
-            _$argv[1]_branch_name
-        end
+	# PWD
+	set_color $color_cwd
+	echo -n (prompt_pwd)
+	set_color normal
 
-        function _is_repo_dirty
-            _is_$argv[1]_dirty
-        end
+	printf '%s ' (__fish_vcs_prompt)
 
-        function _repo_type
-            if _is_hg_repo
-                echo hg
-                return 0
-            else if _is_git_repo
-                echo git
-                return 0
-            end
-            return 1
-        end
-    end
+	if not test $last_status -eq 0
+	set_color $fish_color_error
+	end
 
-    set -l cyan (set_color -o cyan)
-    set -l yellow (set_color -o yellow)
-    set -l red (set_color -o red)
-    set -l green (set_color -o green)
-    set -l blue (set_color -o blue)
-    set -l normal (set_color normal)
+	echo -n "$suffix "
 
-    set -l arrow_color "$green"
-    if test $__last_command_exit_status != 0
-        set arrow_color "$red"
-    end
-
-    set -l arrow "$arrow_color➜ "
-    if fish_is_root_user
-        set arrow "$arrow_color# "
-    end
-
-    set -l cwd $cyan(basename (prompt_pwd))
-
-    set -l repo_info
-    if set -l repo_type (_repo_type)
-        set -l repo_branch $red(_repo_branch_name $repo_type)
-        set repo_info "$blue $repo_type:($repo_branch$blue)"
-
-        if _is_repo_dirty $repo_type
-            set -l dirty "$yellow ✗"
-            set repo_info "$repo_info$dirty"
-        end
-    end
-
-    echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+	set_color normal
 end
