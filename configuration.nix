@@ -31,7 +31,6 @@
     viAlias = true;
     vimAlias = true;
   };
-  programs.fish.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -39,7 +38,6 @@
   environment.systemPackages = with pkgs; [
     tmux
     uhk-agent
-    fish
   ];
   system.stateVersion = "23.11";
 }
