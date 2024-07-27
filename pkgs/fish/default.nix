@@ -25,14 +25,10 @@
       vi = "nvim";
       vim = "nvim";
     };
+  functions = {
+    fish_prompt = builtins.readFile ./functions/fish_prompt.fish;
   };
-
-    home.activation = {
-      "set-fish-prompt" = ''
-        #!/bin/sh
-        ${pkgs.fish}/bin/fish -c "yes | fish_config prompt save arrow; exit 0"
-      '';
-    };
+  };
 
   };
 }
