@@ -36,7 +36,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    tmux
     uhk-agent
   ];
   system.stateVersion = "23.11";
