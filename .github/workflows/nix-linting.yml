@@ -14,4 +14,4 @@ jobs:
 
       - name: run statix
         run: |
-          nix run --extra-experimental-features nix-command --extra-experimental-features flakes nixpkgs#statix -- check
+          scripts/check-lint.sh

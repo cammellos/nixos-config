@@ -11,8 +11,16 @@
     ./pkgs/media.nix
     ./pkgs/alacritty.nix
     ./pkgs/development.nix
-    (import ../../pkgs/tmux {user = "cammellos"; inherit config; inherit pkgs;})
-    (import ../../pkgs/fish {user = "cammellos"; inherit config; inherit pkgs;})
+    (import ../../pkgs/tmux {
+      user = "cammellos";
+      inherit config;
+      inherit pkgs;
+    })
+    (import ../../pkgs/fish {
+      user = "cammellos";
+      inherit config;
+      inherit pkgs;
+    })
     ./pkgs/golang.nix
   ];
 }

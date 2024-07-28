@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   time.timeZone = "Europe/London";
 
@@ -16,5 +16,3 @@
     LC_TIME = "en_GB.UTF-8";
   };
 }
-
-

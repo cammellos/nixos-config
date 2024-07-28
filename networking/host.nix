@@ -1,7 +1,7 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   networking.hostName = "moosel";
   networking.wireless = {
-    interfaces = ["wlp1s0"];
+    interfaces = [ "wlp1s0" ];
   };
 }

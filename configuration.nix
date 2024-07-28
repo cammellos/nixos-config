@@ -1,7 +1,7 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     /etc/nixos/hardware-configuration.nix
     ./boot.nix
     ./networking/shared.nix
@@ -21,7 +21,10 @@
 
   hardware.enableAllFirmware = true;
 
-  services.udev.packages = with pkgs; [ pkgs.yubikey-personalization uhk-agent ];
+  services.udev.packages = with pkgs; [
+    pkgs.yubikey-personalization
+    uhk-agent
+  ];
 
   # programs
   programs.neovim = {
@@ -34,8 +37,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    uhk-agent
-  ];
+  environment.systemPackages = with pkgs; [ uhk-agent ];
   system.stateVersion = "23.11";
 }

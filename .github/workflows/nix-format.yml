@@ -1,0 +1,23 @@
+name: Check nix formatting
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Format files
+        run: |
+          ./scripts/format.sh
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --exit-code || echo "Changes detected"
+
+      - name: Fail if files have changed
+        if: steps.check_changes.outputs.changes == 'true'
+        run: exit 1

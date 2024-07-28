@@ -1,8 +1,6 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
-  users.users.cammellos.packages = with pkgs; [
-      alacritty-theme
-  ];
+  users.users.cammellos.packages = with pkgs; [ alacritty-theme ];
   nixpkgs.config.input-fonts.acceptLicense = true;
   home-manager.users.cammellos.programs.alacritty = {
     enable = true;

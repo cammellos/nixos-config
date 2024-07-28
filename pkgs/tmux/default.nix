@@ -1,9 +1,12 @@
-{config, pkgs, user, ...}:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 {
   programs.tmux.enable = true;
-  environment.systemPackages = with pkgs; [
-    tmux
-  ];
+  environment.systemPackages = with pkgs; [ tmux ];
 
   home-manager.users.${user}.programs.tmux = {
     plugins = with pkgs; [

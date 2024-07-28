@@ -15,7 +15,8 @@
           chmod ugo+rx $out/appimage
         '';
       };
-    in self.runCommand "uhk-agent" {} ''
+    in
+    self.runCommand "uhk-agent" { } ''
       mkdir -p $out/bin $out/etc/udev/rules.d
       echo "${self.appimage-run}/bin/appimage-run ${image}/appimage" > $out/bin/uhk-agent
       chmod +x $out/bin/uhk-agent

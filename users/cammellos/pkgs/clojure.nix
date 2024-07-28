@@ -1,7 +1,7 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   users.users.cammellos.packages = with pkgs; [
-      leiningen
-      clj-kondo
+    leiningen
+    clj-kondo
   ];
 }
