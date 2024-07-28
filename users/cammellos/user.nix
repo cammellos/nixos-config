@@ -24,7 +24,6 @@
       dropbox
       feh
       libnotify
-      rofi
     ];
   };
 }

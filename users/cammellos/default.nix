@@ -10,6 +10,7 @@
     ./pkgs/clojure.nix
     ./pkgs/media.nix
     ./pkgs/alacritty.nix
+    ./pkgs/rofi.nix
     ./pkgs/development.nix
     (import ../../pkgs/tmux {
       user = "cammellos";
