@@ -19,7 +19,6 @@
       arandr
       gnupg
       gcc
-      sakura
       keepassxc
       dropbox
       feh
