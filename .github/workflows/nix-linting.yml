@@ -12,13 +12,6 @@ jobs:
       - name: Set up Nix
         uses: cachix/install-nix-action@v17
 
-      - name: Install nix-linter and nixpkgs-fmt
+      - name: run statix
         run: |
-          nix-env -iA nixpkgs.nix-linter
-          nix-env -iA nixpkgs.nixpkgs-fmt
-
-      - name: Lint Nix files
-        run: nix-linter .
-
-      - name: Format Nix files
-        run: nixpkgs-fmt --check .
+          nix run --extra-experimental-features nix-command --extra-experimental-features flakes nixpkgs#statix -- check

@@ -10,8 +10,9 @@
     ./pkgs/clojure.nix
     ./pkgs/media.nix
     ./pkgs/alacritty.nix
-    (import ../../pkgs/tmux {user = "cammellos"; config = config; pkgs = pkgs;})
-    (import ../../pkgs/fish {user = "cammellos"; config = config; pkgs = pkgs;})
+    ./pkgs/development.nix
+    (import ../../pkgs/tmux {user = "cammellos"; inherit config; inherit pkgs;})
+    (import ../../pkgs/fish {user = "cammellos"; inherit config; inherit pkgs;})
     ./pkgs/golang.nix
   ];
 }

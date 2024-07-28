@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
-  home-manager.users.root = {
-    home.stateVersion = "24.05";
-    home.username = "root";
-    home.homeDirectory = "/root";
+  home-manager.users.root.home = {
+    stateVersion = "24.05";
+    username = "root";
+    homeDirectory = "/root";
   };
 }
