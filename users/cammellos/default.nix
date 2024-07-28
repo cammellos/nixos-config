@@ -9,7 +9,7 @@
     ./pkgs/gaming.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix
-    ./pkgs/sakura
+    ./pkgs/alacritty.nix
     (import ../../pkgs/tmux {user = "cammellos"; config = config; pkgs = pkgs;})
     (import ../../pkgs/fish {user = "cammellos"; config = config; pkgs = pkgs;})
     ./pkgs/golang.nix
