@@ -19,7 +19,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --exit-code || echo "Changes detected"
+          git diff --exit-code
 
       - name: Fail if files have changed
         if: steps.check_changes.outputs.changes == 'true'
