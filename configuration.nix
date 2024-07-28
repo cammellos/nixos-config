@@ -16,7 +16,8 @@
     ./pkgs/localization.nix
     ./pkgs/gnupg.nix
     ./users/root
-    ./users/cammellos];
+    ./users/cammellos
+  ];
 
   hardware.enableAllFirmware = true;
 
