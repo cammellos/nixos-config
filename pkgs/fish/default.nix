@@ -10,6 +10,7 @@
     enable = true;
     interactiveShellInit = "
     set fish_greeting
+    user_key_bindings
     ";
     shellAbbrs = {
       gst = "git status";
@@ -27,6 +28,7 @@
     };
   functions = {
     fish_prompt = builtins.readFile ./functions/fish_prompt.fish;
+    user_key_bindings = builtins.readFile ./functions/user_key_bindings.fish;
   };
   };
 
