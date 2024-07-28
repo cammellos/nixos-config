@@ -1,0 +1,24 @@
+name: Nix Lint and Format
+
+on: [push, pull_request]
+
+jobs:
+  lint-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Nix
+        uses: cachix/install-nix-action@v17
+
+      - name: Install nix-linter and nixpkgs-fmt
+        run: |
+          nix-env -iA nixpkgs.nix-linter
+          nix-env -iA nixpkgs.nixpkgs-fmt
+
+      - name: Lint Nix files
+        run: nix-linter .
+
+      - name: Format Nix files
+        run: nixpkgs-fmt --check .
