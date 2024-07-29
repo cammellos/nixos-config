@@ -8,7 +8,7 @@
     ./networking/host.nix
     ./pkgs/home-manager.nix
     ./pkgs/audio.nix
-    ./pkgs/x.nix
+    ./pkgs/sway.nix
     ./pkgs/printing.nix
     ./pkgs/console.nix
     ./pkgs/fonts.nix

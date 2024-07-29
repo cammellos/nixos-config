@@ -8,14 +8,14 @@ let
   };
 in
 {
-  users.users.cammellos.packages = with pkgs; [ rofi ];
+  users.users.cammellos.packages = with pkgs; [ rofi-wayland ];
 
   home-manager.users.cammellos = {
     home.file.".config/rofi/themes/nord.rasi".source = "${nordRasi}/nord.rasi";
 
     home.file.".config/rofi/config.rasi".text = ''
       configuration {
-      font: "Input Mono 12";
+      font: "Input Mono 13";
       line-margin: 10;
       }
 
@@ -28,7 +28,7 @@ in
       }
 
       window {
-        width: 60%;
+        width: 80%;
       }
     '';
   };
