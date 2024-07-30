@@ -9,7 +9,21 @@
       layer = "top";
       height = 30;
       modules-left = [ "sway/workspaces" ];
-      modules-right = [ "tray" ];
+      modules-right = [ "clock" "battery" "tray" ];
+      clock = {
+        format = "  {:%H:%M} ";
+      };
+      battery = {
+          bat = "BAT1";
+          interval = 60;
+          states = {
+              warning = 30;
+              critical = 15;
+          };
+          format = "{capacity}% {icon}";
+          format-icons = ["" "" "" "" ""];
+          max-length = 25;
+      };
     };
   };
   home-manager.users.cammellos.wayland.windowManager.sway = {
@@ -99,7 +113,7 @@
         { command = "${pkgs.dropbox}/bin/dropbox"; }
       ];
       fonts = {
-        names = [ "Input Mono" ];
+        names = [ "Inconsolata Nerd Font Mono" ];
         size = 10.0;
       };
     };

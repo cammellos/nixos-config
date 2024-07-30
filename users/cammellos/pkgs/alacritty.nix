@@ -6,8 +6,8 @@
     enable = true;
     settings = {
       import = [ "${pkgs.alacritty-theme}/nord.toml" ];
-      font.size = 9;
-      font.normal.family = "Input Mono";
+      font.size = 12;
+      font.normal.family = "Inconsolata Nerd Font Mono";
       selection.save_to_clipboard = true;
     };
   };

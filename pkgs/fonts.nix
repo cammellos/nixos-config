@@ -7,16 +7,12 @@
   };
 
   fonts.packages = with pkgs; [
-    fira-code
-    input-fonts
-    fira-code-symbols
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    source-code-pro
-    noto-fonts-emoji
-    ubuntu_font_family
-    dejavu_fonts
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "Inconsolata"
+      ];
+    })
   ];
 
   fonts.fontconfig = {
