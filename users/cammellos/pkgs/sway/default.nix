@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-let 
+let
   background-image = ./background/calvin-and-hobbes.png;
 in
 {

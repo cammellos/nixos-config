@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
+let 
+  mediaplayer = pkgs.callPackage ./scripts/mediaplayer.nix { };
+in
 {
+  home-manager.users.cammellos.home.packages = with pkgs; [
+    mediaplayer
+  ];
+
   home-manager.users.cammellos.home.file.".config/waybar/style.css".text = builtins.readFile ./style/style.css;
   home-manager.users.cammellos.programs.waybar = {
     enable = true;
@@ -11,6 +18,7 @@
       height = 30;
       modules-left = [ "sway/workspaces" ];
       modules-right = [
+        "custom/spotify"
         "temperature"
         "memory"
         "cpu"
@@ -49,6 +57,11 @@
         states = {
           warning = 85;
         };
+      };
+      "custom/spotify" = {
+        exec = "waybar-mediaplayer --player spotify 2> /dev/null";
+          format = "{}";
+          return-type = "json";
       };
       cpu = {
         interval = 1;
