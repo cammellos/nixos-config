@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
-let 
+let
   mediaplayer = pkgs.callPackage ./scripts/mediaplayer.nix { };
 in
 {
-  home-manager.users.cammellos.home.packages = with pkgs; [
-    mediaplayer
-  ];
+  home-manager.users.cammellos.home.packages = with pkgs; [ mediaplayer ];
 
   home-manager.users.cammellos.home.file.".config/waybar/style.css".text = builtins.readFile ./style/style.css;
   home-manager.users.cammellos.programs.waybar = {
@@ -60,8 +58,8 @@ in
       };
       "custom/spotify" = {
         exec = "waybar-mediaplayer --player spotify 2> /dev/null";
-          format = "{}";
-          return-type = "json";
+        format = "{}";
+        return-type = "json";
       };
       cpu = {
         interval = 1;

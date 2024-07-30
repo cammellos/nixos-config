@@ -1,11 +1,12 @@
-{ lib
-, stdenvNoCC
-, glib
-, gobject-introspection
-, playerctl
-, python3
-, waybar
-, wrapGAppsHook
+{
+  lib,
+  stdenvNoCC,
+  glib,
+  gobject-introspection,
+  playerctl,
+  python3,
+  waybar,
+  wrapGAppsHook,
 }:
 
 stdenvNoCC.mkDerivation rec {
@@ -18,7 +19,10 @@ stdenvNoCC.mkDerivation rec {
   dontConfigure = true;
 
   strictDeps = true;
-  nativeBuildInputs = [ gobject-introspection wrapGAppsHook ];
+  nativeBuildInputs = [
+    gobject-introspection
+    wrapGAppsHook
+  ];
 
   propagatedBuildInputs = [
     glib

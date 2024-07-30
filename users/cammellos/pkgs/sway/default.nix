@@ -4,9 +4,7 @@ let
 in
 {
 
-  home-manager.users.cammellos.home.packages = with pkgs; [
-    swaybg
-  ];
+  home-manager.users.cammellos.home.packages = with pkgs; [ swaybg ];
   home-manager.users.cammellos.wayland.windowManager.sway = {
     enable = true;
 
