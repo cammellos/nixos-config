@@ -14,6 +14,7 @@
     ];
     packages = with pkgs; [
       networkmanagerapplet
+      wl-clipboard
       openvpn
       dunst
       xclip # for nvim copy to clipboard

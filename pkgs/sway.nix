@@ -1,5 +1,17 @@
 { config, pkgs, ... }:
 {
+  home-manager.users.cammellos.programs.waybar = {
+    enable = true;
+    settings.mainBar = {
+      id = "bar-0";
+      ipc = true;
+      position = "top";
+      layer = "top";
+      height = 30;
+      modules-left = [ "sway/workspaces" ];
+      modules-right = [ "tray" ];
+    };
+  };
   home-manager.users.cammellos.wayland.windowManager.sway = {
     enable = true;
 
@@ -7,13 +19,22 @@
       modifier = "Mod4";
       menu = "${pkgs.rofi-wayland}/bin/rofi -combi-modi window,drun -show combi";
 
-      window.border = 0;
+      window = {
+        border = 0;
+        titlebar = false;
+      };
+      floating.titlebar = false;
 
       terminal = "${pkgs.alacritty}/bin/alacritty";
       bars = [
         {
+          command = "${pkgs.waybar}/bin/waybar";
           position = "top";
+          hiddenState = "hide";
           mode = "hide";
+          extraConfig = ''
+            modifier ${modifier}
+          '';
         }
       ];
 

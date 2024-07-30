@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   console = {
-    useXkbConfig = true;
+    keyMap = ./keymaps/workman-p.kmap;
     font = "ter-i32b";
     packages = with pkgs; [ terminus_font ];
     earlySetup = true;

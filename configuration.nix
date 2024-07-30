@@ -8,9 +8,10 @@
     ./networking/host.nix
     ./pkgs/home-manager.nix
     ./pkgs/audio.nix
+    ./pkgs/greetd.nix
     ./pkgs/sway.nix
     ./pkgs/printing.nix
-    ./pkgs/console.nix
+    ./pkgs/console
     ./pkgs/fonts.nix
     ./pkgs/docker.nix
     ./pkgs/localization.nix
@@ -36,6 +37,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  hardware.opengl.enable = true;
 
   environment.systemPackages = with pkgs; [ uhk-agent ];
   system.stateVersion = "23.11";
