@@ -11,7 +11,7 @@
     ./pkgs/media.nix
     ./pkgs/alacritty.nix
     ./pkgs/rofi.nix
-    ./pkgs/sway.nix
+    ./pkgs/sway
     ./pkgs/waybar
     ./pkgs/development.nix
     (import ../../pkgs/tmux {

@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
+let 
+  background-image = ./background/calvin-and-hobbes.png;
+in
 {
 
+  home-manager.users.cammellos.home.packages = with pkgs; [
+    swaybg
+  ];
   home-manager.users.cammellos.wayland.windowManager.sway = {
     enable = true;
 
@@ -91,6 +97,7 @@
         names = [ "Inconsolata Nerd Font Mono" ];
         size = 10.0;
       };
+      output."*".bg = "${background-image} fill";
     };
   };
 }

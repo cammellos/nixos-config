@@ -71,6 +71,7 @@
     font-family: "Cantarell", "Font Awesome 5 Pro";
     font-size: 12px;
     font-weight: bold;
+    opacity: 0.95;
 }
 
 /* Each module */
@@ -154,10 +155,9 @@
 
 #workspaces button {
     font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
-    padding: 0;
-    /*color: #999;*/
-    opacity: 0.3;
-    background: none;
+    padding: 0 0.4em;
+    color: #D8DEE9;
+    opacity: 1;
     font-size: 1em;
 }
 
@@ -179,44 +179,12 @@
     margin-left: 40px;
     font-weight: normal;
 }
-#bluetooth {
-    background: @nord_bg_blue;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#custom-gpu {
-    background: @nord_bg;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#custom-weather {
-    background: @mode;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#custom-pacman {
-    background: @nord_light;
-    color: @nord_dark_font;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#custom-scratchpad-indicator {
-    background: @nord_light;
-    color: @nord_dark_font;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
 #idle_inhibitor {
     background: @mode;
     /*font-size: 1.6em;*/
     font-weight: bold;
     padding: 0 0.6em;
 }
-#custom-alsa {
-    background: @sound;
-}
-
 #network {
     background: @nord_bg_blue;
 }
