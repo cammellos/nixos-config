@@ -3,9 +3,11 @@ let
   mediaplayer = pkgs.callPackage ./scripts/mediaplayer.nix { };
 in
 {
-  home-manager.users.cammellos.home.packages = with pkgs; [ mediaplayer ];
+  home-manager.users.cammelloshome = {
+    packages = with pkgs; [ mediaplayer ];
+    file.".config/waybar/style.css".text = builtins.readFile ./style/style.css;
+  };
 
-  home-manager.users.cammellos.home.file.".config/waybar/style.css".text = builtins.readFile ./style/style.css;
   home-manager.users.cammellos.programs.waybar = {
     enable = true;
     settings.mainBar = {
