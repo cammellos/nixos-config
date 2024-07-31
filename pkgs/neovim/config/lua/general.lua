@@ -1,6 +1,8 @@
 vim.o.showcmd = true
 vim.o.autoindent = true
 
+vim.o.colorcolumn = '80'
+
 -- Set shift width
 vim.opt.shiftwidth = 2
 
@@ -47,10 +49,10 @@ vim.opt.laststatus = 2
 vim.opt.statusline = '%F%m%r%h%w (%{&ff}){%Y} [%l,%v][%p%%]'
 
 -- Set backup directory
-vim.opt.backupdir = vim.fn.expand('~/.vim/backups')
+vim.opt.backupdir = vim.fn.stdpath('config') .. '/backups'
 
 -- Set swap file directory
-vim.opt.directory = vim.fn.expand('~/.vim/backups')
+vim.opt.directory = vim.fn.stdpath('config') .. '/backups'
 
 -- Use system clipboard
 vim.opt.clipboard:append('unnamedplus')
