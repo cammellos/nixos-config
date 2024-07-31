@@ -57,7 +57,8 @@ in
         };
       };
       "custom/spotify" = {
-        exec = "waybar-mediaplayer --player spotify 2> /dev/null";
+        id = "mediaplayer";
+        exec = ''waybar-mediaplayer --player spotify'';
         format = "{}";
         return-type = "json";
       };
