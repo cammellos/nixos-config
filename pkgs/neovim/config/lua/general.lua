@@ -47,10 +47,10 @@ vim.opt.laststatus = 2
 vim.opt.statusline = '%F%m%r%h%w (%{&ff}){%Y} [%l,%v][%p%%]'
 
 -- Set backup directory
-vim.opt.backupdir = '~/.vim/backups'
+vim.opt.backupdir = vim.fn.expand('~/.vim/backups')
 
 -- Set swap file directory
-vim.opt.directory = '~/.vim/backups'
+vim.opt.directory = vim.fn.expand('~/.vim/backups')
 
 -- Use system clipboard
 vim.opt.clipboard:append('unnamedplus')
