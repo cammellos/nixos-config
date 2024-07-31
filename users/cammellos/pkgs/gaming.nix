@@ -2,6 +2,7 @@
 {
   users.users.cammellos.packages = with pkgs; [
     lutris
-    wine64
+    wineWowPackages.stable
+    wineWowPackages.waylandFull
   ];
 }
