@@ -19,6 +19,11 @@
       inherit config;
       inherit pkgs;
     })
+    (import ../../pkgs/neovim {
+      user = "cammellos";
+      inherit config;
+      inherit pkgs;
+    })
     (import ../../pkgs/fish {
       user = "cammellos";
       inherit config;

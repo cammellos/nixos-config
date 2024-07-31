@@ -19,11 +19,9 @@
       dunst
       xclip # for nvim copy to clipboard
       todoist
-      arandr
       gnupg
       keepassxc
       dropbox
-      feh
       libnotify
     ];
   };

@@ -9,7 +9,6 @@
     ./pkgs/home-manager.nix
     ./pkgs/audio.nix
     ./pkgs/greetd.nix
-    ./pkgs/neovim
     ./pkgs/printing.nix
     ./pkgs/console
     ./pkgs/fonts.nix
