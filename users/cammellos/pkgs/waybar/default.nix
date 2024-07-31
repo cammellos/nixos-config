@@ -3,7 +3,7 @@ let
   mediaplayer = pkgs.callPackage ./scripts/mediaplayer.nix { };
 in
 {
-  home-manager.users.cammelloshome = {
+  home-manager.users.cammellos.home = {
     packages = with pkgs; [ mediaplayer ];
     file.".config/waybar/style.css".text = builtins.readFile ./style/style.css;
   };

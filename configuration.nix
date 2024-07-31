@@ -9,6 +9,7 @@
     ./pkgs/home-manager.nix
     ./pkgs/audio.nix
     ./pkgs/greetd.nix
+    ./pkgs/neovim
     ./pkgs/printing.nix
     ./pkgs/console
     ./pkgs/fonts.nix
@@ -25,14 +26,6 @@
     pkgs.yubikey-personalization
     uhk-agent
   ];
-
-  # programs
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
