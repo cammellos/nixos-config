@@ -12,17 +12,6 @@
       "docker"
       "plugdev"
     ];
-    packages = with pkgs; [
-      networkmanagerapplet
-      wl-clipboard
-      openvpn
-      dunst
-      xclip # for nvim copy to clipboard
-      todoist
-      gnupg
-      keepassxc
-      dropbox
-      libnotify
-    ];
+    packages = with pkgs; [ gnupg ];
   };
 }

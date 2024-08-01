@@ -4,6 +4,8 @@
     ./user.nix
     ./home.nix
     ./pkgs/ledger.nix
+    ./pkgs/network.nix
+    ./pkgs/keepassxc.nix
     ./pkgs/git.nix
     ./pkgs/status
     ./pkgs/gaming.nix
@@ -12,7 +14,10 @@
     ./pkgs/alacritty.nix
     ./pkgs/rofi.nix
     ./pkgs/sway
+    ./pkgs/dunst
     ./pkgs/waybar
+    ./pkgs/conky
+    ./pkgs/taskwarrior
     ./pkgs/development.nix
     (import ../../pkgs/tmux {
       user = "cammellos";

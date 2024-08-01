@@ -4,7 +4,10 @@ let
 in
 {
 
-  home-manager.users.cammellos.home.packages = with pkgs; [ swaybg ];
+  home-manager.users.cammellos.home.packages = with pkgs; [
+    swaybg
+    wl-clipboard
+  ];
   home-manager.users.cammellos.wayland.windowManager.sway = {
     enable = true;
 
@@ -90,6 +93,7 @@ in
       startup = [
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
         { command = "${pkgs.dropbox}/bin/dropbox"; }
+        { command = "${pkgs.conky}/bin/conky"; }
       ];
       fonts = {
         names = [ "Inconsolata Nerd Font Mono" ];
