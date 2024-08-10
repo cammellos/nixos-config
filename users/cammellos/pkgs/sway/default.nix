@@ -15,6 +15,8 @@ in
       modifier = "Mod4";
       menu = "${pkgs.rofi-wayland}/bin/rofi -combi-modi window,drun -show combi";
 
+      workspaceAutoBackAndForth = true;
+
       window = {
         border = 0;
         titlebar = false;
@@ -34,6 +36,11 @@ in
         }
       ];
 
+      output = {
+        "DP-4" = {
+          scale = "1.5";
+        };
+      };
       input = {
         "type:keyboard" = {
           xkb_layout = "us";
