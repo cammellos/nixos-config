@@ -28,4 +28,4 @@ go_test_command+=" -v -timeout=0 -failfast -count=${count:-1} | tee /tmp/output.
 cd /home/cammellos/documents/programming/status/status-go/$directory || exit
 
 # Create a watchman trigger
-nix-shell ~/.config/nix-shells/watch-status-go-test.nix --command "find . -name '*.go' -not -path './vendor/*' | entr -r $go_test_command"
+nix-shell ~/.config/nix-shells/watch-status-go-test.nix --command "find /home/cammellos/documents/programming/status/status-go -name '*.go' -not -path './vendor/*' | entr -r $go_test_command"
