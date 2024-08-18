@@ -85,6 +85,12 @@ if not test $last_status -eq 0
   set_color $fish_color_error
 end
 
-echo -n "$suffix "
+set -l nix_shell_info (
+  if test -n "$IN_NIX_SHELL"
+    echo -n "<nix-shell>"
+  end
+)
+
+echo -n "$nix_shell_info $suffix "
 
 set_color normal

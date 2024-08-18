@@ -21,6 +21,11 @@
 
   hardware.enableAllFirmware = true;
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   services.udev.packages = with pkgs; [
     pkgs.yubikey-personalization
     uhk-agent

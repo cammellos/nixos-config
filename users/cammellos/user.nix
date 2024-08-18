@@ -2,7 +2,6 @@
 {
   users.users.cammellos = {
     isNormalUser = true;
-    shell = pkgs.fish;
     description = "cammellos";
     extraGroups = [
       "networkmanager"
