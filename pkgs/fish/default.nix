@@ -7,15 +7,17 @@
 {
   programs.fish.enable = true;
   environment.systemPackages = with pkgs; [ fish ];
-  programs.bash = {
-    interactiveShellInit = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
-    '';
-  };
+#  programs.bash = {
+#    interactiveShellInit = ''
+#      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+#      then
+#      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+#      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+#      fi
+#    '';
+#  };
+
+  users.users.${user}.shell = pkgs.fish;
 
   home-manager.users.${user} = {
     programs.fish = {
@@ -39,7 +41,7 @@
       functions = {
         fish_prompt = builtins.readFile ./functions/fish_prompt.fish;
         user_key_bindings = builtins.readFile ./functions/user_key_bindings.fish;
-        fnix-shell = builtins.readFile ./functions/fnix-shell.fish;
+        nix-shell = builtins.readFile ./functions/nix-shell.fish;
       };
     };
 

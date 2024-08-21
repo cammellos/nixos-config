@@ -21,6 +21,20 @@
       enable = true;
       plugins = with pkgs.vimPlugins; [
         {
+          plugin = conform-nvim;
+          config = ''
+            require("conform").setup({
+            formatters_by_ft = {
+            rust = { "rustfmt"},
+            },
+            format_on_save = {
+            timeout_ms = 500,
+            },
+            });
+          '';
+          type = "lua";
+          }
+        {
           plugin = vim-better-whitespace;
           config = ''
             vim.g.better_whitespace_enabled = 1

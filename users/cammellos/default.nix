@@ -19,6 +19,7 @@
     ./pkgs/conky
     ./pkgs/taskwarrior
     ./pkgs/development.nix
+    ./pkgs/direnv.nix
     (import ../../pkgs/tmux {
       user = "cammellos";
       inherit config;
