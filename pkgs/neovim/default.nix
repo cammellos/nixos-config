@@ -17,9 +17,20 @@
       recursive = true;
     };
 
+    programs.ripgrep = { enable = true; };
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
+        {
+          plugin = telescope-nvim;
+          config = ''
+
+            local telescope_builtin = require('telescope.builtin')
+            vim.keymap.set('n', ',h', telescope_builtin.find_files, {})
+
+            '';
+          type = "lua";
+        }
         nvim-treesitter.withAllGrammars
         {
           plugin = nvim-treesitter;
