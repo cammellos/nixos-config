@@ -65,6 +65,10 @@ local function WorkmanKeyboard()
   vim.api.nvim_set_keymap('n', ',g', ':tabnext<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', ',t', ':tabprevious<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', ',1', ':Neomake<CR>', { noremap = true, silent = true })
+
+  -- terminal
+  vim.api.nvim_set_keymap('n', ',s', ':term<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('t', 'uu', [[<C-\><C-n>]], { noremap = true, silent = true })
 end
 
 WorkmanKeyboard()

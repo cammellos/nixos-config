@@ -20,6 +20,47 @@
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
+        nvim-treesitter.withAllGrammars
+        {
+          plugin = nvim-treesitter;
+          config = ''
+            require'nvim-treesitter.configs'.setup {
+              highlight = {
+                enable = true
+                },
+              indent = {
+                enable = true
+              },
+              additional_vim_regex_highlighting = false,
+            }
+            '';
+            type = "lua";
+          }
+        {
+          plugin = nvim-lspconfig;
+          config = ''
+            require'lspconfig'.rust_analyzer.setup{}
+          '';
+          type = "lua";
+        }
+        {
+          plugin = rust-tools-nvim;
+          config = ''
+            local rt = require("rust-tools")
+
+            rt.setup({
+              server = {
+                on_attach = function(_, bufnr)
+                  -- Hover actions
+                  vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+                  -- Code action groups
+                  vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+                end,
+              },
+            })
+            '';
+            type = "lua";
+          }
         nui-nvim
         {
           plugin = noice-nvim;
@@ -58,7 +99,7 @@
             });
           '';
           type = "lua";
-          }
+        }
         {
           plugin = vim-better-whitespace;
           config = ''
@@ -66,13 +107,6 @@
             vim.g.strip_whitespace_on_save = 1
             vim.g.strip_whitespace_confirm = 0
             vim.cmd "let g:better_whitespace_filetypes_blacklist = ['gitsendemail', 'diff', 'gitcommit', 'unite', 'qf', 'help', 'mail']"
-          '';
-          type = "lua";
-        }
-        {
-          plugin = rainbow;
-          config = ''
-            vim.g.rainbow_active = 1
           '';
           type = "lua";
         }
