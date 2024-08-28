@@ -52,7 +52,9 @@
         {
           plugin = nvim-lspconfig;
           config = ''
-             require'lspconfig'.rust_analyzer.setup{}
+             local lspconfig = require("lspconfig")
+             lspconfig.rust_analyzer.setup{}
+             lspconfig.gopls.setup({})
 
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
