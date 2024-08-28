@@ -52,12 +52,12 @@
         {
           plugin = nvim-lspconfig;
           config = ''
-            require'lspconfig'.rust_analyzer.setup{}
+             require'lspconfig'.rust_analyzer.setup{}
 
-           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-           vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+            vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
-           vim.api.nvim_set_keymap('n', 'gb', ':pop<CR>', { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', 'gb', ':pop<CR>', { noremap = true, silent = true })
           '';
           type = "lua";
         }
