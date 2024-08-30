@@ -7,7 +7,6 @@
     ./pkgs/network.nix
     ./pkgs/keepassxc.nix
     ./pkgs/git.nix
-    ./pkgs/status
     ./pkgs/gaming.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix

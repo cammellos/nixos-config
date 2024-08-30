@@ -2,11 +2,7 @@
 {
   networking = {
     networkmanager.enable = true;
-    useDHCP = true;
+    useDHCP = false;
     enableIPv6 = false;
-
-    wireless = {
-      enable = true;
-    };
   };
 }
