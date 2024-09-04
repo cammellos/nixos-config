@@ -9,7 +9,7 @@
 
     printing = {
       enable = true;
-      drivers = with pkgs; [ cups-brother-hl1210w ];
+      drivers = with pkgs; [ cups-brother-hl1210w pkgs.brlaser];
     };
   };
 }
