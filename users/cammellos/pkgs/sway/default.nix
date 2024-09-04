@@ -108,5 +108,12 @@ in
       };
       output."*".bg = "${background-image} fill";
     };
+    extraConfig = ''
+        # Watch closed laptop lid
+        set $laptop eDP-1
+        bindswitch --reload --locked lid:on output $laptop disable
+        bindswitch --reload --locked lid:off output $laptop enable
+          '';
+
   };
 }
