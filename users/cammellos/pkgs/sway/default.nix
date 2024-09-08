@@ -1,13 +1,43 @@
 { config, pkgs, ... }:
 let
   background-image = ./background/calvin-and-hobbes.png;
+  lock-image = ./background/trout.jpeg;
 in
 {
 
+ home-manager.users.cammellos.services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 600;
+        command = "${pkgs.libnotify}/bin/notify-send 'Locking in 5 seconds' -t 5000";
+      }
+      {
+        timeout = 605;
+        command = "${pkgs.swaylock}/bin/swaylock -f -i ${lock-image}";
+      }
+      {
+        timeout = 660;
+        command = "${pkgs.sway}/bin/swaymsg 'output * dpms off'";
+        resumeCommand = "${pkgs.sway}/bin/swaymsg 'output * dpms on'";
+      }
+    ];
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock";
+      }
+    ];
+  };
+
   home-manager.users.cammellos.home.packages = with pkgs; [
     swaybg
+    swaylock
+    swayidle
     wl-clipboard
   ];
+  security.pam.services.swaylock = {};
+
   home-manager.users.cammellos.wayland.windowManager.sway = {
     enable = true;
 

@@ -6,6 +6,7 @@
     ./boot.nix
     ./networking/shared.nix
     ./networking/host.nix
+    ./pkgs/bluetooth.nix
     ./pkgs/home-manager.nix
     ./pkgs/audio.nix
     ./pkgs/greetd.nix
