@@ -24,6 +24,13 @@
       enable = true;
       plugins = with pkgs.vimPlugins; [
         {
+          plugin = oil-nvim;
+          config = ''
+            require("oil").setup()
+          '';
+          type = "lua";
+        }
+        {
           plugin = telescope-nvim;
           config = ''
 
