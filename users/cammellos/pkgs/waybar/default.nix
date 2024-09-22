@@ -27,7 +27,7 @@ in
         "tray"
       ];
       clock = {
-        format = "  {:%H:%M} ";
+        format = "   {:%a, %b %d | %H:%M}";
       };
       temperature = {
         critical-threshold = 80;

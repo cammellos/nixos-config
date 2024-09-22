@@ -129,6 +129,7 @@ in
 
       startup = [
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
+        { command = "${pkgs.pasystray}/bin/pasystray";}
         { command = "${pkgs.dropbox}/bin/dropbox"; }
         { command = "${pkgs.conky}/bin/conky"; }
       ];
