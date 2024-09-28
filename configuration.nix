@@ -30,6 +30,7 @@
   services.udev.packages = with pkgs; [
     pkgs.yubikey-personalization
     uhk-agent
+    uhk-udev-rules
   ];
 
   # Allow unfree packages
