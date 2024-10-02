@@ -5,7 +5,7 @@ let
 in
 {
 
- home-manager.users.cammellos.services.swayidle = {
+  home-manager.users.cammellos.services.swayidle = {
     enable = true;
     timeouts = [
       {
@@ -36,7 +36,7 @@ in
     swayidle
     wl-clipboard
   ];
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   home-manager.users.cammellos.wayland.windowManager.sway = {
     enable = true;
@@ -129,7 +129,7 @@ in
 
       startup = [
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
-        { command = "${pkgs.pasystray}/bin/pasystray";}
+        { command = "${pkgs.pasystray}/bin/pasystray"; }
         { command = "${pkgs.dropbox}/bin/dropbox"; }
         { command = "${pkgs.conky}/bin/conky"; }
       ];

@@ -1,5 +1,5 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   programs.adb.enable = true;
-  users.users.cammellos.extraGroups = ["adbusers"];
+  users.users.cammellos.extraGroups = [ "adbusers" ];
 }
