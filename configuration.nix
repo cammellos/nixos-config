@@ -22,15 +22,19 @@
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
-  hardware.opengl.driSupport32Bit = true; # For 32 bit applications
-  hardware.opengl.extraPackages = with pkgs; [
-    amdvlk
-  ];
-  # For 32 bit applications
-  hardware.opengl.extraPackages32 = with pkgs; [
-    driversi686Linux.amdvlk
-  ];
-  hardware.enableAllFirmware = true;
+  hardware = {
+    graphics = {
+      enable32Bit = true; # For 32 bit applications
+      extraPackages = with pkgs; [
+        amdvlk
+      ];
+      # For 32 bit applications
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
+    };
+    enableAllFirmware = true;
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
