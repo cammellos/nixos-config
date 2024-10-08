@@ -48,20 +48,38 @@
               highlight = {
                 enable = true
                 },
-              indent = {
-                enable = true
-              },
               additional_vim_regex_highlighting = false,
             }
           '';
           type = "lua";
         }
+        plenary-nvim
+        {
+          plugin = flutter-tools-nvim;
+          config = ''
+            require("flutter-tools").setup {}
+          '';
+          type = "lua";
+        }
+        {
+          plugin = lsp-format-nvim;
+          config = ''
+            require("lsp-format").setup {}
+
+            require("lspconfig").rust_analyzed.setup { on_attach = require("lsp-format").on_attach }
+            require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
+            require("lspconfig").dartls.setup { on_attach = require("lsp-format").on_attach }
+          '';
+          type = "lua";
+
+        }
         {
           plugin = nvim-lspconfig;
           config = ''
              local lspconfig = require("lspconfig")
-             lspconfig.rust_analyzer.setup{}
+             lspconfig.rust_analyzer.setup({})
              lspconfig.gopls.setup({})
+             lspconfig.dartls.setup({})
 
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
