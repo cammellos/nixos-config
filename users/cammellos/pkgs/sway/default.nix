@@ -65,6 +65,9 @@ in
         ];
 
         output = {
+          "eDP-1" = {
+            scale = "1.3";
+          };
           "DP-4" = {
             scale = "1.5";
           };
