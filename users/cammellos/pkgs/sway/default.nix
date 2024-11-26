@@ -85,47 +85,39 @@ in
 
           "${modifier}+Shift+q" = "kill";
 
-          #          "${modifier}+o" = "focus right";
-          #          "${modifier}+y" = "focus left";
-          #          "${modifier}+e" = "focus up";
-          #          "${modifier}+n" = "focus down";
-
           "${modifier}+Shift+o" = "move right";
           "${modifier}+Shift+y" = "move left";
           "${modifier}+Shift+e" = "move up";
           "${modifier}+Shift+n" = "move down";
 
-          "${modifier}+h" = "split h";
-          "${modifier}+v" = "split v";
-
           "${modifier}+f" = "fullscreen toggle";
           "${modifier}+Shift+space" = "floating toggle";
           "${modifier}+space" = "focus mode_toggle";
 
-          "${modifier}+0" = "workspace 0";
-          "${modifier}+1" = "workspace 1";
-          "${modifier}+2" = "workspace 2";
-          "${modifier}+3" = "workspace 3";
-          "${modifier}+4" = "workspace 4";
-          "${modifier}+5" = "workspace 5";
-          "${modifier}+6" = "workspace 6";
-          "${modifier}+7" = "workspace 7";
-          "${modifier}+8" = "workspace 8";
-          "${modifier}+9" = "workspace 9";
+          "${modifier}+a" = "workspace a";
+          "${modifier}+s" = "workspace s";
+          "${modifier}+h" = "workspace h";
+          "${modifier}+t" = "workspace t";
+          "${modifier}+g" = "workspace g";
+          "${modifier}+y" = "workspace y";
+          "${modifier}+n" = "workspace n";
+          "${modifier}+e" = "workspace e";
+          "${modifier}+o" = "workspace o";
+          "${modifier}+i" = "workspace i";
 
-          "${modifier}+Shift+0" = "move container to workspace 0";
-          "${modifier}+Shift+1" = "move container to workspace 1";
-          "${modifier}+Shift+2" = "move container to workspace 2";
-          "${modifier}+Shift+3" = "move container to workspace 3";
-          "${modifier}+Shift+4" = "move container to workspace 4";
-          "${modifier}+Shift+5" = "move container to workspace 5";
-          "${modifier}+Shift+6" = "move container to workspace 6";
-          "${modifier}+Shift+7" = "move container to workspace 7";
-          "${modifier}+Shift+8" = "move container to workspace 8";
-          "${modifier}+Shift+9" = "move container to workspace 9";
+          "${modifier}+Super_R+a" = "move container to workspace a";
+          "${modifier}+Super_R+s" = "move container to workspace s";
+          "${modifier}+Super_R+h" = "move container to workspace h";
+          "${modifier}+Super_R+t" = "move container to workspace t";
+          "${modifier}+Super_R+g" = "move container to workspace g";
+          "${modifier}+Super_L+y" = "move container to workspace y";
+          "${modifier}+Super_L+n" = "move container to workspace n";
+          "${modifier}+Super_L+e" = "move container to workspace e";
+          "${modifier}+Super_L+o" = "move container to workspace o";
+          "${modifier}+Super_L+i" = "move container to workspace i";
 
-          "${modifier}+o" = "workspace next";
-          "${modifier}+y" = "workspace prev";
+          "${modifier}+u" = "workspace next";
+          "${modifier}+p" = "workspace prev";
         };
 
         startup = [
