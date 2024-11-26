@@ -94,27 +94,27 @@ in
           "${modifier}+Shift+space" = "floating toggle";
           "${modifier}+space" = "focus mode_toggle";
 
-          "${modifier}+a" = "workspace a";
-          "${modifier}+s" = "workspace s";
-          "${modifier}+h" = "workspace h";
-          "${modifier}+t" = "workspace t";
-          "${modifier}+g" = "workspace g";
-          "${modifier}+y" = "workspace y";
-          "${modifier}+n" = "workspace n";
-          "${modifier}+e" = "workspace e";
-          "${modifier}+o" = "workspace o";
-          "${modifier}+i" = "workspace i";
+          "${modifier}+a" = "workspace 0:a";
+          "${modifier}+s" = "workspace 1:s";
+          "${modifier}+h" = "workspace 2:h";
+          "${modifier}+t" = "workspace 3:t";
+          "${modifier}+g" = "workspace 4:g";
+          "${modifier}+y" = "workspace 5:y";
+          "${modifier}+n" = "workspace 6:n";
+          "${modifier}+e" = "workspace 7:e";
+          "${modifier}+o" = "workspace 8:o";
+          "${modifier}+i" = "workspace 9:i";
 
-          "${modifier}+Super_R+a" = "move container to workspace a";
-          "${modifier}+Super_R+s" = "move container to workspace s";
-          "${modifier}+Super_R+h" = "move container to workspace h";
-          "${modifier}+Super_R+t" = "move container to workspace t";
-          "${modifier}+Super_R+g" = "move container to workspace g";
-          "${modifier}+Super_L+y" = "move container to workspace y";
-          "${modifier}+Super_L+n" = "move container to workspace n";
-          "${modifier}+Super_L+e" = "move container to workspace e";
-          "${modifier}+Super_L+o" = "move container to workspace o";
-          "${modifier}+Super_L+i" = "move container to workspace i";
+          "${modifier}+Super_R+a" = "move container to workspace 0:a";
+          "${modifier}+Super_R+s" = "move container to workspace 1:s";
+          "${modifier}+Super_R+h" = "move container to workspace 2:h";
+          "${modifier}+Super_R+t" = "move container to workspace 3:t";
+          "${modifier}+Super_R+g" = "move container to workspace 4:g";
+          "${modifier}+Super_L+y" = "move container to workspace 5:y";
+          "${modifier}+Super_L+n" = "move container to workspace 6:n";
+          "${modifier}+Super_L+e" = "move container to workspace 7:e";
+          "${modifier}+Super_L+o" = "move container to workspace 8:o";
+          "${modifier}+Super_L+i" = "move container to workspace 9:i";
 
           "${modifier}+u" = "workspace next";
           "${modifier}+p" = "workspace prev";
