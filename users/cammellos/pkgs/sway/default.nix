@@ -116,8 +116,9 @@ in
           "${modifier}+Super_L+o" = "move container to workspace 8:o";
           "${modifier}+Super_L+i" = "move container to workspace 9:i";
 
-          "${modifier}+u" = "workspace next";
-          "${modifier}+p" = "workspace prev";
+          "${modifier}+u" = "workspace prev";
+          "${modifier}+p" = "workspace next";
+          "${modifier}+k" = "workspace back_and_forth";
         };
 
         startup = [
