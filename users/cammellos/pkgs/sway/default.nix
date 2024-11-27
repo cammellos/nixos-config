@@ -84,7 +84,6 @@ in
           "${modifier}+Return" = "exec ${terminal}";
           "${modifier}+c" = "exec '${menu}'";
 
-          "${modifier}+Shift+q" = "kill";
 
           "${modifier}+Shift+o" = "move right";
           "${modifier}+Shift+y" = "move left";
@@ -128,6 +127,9 @@ in
           "${modifier}+Super_L+e" = "move container to workspace 7:e";
           "${modifier}+Super_L+o" = "move container to workspace 8:o";
           "${modifier}+Super_L+i" = "move container to workspace 9:i";
+
+          "${modifier}+Super_R+q" = "kill";
+          "${modifier}+Super_L+q" = "kill";
 
           "${modifier}+u" = "workspace prev";
           "${modifier}+p" = "workspace next";

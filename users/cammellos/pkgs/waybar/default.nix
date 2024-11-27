@@ -58,6 +58,12 @@ in
           warning = 85;
         };
       };
+      "sway/workspaces" = {
+        format = "<span size='larger'>|{name}:</span> {windows}";
+        format-window-separator = " | ";
+        window-rewrite-default =  "{name}";
+        window-format = "<span color='#e0e0e0'>{name}</span>";
+      };
       "custom/spotify" = {
         id = "mediaplayer";
         exec = ''waybar-mediaplayer --player spotify'';
