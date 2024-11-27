@@ -41,6 +41,7 @@ in
 
       config = rec {
         modifier = "Mod4";
+
         menu = "${pkgs.rofi-wayland}/bin/rofi -combi-modi window,drun -show combi";
 
         workspaceAutoBackAndForth = true;
@@ -110,6 +111,18 @@ in
           "${modifier}+Super_R+h" = "move container to workspace 2:h";
           "${modifier}+Super_R+t" = "move container to workspace 3:t";
           "${modifier}+Super_R+g" = "move container to workspace 4:g";
+          "${modifier}+Super_R+y" = "move container to workspace 5:y";
+          "${modifier}+Super_R+n" = "move container to workspace 6:n";
+          "${modifier}+Super_R+e" = "move container to workspace 7:e";
+          "${modifier}+Super_R+o" = "move container to workspace 8:o";
+          "${modifier}+Super_R+i" = "move container to workspace 9:i";
+
+          # needs to be added on inverse order otherwise is order-dependent
+          "${modifier}+Super_L+a" = "move container to workspace 0:a";
+          "${modifier}+Super_L+s" = "move container to workspace 1:s";
+          "${modifier}+Super_L+h" = "move container to workspace 2:h";
+          "${modifier}+Super_L+t" = "move container to workspace 3:t";
+          "${modifier}+Super_L+g" = "move container to workspace 4:g";
           "${modifier}+Super_L+y" = "move container to workspace 5:y";
           "${modifier}+Super_L+n" = "move container to workspace 6:n";
           "${modifier}+Super_L+e" = "move container to workspace 7:e";
