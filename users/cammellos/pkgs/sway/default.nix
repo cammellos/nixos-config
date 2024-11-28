@@ -3,6 +3,7 @@ let
   background-image = ./background/calvin-and-hobbes.png;
   lock-image = ./background/trout.jpeg;
   browser = "librewolf";
+  media_player = "tidal-hifi";
   workspace_0 = "0:a";
   workspace_1 = "1:s";
   workspace_2 = "2:h";
@@ -58,6 +59,10 @@ in
 
         workspaceAutoBackAndForth = true;
 
+        focus = {
+          followMouse = "yes";
+        };
+
         window = {
           border = 0;
           titlebar = false;
@@ -96,7 +101,6 @@ in
           "${modifier}+Return" = "exec ${terminal}";
           "${modifier}+c" = "exec '${menu}'";
 
-
           "${modifier}+Shift+o" = "move right";
           "${modifier}+Shift+y" = "move left";
           "${modifier}+Shift+e" = "move up";
@@ -114,8 +118,8 @@ in
           "${modifier}+y" = "workspace ${workspace_5}";
           "${modifier}+n" = "workspace ${workspace_6}";
           "${modifier}+e" = "workspace ${workspace_7}";
-          "${modifier}+o" = "workspace ${workspace_8}";
-          "${modifier}+i" = "workspace ${workspace_9}";
+          "${modifier}+o" = "exec swaymsg workspace ${workspace_8}; exec \"pgrep ${media_player} || exec ${media_player}\"";
+          "${modifier}+i" = "exec swaymsg workspace ${workspace_9}; exec --no-startup-id \"pgrep ${browser} || exec ${browser}\"";
 
           "${modifier}+Super_R+a" = "move container to workspace ${workspace_0}";
           "${modifier}+Super_R+s" = "move container to workspace ${workspace_1}";
@@ -171,7 +175,7 @@ in
         bindswitch --reload --locked lid:off output $laptop enable
 
         assign [app_id="${browser}"] workspace ${workspace_9}
-        assign [app_id="tidal-hifi"] workspace ${workspace_8}
+        assign [app_id="${media_player}"] workspace ${workspace_8}
         assign [app_id="org.keepassxc.KeePassXC"] workspace ${workspace_7}
 
         for_window [app_id="${browser}"] fullscreen enable

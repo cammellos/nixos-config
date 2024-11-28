@@ -61,7 +61,7 @@ in
       "sway/workspaces" = {
         format = "<span size='larger'>|{name}:</span> {windows}";
         format-window-separator = " | ";
-        window-rewrite-default =  "{name}";
+        window-rewrite-default = "{name}";
         window-format = "<span color='#e0e0e0'>{name}</span>";
       };
       "custom/spotify" = {
