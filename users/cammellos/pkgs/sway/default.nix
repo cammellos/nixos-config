@@ -3,6 +3,7 @@ let
   background-image = ./background/calvin-and-hobbes.png;
   lock-image = ./background/trout.jpeg;
   browser = "librewolf";
+  keepass = "org.keepassxc.KeePassXC";
   media_player = "tidal-hifi";
   workspace_0 = "0:a";
   workspace_1 = "1:s";
@@ -111,15 +112,15 @@ in
           "${modifier}+space" = "focus mode_toggle";
 
           "${modifier}+a" = "workspace ${workspace_0}";
-          "${modifier}+s" = "workspace ${workspace_1}";
+          "${modifier}+s" = "exec swaymsg workspace ${workspace_1}; exec --no-startup-id \"pgrep ${browser} || exec ${browser}\"";
           "${modifier}+h" = "workspace ${workspace_2}";
           "${modifier}+t" = "workspace ${workspace_3}";
           "${modifier}+g" = "workspace ${workspace_4}";
           "${modifier}+y" = "workspace ${workspace_5}";
           "${modifier}+n" = "workspace ${workspace_6}";
-          "${modifier}+e" = "workspace ${workspace_7}";
+          "${modifier}+e" = "exec swaymsg workspace ${workspace_7}; exec \"pgrep keepassxc || exec keepassxc\"";
           "${modifier}+o" = "exec swaymsg workspace ${workspace_8}; exec \"pgrep ${media_player} || exec ${media_player}\"";
-          "${modifier}+i" = "exec swaymsg workspace ${workspace_9}; exec --no-startup-id \"pgrep ${browser} || exec ${browser}\"";
+          "${modifier}+i" = "workspace ${workspace_9}";
 
           "${modifier}+Super_R+a" = "move container to workspace ${workspace_0}";
           "${modifier}+Super_R+s" = "move container to workspace ${workspace_1}";
@@ -151,8 +152,8 @@ in
           "${modifier}+p" = "workspace next";
           "${modifier}+k" = "workspace back_and_forth";
 
-          "${modifier}+d" = "exec playerctl next";
-          "${modifier}+r" = "exec playerctl previous";
+          "${modifier}+d" = "exec playerctl previous";
+          "${modifier}+r" = "exec playerctl next";
           "${modifier}+w" = "exec playerctl play-pause";
         };
 
@@ -174,9 +175,9 @@ in
         bindswitch --reload --locked lid:on output $laptop disable
         bindswitch --reload --locked lid:off output $laptop enable
 
-        assign [app_id="${browser}"] workspace ${workspace_9}
+        assign [app_id="${browser}"] workspace ${workspace_1}
         assign [app_id="${media_player}"] workspace ${workspace_8}
-        assign [app_id="org.keepassxc.KeePassXC"] workspace ${workspace_7}
+        assign [app_id="${keepass}"] workspace ${workspace_7}
 
         for_window [app_id="${browser}"] fullscreen enable
       '';
