@@ -54,4 +54,9 @@
 
   environment.systemPackages = with pkgs; [ uhk-agent ];
   system.stateVersion = "23.11";
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "cammellos" ];
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
 }

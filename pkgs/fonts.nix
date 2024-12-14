@@ -7,12 +7,9 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "Inconsolata"
-      ];
-    })
+    nerdfonts
+    font-awesome
+    pango
   ];
 
   fonts.fontconfig = {

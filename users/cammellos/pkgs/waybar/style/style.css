@@ -1,264 +1,316 @@
-@keyframes blink-warning {
-    70% {
-        color: @light;
-    }
-
-    to {
-        color: @light;
-        background-color: @warning;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-      color: @light;
-    }
-
-    to {
-        color: @light;
-        background-color: @critical;
-    }
-}
-
-
-/* -----------------------------------------------------------------------------
- * Styles
- * -------------------------------------------------------------------------- */
-
-/* COLORS */
-
-/* Nord */
-@define-color bg #2E3440;
-/*@define-color bg #353C4A;*/
-@define-color light #D8DEE9;
-/*@define-color dark @nord_dark_font;*/
-@define-color warning #ebcb8b;
-@define-color critical #BF616A;
-@define-color mode #434C5E;
-/*@define-color workspaces @bg;*/
-/*@define-color workspaces @nord_dark_font;*/
-/*@define-color workspacesfocused #434C5E;*/
-@define-color workspacesfocused #4C566A;
-@define-color tray @workspacesfocused;
-@define-color sound #EBCB8B;
-@define-color network #5D7096;
-@define-color memory #546484;
-@define-color cpu #596A8D;
-@define-color temp #4D5C78;
-@define-color layout #5e81ac;
-@define-color battery #88c0d0;
-@define-color date #434C5E;
-@define-color time #434C5E;
-@define-color backlight #434C5E;
-@define-color nord_bg #434C5E;
-@define-color nord_bg_blue #546484;
-@define-color nord_light #D8DEE9;
-@define-color nord_light_font #D8DEE9;
-@define-color nord_dark_font #434C5E;
-
-/* Reset all styles */
+@define-color nord0 #2e3440;
+@define-color nord1 #3b4252;
+@define-color nord2 #434c5e;
+@define-color nord3 #4c566a;
+@define-color nord4 #d8dee9;
+@define-color nord5 #e5e9f0;
+@define-color nord6 #eceff4;
+@define-color nord7 #8fbcbb;
+@define-color nord8 #88c0d0;
+@define-color nord8-darker #275563;
+@define-color nord9 #81a1c1;
+@define-color nord10 #5e81ac;
+@define-color nord11 #bf616a;
+@define-color nord12 #d08770;
+@define-color nord13 #ebcb8b;
+@define-color nord14 #a3be8c;
+@define-color nord15 #b48ead;
+@define-color nord15-darker #4d3349;
+/* ================================ */
+/*            Common CSS            */
+/* ================================ */
 * {
-    border: none;
-    border-radius: 3px;
-    min-height: 0;
-    margin: 0.2em 0.3em 0.2em 0.3em;
+  /* `otf-font-awesome` is required to be installed for icons */
+  padding: 0;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  border: none;
+  text-shadow: none;
+  transition: none;
+  box-shadow: none;
 }
 
-/* The whole bar */
-#waybar {
-    background: @bg;
-    color: @light;
-    font-family: "Cantarell", "Font Awesome 5 Pro";
-    font-size: 12px;
-    font-weight: bold;
-    opacity: 0.95;
+/* the whole window */
+window#waybar {
+  background: @nord0;
+  color: @nord4;
+  padding: 0;
+  margin: 0;
 }
 
-/* Each module */
-#battery,
-#clock,
-#cpu,
-#custom-layout,
-#memory,
-#mode,
-#network,
-#pulseaudio,
-#temperature,
-#custom-alsa,
-#custom-pacman,
-#custom-weather,
-#custom-gpu,
-#tray,
-#backlight,
-#language,
-#custom-cpugovernor {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+window#waybar.hidden {
+  opacity: 1;
 }
 
-/* Each module that should blink */
-#mode,
-#memory,
-#temperature,
-#battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    min-width: 60px;
+.modules-left {
+  padding-left: 5px;
 }
 
-/* Each critical module */
-#memory.critical,
-#cpu.critical,
-#temperature.critical,
-#battery.critical {
-    color: @critical;
+.modules-right {
+  padding-right: 5px;
 }
 
-/* Each critical that should blink */
-#mode,
-#memory.critical,
-#temperature.critical,
-#battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
+#custom-rofi {
+  color: @nord0;
+  border: 1px solid #458588;
+  background-color: #83a598;
+  border-radius: 2px;
+  padding: 0 6px;
+  margin: 5px 0px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
 }
 
-/* Each warning */
-#network.disconnected,
-#memory.warning,
-#cpu.warning,
-#temperature.warning,
-#battery.warning {
-    background: @warning;
-    color: @nord_dark_font;
-}
-
-/* Each warning that should blink */
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
-
-/* And now modules themselves in their respective order */
-
-#mode { /* Shown current Sway mode (resize etc.) */
-    color: @light;
-    background: @mode;
-}
-
-/* Workspaces stuff */
-
+/* ================================ */
+/*       workspaces module          */
+/* ================================ */
 #workspaces {
- /*   color: #D8DEE9;
-    margin-right: 10px;*/
+  margin: 0px;
 }
 
 #workspaces button {
-    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
-    padding: 0 0.4em;
-    color: #D8DEE9;
-    opacity: 1;
-    font-size: 1em;
+  color: @nord4;
+  background-color: @nord1;
+  border: 1px solid @nord4;
+  min-width: 22px;
+  padding: 0 4px;
+  margin: 5px 3px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
 }
 
-#workspaces button.focused {
-    background: @workspacesfocused;
-    color: #D8DEE9;
-    opacity: 1;
-    padding: 0 0.4em;
+#workspaces button:hover {
+  color: @nord1;
+  background: @nord8;
+  border: 1px solid @nord8-darker;
+  min-width: 22px;
+}
+
+#workspaces button.visible {
+  color: @nord1;
+  border: 1px solid @nord8-darker;
+  background-color: @nord8;
+  min-width: 22px;
+  padding: 0 4px;
+  margin: 5px 3px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#workspaces button.visible:hover {
+  color: @nord1;
+  border: 1px solid @nord8-darker;
+  background-color: @nord8;
+  min-width: 22px;
+  padding: 0 4px;
+  margin: 5px 3px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#workspaces button.active {
+  color: @nord1;
+  border: 1px solid @nord8-darker;
+  background-color: @nord8;
+  min-width: 22px;
+  padding: 0 4px;
+  margin: 5px 3px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#workspaces button.active:hover {
+  color: @nord1;
+  border: 1px solid @nord8-darker;
+  background-color: @nord8;
+  min-width: 22px;
+  padding: 0 4px;
+  margin: 5px 3px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
-    opacity: 1;
+  color: @nord1;
+  border: 1px solid @nord15-darker;
+  background-color: @nord15;
+  min-width: 22px;
+  padding: 0 4px;
+  margin: 5px 3px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
 }
+
+/* ================================ */
+/*            window                 */
+/* ================================ */
 
 #window {
-    margin-right: 40px;
-    margin-left: 40px;
-    font-weight: normal;
-}
-#idle_inhibitor {
-    background: @mode;
-    /*font-size: 1.6em;*/
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#network {
-    background: @nord_bg_blue;
+  color: #d3869b;
+  background: none;
+  margin: 5px 0px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  border-bottom: 1px solid #d3869b;
 }
 
-#memory {
-    background: @memory;
+/* ================================ */
+/*            tray                 */
+/* ================================ */
+
+#tray {
+  margin: 6px 0px;
+  padding: 0 6px;
+  background: @nord0;
+  border-radius: 3px;
 }
 
+/* ================================ */
+/*            disk                 */
+/* ================================ */
+
+#disk {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ea6962;
+  margin: 5px 0px;
+  border-bottom: 1px solid #ea6962;
+}
+
+/* ================================ */
+/*            cpu                  */
+/* ================================ */
 #cpu {
-    background: @nord_bg;
-    color: #D8DEE9;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: @nord11;
+  margin: 5px 0px;
+  border-bottom: 1px solid @nord11;
 }
-#cpu.critical {
-    color: @nord_dark_font;
-}
-#language {
-    background: @nord_bg_blue;
-    color: #D8DEE9;
-    padding: 0 0.4em;
-}
-#custom-cpugovernor {
-    background-color: @nord_light;
-    color: @nord_dark_font;
-}
-#custom-cpugovernor.perf {
-    
-}
+
+/* ================================ */
+/*            temp                  */
+/* ================================ */
 #temperature {
-    background-color: @nord_bg;
-    color: #D8DEE9;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #d8a657;
+  margin: 5px 0px;
+  border-bottom: 1px solid #d8a657;
 }
+
 #temperature.critical {
-    background:  @critical;
-}
-#custom-layout {
-    background: @layout;
-}
-
-#battery {
-    background: @battery;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #cc241d;
+  margin: 5px 0px;
+  border-bottom: 1px solid #cc241d;
 }
 
+/* ================================ */
+/*            backlight             */
+/* ================================ */
 #backlight {
-    background: @backlight;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #f6c657;
+  margin: 5px 0px;
+  border-bottom: 1px solid #f6c657;
 }
 
-#clock {
-    background: @nord_bg_blue;
-    color: #D8DEE9;
-}
-#clock.date {
-    background: @date;
+/* ================================ */
+/*            memory                */
+/* ================================ */
+#memory {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #458588;
+  margin: 5px 0px;
+  border-bottom: 1px solid #458588;
 }
 
-#clock.time {
-    background: @mode;
-}
-
-#pulseaudio { /* Unsused but kept for those who needs it */
-    background: @nord_bg_blue;
-    color: #D8DEE9;
+/* ================================ */
+/*         pulseaudio               */
+/* ================================ */
+#pulseaudio {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #83a598;
+  margin: 5px 0px;
+  border-bottom: 1px solid #83a598;
 }
 
 #pulseaudio.muted {
-    background: #BF616A;
-    color: #BF616A;
-    /* No styles */
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ea6962;
+  margin: 5px 0px;
+  border-bottom: 1px solid #ea6962;
 }
-#pulseaudio.source-muted {
-    background: #D08770;
-    color: #D8DEE9;
-    /* No styles */
+
+/* ================================ */
+/*            battery               */
+/* ================================ */
+#battery {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #689d6a;
+  margin: 5px 0px;
+  border-bottom: 1px solid #689d6a;
 }
-#tray {
-    background: #434C5E;
+
+#battery.critical {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #cc241d;
+  margin: 5px 0px;
+  border-bottom: 1px solid #cc241d;
+}
+
+#battery.warning {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: @nord11;
+  margin: 5px 0px;
+  border-bottom: 1px solid @nord11;
+}
+
+#battery.chargin.warning {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: #689d6a;
+  margin: 5px 0px;
+  border-bottom: 1px solid #689d6a;
+}
+/* ================================ */
+/*            clock                 */
+/* ================================ */
+#clock {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 15px;
+  font-weight: 400;
+  color: @nord4;
+  margin: 5px 0px;
+  border-bottom: 1px solid @nord4;
 }

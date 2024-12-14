@@ -75,8 +75,8 @@ in
           {
             command = "${pkgs.waybar}/bin/waybar";
             position = "top";
-            hiddenState = "hide";
-            mode = "hide";
+            #hiddenState = "hide";
+            #mode = "hide";
             extraConfig = ''
               modifier ${modifier}
             '';
@@ -112,15 +112,18 @@ in
           "${modifier}+space" = "focus mode_toggle";
 
           "${modifier}+a" = "workspace ${workspace_0}";
-          "${modifier}+s" = "exec swaymsg workspace ${workspace_1}; exec --no-startup-id \"pgrep ${browser} || exec ${browser}\"";
+          "${modifier}+s" =
+            "exec swaymsg workspace ${workspace_1}; exec --no-startup-id \"pgrep ${browser} || exec ${browser}\"";
           "${modifier}+h" = "workspace ${workspace_2}";
           "${modifier}+t" = "workspace ${workspace_3}";
           "${modifier}+g" = "workspace ${workspace_4}";
-          "${modifier}+y" = "workspace ${workspace_5}";
+          "${modifier}+y" =
+            "exec swaymsg workspace ${workspace_5}; exec \"pgrep keepassxc || exec keepassxc\"";
           "${modifier}+n" = "workspace ${workspace_6}";
-          "${modifier}+e" = "exec swaymsg workspace ${workspace_7}; exec \"pgrep keepassxc || exec keepassxc\"";
-          "${modifier}+o" = "exec swaymsg workspace ${workspace_8}; exec \"pgrep ${media_player} || exec ${media_player}\"";
-          "${modifier}+i" = "workspace ${workspace_9}";
+          "${modifier}+e" = "workspace ${workspace_7}";
+          "${modifier}+o" = "workspace ${workspace_8}";
+          "${modifier}+i" =
+            "exec swaymsg workspace ${workspace_9}; exec \"pgrep ${media_player} || exec ${media_player}\"";
 
           "${modifier}+Super_R+a" = "move container to workspace ${workspace_0}";
           "${modifier}+Super_R+s" = "move container to workspace ${workspace_1}";
@@ -162,9 +165,14 @@ in
           { command = "${pkgs.pasystray}/bin/pasystray"; }
           { command = "${pkgs.dropbox}/bin/dropbox"; }
           { command = "${pkgs.conky}/bin/conky"; }
+          { command = "XDG_CURRENT_DESKTOP=sway"; }
+          { command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all"; }
+          {
+            command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway";
+          }
         ];
         fonts = {
-          names = [ "Inconsolata Nerd Font Mono" ];
+          names = [ "JetBrainsMono Nerd Font Mono Bold" ];
           size = 10.0;
         };
         output."*".bg = "${background-image} fill";
@@ -176,10 +184,10 @@ in
         bindswitch --reload --locked lid:off output $laptop enable
 
         assign [app_id="${browser}"] workspace ${workspace_1}
-        assign [app_id="${media_player}"] workspace ${workspace_8}
-        assign [app_id="${keepass}"] workspace ${workspace_7}
+        assign [app_id="${keepass}"] workspace ${workspace_5}
+        assign [app_id="${media_player}"] workspace ${workspace_9}
+        assign [class="steam"] workspace ${workspace_4}
 
-        for_window [app_id="${browser}"] fullscreen enable
       '';
 
     };
