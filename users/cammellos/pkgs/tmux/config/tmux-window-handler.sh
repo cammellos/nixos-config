@@ -13,4 +13,4 @@ WINDOW_ID="$1"
 # Run the tmux command with the parameterized session and window ID
 tmux if-shell "tmux list-windows -t ${SESSION_NAME} | grep -q \"^${WINDOW_ID}:\"" \
   "select-window -t ${SESSION_NAME}:${WINDOW_ID}" \
-  "new-window -t ${SESSION_NAME}; if-shell \"tmux list-windows -t ${SESSION_NAME} | grep -q \\\"^${WINDOW_ID}:\\\"\" \"\" \"move-window -t ${SESSION_NAME}:${WINDOW_ID}\""
+  "new-window -c \"#{session_path}\" -t ${SESSION_NAME}; if-shell \"tmux list-windows -t ${SESSION_NAME} | grep -q \\\"^${WINDOW_ID}:\\\"\" \"\" \"move-window -t ${SESSION_NAME}:${WINDOW_ID}\""
