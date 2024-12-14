@@ -107,7 +107,7 @@ in
           "${modifier}+Shift+e" = "move up";
           "${modifier}+Shift+n" = "move down";
 
-          "${modifier}+f" = "fullscreen toggle";
+          "${modifier}+Comma" = "fullscreen toggle";
           "${modifier}+Shift+space" = "floating toggle";
           "${modifier}+space" = "focus mode_toggle";
 
@@ -148,16 +148,27 @@ in
           "${modifier}+Super_L+o" = "move container to workspace ${workspace_8}";
           "${modifier}+Super_L+i" = "move container to workspace ${workspace_9}";
 
+          "${modifier}+q" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 1";
+          "${modifier}+d" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 2";
+          "${modifier}+r" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 3";
+          "${modifier}+w" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 4";
+          "${modifier}+b" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 5";
+          "${modifier}+j" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 6";
+          "${modifier}+f" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 7";
+          "${modifier}+u" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 8";
+          "${modifier}+p" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 9";
+          "${modifier}+Semicolon" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 0";
+
           "${modifier}+Super_R+q" = "kill";
           "${modifier}+Super_L+q" = "kill";
 
-          "${modifier}+u" = "workspace prev";
-          "${modifier}+p" = "workspace next";
+          "${modifier}+8" = "workspace prev";
+          "${modifier}+9" = "workspace next";
           "${modifier}+k" = "workspace back_and_forth";
 
-          "${modifier}+d" = "exec playerctl previous";
-          "${modifier}+r" = "exec playerctl next";
-          "${modifier}+w" = "exec playerctl play-pause";
+          "${modifier}+4" = "exec playerctl previous";
+          "${modifier}+3" = "exec playerctl next";
+          "${modifier}+2" = "exec playerctl play-pause";
         };
 
         startup = [
