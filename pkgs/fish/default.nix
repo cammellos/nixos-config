@@ -25,6 +25,7 @@
       interactiveShellInit = "
     set fish_greeting
     user_key_bindings
+    fish_add_path -a $HOME/.local/bin
     ";
       shellAbbrs = {
         gst = "git status";

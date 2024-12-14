@@ -19,6 +19,7 @@
     ./pkgs/dunst
     ./pkgs/waybar
     ./pkgs/conky
+    ./pkgs/tmux
     ./pkgs/taskwarrior
     ./pkgs/development.nix
     ./pkgs/direnv.nix
@@ -39,4 +40,5 @@
     })
     ./pkgs/golang.nix
   ];
+  environment.localBinInPath = true;
 }

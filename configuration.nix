@@ -6,6 +6,7 @@
     ./boot.nix
     ./networking/shared.nix
     ./networking/host.nix
+    ./pkgs/babashka.nix
     ./pkgs/bluetooth.nix
     ./pkgs/chromium.nix
     ./pkgs/home-manager.nix
@@ -55,8 +56,13 @@
   environment.systemPackages = with pkgs; [ uhk-agent ];
   system.stateVersion = "23.11";
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox = {
+    host.enable = true;
+    guest = {
+      enable = true;
+      dragAndDrop = true;
+    };
+
+  };
   users.extraGroups.vboxusers.members = [ "cammellos" ];
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
 }
