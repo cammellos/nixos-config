@@ -169,9 +169,9 @@ in
           "${modifier}+9" = "workspace next";
           "${modifier}+k" = "workspace back_and_forth";
 
-          "${modifier}+4" = "exec playerctl previous";
-          "${modifier}+3" = "exec playerctl next";
           "${modifier}+2" = "exec playerctl play-pause";
+          "${modifier}+3" = "exec playerctl previous";
+          "${modifier}+4" = "exec playerctl next";
         };
 
         startup = [

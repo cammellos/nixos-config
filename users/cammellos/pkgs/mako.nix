@@ -16,7 +16,7 @@
       maxVisible = 10;
       borderRadius = 3;
       margin = "20";
-      anchor = "top-right";
+      anchor = "bottom-right";
       font = "JetBrainsMono Nerd Font Propo 10";
     };
   };
