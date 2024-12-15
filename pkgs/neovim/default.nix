@@ -40,9 +40,8 @@
           '';
           type = "lua";
         }
-        nvim-treesitter.withAllGrammars
         {
-          plugin = nvim-treesitter;
+          plugin = nvim-treesitter.withAllGrammars;
           config = ''
             require'nvim-treesitter.configs'.setup {
               highlight = {
@@ -65,10 +64,6 @@
           plugin = lsp-format-nvim;
           config = ''
             require("lsp-format").setup {}
-
-            require("lspconfig").rust_analyzed.setup { on_attach = require("lsp-format").on_attach }
-            require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
-            require("lspconfig").dartls.setup { on_attach = require("lsp-format").on_attach }
           '';
           type = "lua";
 
@@ -77,9 +72,12 @@
           plugin = nvim-lspconfig;
           config = ''
              local lspconfig = require("lspconfig")
-             lspconfig.rust_analyzer.setup({})
-             lspconfig.gopls.setup({})
-             lspconfig.dartls.setup({})
+             local lspformat = require("lsp-format")
+
+             lspconfig.rust_analyzer.setup { on_attach = lspformat.on_attach }
+             lspconfig.gopls.setup { on_attach = lspformat.on_attach }
+             lspconfig.dartls.setup { on_attach = lspformat.on_attach }
+             lspconfig.clojure_lsp.setup({on_attach = lspformat.on_attach})
 
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
