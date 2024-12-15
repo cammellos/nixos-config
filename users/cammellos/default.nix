@@ -17,7 +17,7 @@
     ./pkgs/alacritty.nix
     ./pkgs/rofi.nix
     ./pkgs/sway
-    ./pkgs/dunst
+    ./pkgs/mako.nix
     ./pkgs/waybar
     ./pkgs/conky
     ./pkgs/tmux
