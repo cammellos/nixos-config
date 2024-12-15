@@ -21,7 +21,6 @@ in
 {
 
   home-manager.users.cammellos = {
-    home.file.".local/bin/toggle-ferdium.sh".source = ./config/toggle-ferdium.sh;
     services.swayidle = {
       enable = true;
       timeouts = [
@@ -109,7 +108,7 @@ in
           "${modifier}+Shift+e" = "move up";
           "${modifier}+Shift+n" = "move down";
 
-          "${modifier}+Period" = "fullscreen toggle";
+          "${modifier}+Comma" = "fullscreen toggle";
           "${modifier}+Shift+space" = "floating toggle";
           "${modifier}+space" = "focus mode_toggle";
 
@@ -123,10 +122,10 @@ in
             "exec swaymsg workspace ${workspace_5}; exec \"pgrep keepassxc || exec keepassxc\"";
           "${modifier}+n" = "workspace ${workspace_6}";
           "${modifier}+e" = "workspace ${workspace_7}";
-          "${modifier}+o" = "workspace ${workspace_8}";
+          "${modifier}+o" =
+            "exec swaymsg workspace ${workspace_8}; exec \"pgrep ${social} || exec ${social}\"";
           "${modifier}+i" =
             "exec swaymsg workspace ${workspace_9}; exec \"pgrep ${media_player} || exec ${media_player}\"";
-          "${modifier}+Comma" = "exec --no-startup-id /home/cammellos/.local/bin/toggle-ferdium.sh";
 
           "${modifier}+Super_R+a" = "move container to workspace ${workspace_0}";
           "${modifier}+Super_R+s" = "move container to workspace ${workspace_1}";
@@ -200,9 +199,9 @@ in
         assign [app_id="${browser}"] workspace ${workspace_1}
         assign [class="steam"] workspace ${workspace_4}
         assign [app_id="${keepass}"] workspace ${workspace_5}
+        assign [app_id="${social}"] workspace ${workspace_8}
         assign [app_id="${media_player}"] workspace ${workspace_9}
 
-        for_window [app_id="${social}"] fullscreen enable
       '';
 
     };

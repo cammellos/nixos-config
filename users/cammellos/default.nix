@@ -11,6 +11,7 @@
     ./pkgs/keepassxc.nix
     ./pkgs/git.nix
     ./pkgs/gaming.nix
+    ./pkgs/social.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix
     ./pkgs/alacritty.nix
