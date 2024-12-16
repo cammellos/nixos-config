@@ -22,7 +22,6 @@ in
 {
 
   home-manager.users.cammellos = {
-    home.file.".local/bin/toggle-ferdium.sh".source = ./config/toggle-ferdium.sh;
     services.swayidle = {
       enable = true;
       timeouts = [
@@ -127,7 +126,6 @@ in
           "${modifier}+o" = "workspace ${workspace_8}";
           "${modifier}+i" =
             "exec swaymsg workspace ${workspace_9}; exec \"pgrep ${media_player} || exec ${media_player}\"";
-          "${modifier}+Comma" = "exec --no-startup-id /home/cammellos/.local/bin/toggle-ferdium.sh";
 
           "${modifier}+Super_R+a" = "move container to workspace ${workspace_0}";
           "${modifier}+Super_R+s" = "move container to workspace ${workspace_1}";
@@ -202,8 +200,6 @@ in
                 assign [app_id="${keepass}"] workspace ${workspace_5}
                 assign [app_id="${media_player}"] workspace ${workspace_9}
 
-                for_window [app_id="${social}"] fullscreen enable
-
                 # Start with specific app_id/class
                 set $ddterm-id dropdown-terminal
                 set $ddterm ${terminal_command} --class $ddterm-id
@@ -221,6 +217,25 @@ in
                 bindsym Mod4+p exec swaymsg '[app_id="$ddterm-id"] scratchpad show' \
                   || $ddterm \
                   && sleep .1 && swaymsg '[app_id="$ddterm-id"] $ddterm-resize'
+
+                # Start with specific app_id/class
+                set $social-id ${social}
+                set $social ${social} --class $social-id
+                set $social-resize resize set 100ppt 90ppt, move position 0 0
+
+                # resize/move new dropdown terminal windows
+                for_window [app_id="$social-id"] {
+                  floating enable
+                  $social-resize
+                  move to scratchpad
+                  scratchpad show
+                }
+
+                # show existing or start new dropdown terminal
+                bindsym Mod4+Comma exec swaymsg '[app_id="$social-id"] scratchpad show' \
+                  || $social \
+                  && sleep .1 && swaymsg '[app_id="$social-id"] $social-resize'
+
         # ^-- resize again, case moving to different output
       '';
 
