@@ -5,6 +5,7 @@ let
   browser = "librewolf";
   keepass = "org.keepassxc.KeePassXC";
   media_player = "tidal-hifi";
+  terminal_command = "${pkgs.alacritty}/bin/alacritty";
   social = "ferdium";
   workspace_0 = "0:a";
   workspace_1 = "1:s";
@@ -72,7 +73,7 @@ in
         };
         floating.titlebar = false;
 
-        terminal = "${pkgs.alacritty}/bin/alacritty";
+        terminal = "${terminal_command}";
         bars = [
           {
             command = "${pkgs.waybar}/bin/waybar";
@@ -159,7 +160,6 @@ in
           "${modifier}+j" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 6";
           "${modifier}+f" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 7";
           "${modifier}+u" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 8";
-          "${modifier}+p" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 9";
           "${modifier}+Semicolon" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 0";
 
           "${modifier}+Super_R+q" = "kill";
@@ -192,17 +192,36 @@ in
         output."*".bg = "${background-image} fill";
       };
       extraConfig = ''
-        # Watch closed laptop lid
-        set $laptop eDP-1
-        bindswitch --reload --locked lid:on output $laptop disable
-        bindswitch --reload --locked lid:off output $laptop enable
+                # Watch closed laptop lid
+                set $laptop eDP-1
+                bindswitch --reload --locked lid:on output $laptop disable
+                bindswitch --reload --locked lid:off output $laptop enable
 
-        assign [app_id="${browser}"] workspace ${workspace_1}
-        assign [class="steam"] workspace ${workspace_4}
-        assign [app_id="${keepass}"] workspace ${workspace_5}
-        assign [app_id="${media_player}"] workspace ${workspace_9}
+                assign [app_id="${browser}"] workspace ${workspace_1}
+                assign [class="steam"] workspace ${workspace_4}
+                assign [app_id="${keepass}"] workspace ${workspace_5}
+                assign [app_id="${media_player}"] workspace ${workspace_9}
 
-        for_window [app_id="${social}"] fullscreen enable
+                for_window [app_id="${social}"] fullscreen enable
+
+                # Start with specific app_id/class
+                set $ddterm-id dropdown-terminal
+                set $ddterm ${terminal_command} --class $ddterm-id
+                set $ddterm-resize resize set 100ppt 40ppt, move position 0 0
+
+                # resize/move new dropdown terminal windows
+                for_window [app_id="$ddterm-id"] {
+                  floating enable
+                  $ddterm-resize
+                  move to scratchpad
+                  scratchpad show
+                }
+
+                # show existing or start new dropdown terminal
+                bindsym Mod4+p exec swaymsg '[app_id="$ddterm-id"] scratchpad show' \
+                  || $ddterm \
+                  && sleep .1 && swaymsg '[app_id="$ddterm-id"] $ddterm-resize'
+        # ^-- resize again, case moving to different output
       '';
 
     };
