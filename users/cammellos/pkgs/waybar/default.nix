@@ -30,7 +30,7 @@ in
         "battery"
       ];
       clock = {
-        format = "<span>[]</span> {:%a %d %b %H:%M:%S}";
+        format = "<span>[]</span> {:%a %d %b %H:%M}";
       };
       temperature = {
         tooltip = false;

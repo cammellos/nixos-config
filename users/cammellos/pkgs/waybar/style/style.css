@@ -312,5 +312,4 @@ window#waybar.hidden {
   font-weight: 400;
   color: @nord4;
   margin: 5px 0px;
-  border-bottom: 1px solid @nord4;
 }
