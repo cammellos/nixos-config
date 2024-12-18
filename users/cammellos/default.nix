@@ -14,21 +14,15 @@
     ./pkgs/social.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix
-    ./pkgs/alacritty.nix
+    ./pkgs/kitty
     ./pkgs/rofi.nix
     ./pkgs/sway
     ./pkgs/mako.nix
     ./pkgs/waybar
     ./pkgs/conky
-    ./pkgs/tmux
     ./pkgs/taskwarrior
     ./pkgs/development.nix
     ./pkgs/direnv.nix
-    (import ../../pkgs/tmux {
-      user = "cammellos";
-      inherit config;
-      inherit pkgs;
-    })
     (import ../../pkgs/neovim {
       user = "cammellos";
       inherit config;

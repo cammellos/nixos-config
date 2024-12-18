@@ -2,11 +2,6 @@
 {
   imports = [
     ./home.nix
-    (import ../../pkgs/tmux {
-      user = "root";
-      inherit config;
-      inherit pkgs;
-    })
     (import ../../pkgs/neovim {
       user = "root";
       inherit config;

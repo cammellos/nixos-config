@@ -102,15 +102,6 @@ in
           "9:i" = "<span>󰽯</span>";
         };
         window-format = "{name}";
-
-        window-rewrite = {
-          alacritty = "";
-          "class<Alacritty>" = "";
-          "class<librewolf>" = "";
-        };
-        #format-window-separator = " | ";
-        #  window-rewrite-default = "{name}";
-        #    window-format = "<span color='#e0e0e0'>{name}</span>";
       };
 
       cpu = {

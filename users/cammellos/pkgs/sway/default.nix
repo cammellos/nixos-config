@@ -5,7 +5,7 @@ let
   browser = "librewolf";
   keepass = "org.keepassxc.KeePassXC";
   media_player = "tidal-hifi";
-  terminal_command = "${pkgs.alacritty}/bin/alacritty";
+  terminal_command = "/home/cammellos/.local/bin/remote-kitty.sh";
   social = "ferdium";
   workspace_0 = "0:a";
   workspace_1 = "1:s";
@@ -150,15 +150,12 @@ in
           "${modifier}+Super_L+o" = "move container to workspace ${workspace_8}";
           "${modifier}+Super_L+i" = "move container to workspace ${workspace_9}";
 
-          "${modifier}+q" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 1";
-          "${modifier}+d" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 2";
-          "${modifier}+r" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 3";
-          "${modifier}+w" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 4";
-          "${modifier}+b" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 5";
-          "${modifier}+j" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 6";
-          "${modifier}+f" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 7";
-          "${modifier}+u" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 8";
-          "${modifier}+Semicolon" = "exec --no-startup-id /home/cammellos/.local/bin/select-tmux-window.sh 0";
+          "${modifier}+d" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh d";
+          "${modifier}+r" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh r";
+          "${modifier}+w" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh w";
+          "${modifier}+f" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh b";
+          "${modifier}+u" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh j";
+          "${modifier}+p" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh f";
 
           "${modifier}+Super_R+q" = "kill";
           "${modifier}+Super_L+q" = "kill";
@@ -202,7 +199,7 @@ in
 
                 # Start with specific app_id/class
                 set $ddterm-id dropdown-terminal
-                set $ddterm ${terminal_command} --class $ddterm-id
+                set $ddterm kitty --class $ddterm-id
                 set $ddterm-resize resize set 100ppt 40ppt, move position 0 0
 
                 # resize/move new dropdown terminal windows
@@ -214,7 +211,7 @@ in
                 }
 
                 # show existing or start new dropdown terminal
-                bindsym Mod4+p exec swaymsg '[app_id="$ddterm-id"] scratchpad show' \
+                bindsym Mod4+j exec swaymsg '[app_id="$ddterm-id"] scratchpad show' \
                   || $ddterm \
                   && sleep .1 && swaymsg '[app_id="$ddterm-id"] $ddterm-resize'
 
