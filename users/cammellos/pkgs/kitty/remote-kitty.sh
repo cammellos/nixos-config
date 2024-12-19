@@ -18,9 +18,6 @@ else
   fi
 fi
 
-# Ensure the Kitty window is focused
-swaymsg '[app_id="kitty"] focus'
-
 # Check if the tab already exists
 TAB_EXISTS=$(kitty @ --to unix:"/tmp/kitty_${FOCUSED_KITTY_PID}" ls | jq -e "
     .[] | .tabs[] | select(.title == \"$TAB_NUMBER\")

@@ -4,7 +4,6 @@
     pasystray
     tidal-hifi
     playerctl
-    spotify
     pavucontrol
   ];
 }

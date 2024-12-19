@@ -156,6 +156,8 @@ in
           "${modifier}+f" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh b";
           "${modifier}+u" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh j";
           "${modifier}+p" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh f";
+          "${modifier}+Semicolon" =
+            "exec --no-startup-id /home/cammellos/.local/bin/launch-kitty-scrollback.sh";
 
           "${modifier}+Super_R+q" = "kill";
           "${modifier}+Super_L+q" = "kill";

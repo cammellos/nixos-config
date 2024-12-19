@@ -24,6 +24,13 @@
       enable = true;
       plugins = with pkgs.vimPlugins; [
         {
+          plugin = pkgs.kitty-scrollback;
+          config = ''
+            require('kitty-scrollback').setup()
+          '';
+          type = "lua";
+        }
+        {
           plugin = oil-nvim;
           config = ''
             require("oil").setup()
@@ -184,4 +191,5 @@
       '';
     };
   };
+
 }
