@@ -5,6 +5,7 @@
     enable = true;
   };
   users.users.cammellos.packages = with pkgs; [
+    quickemu
     lutris
     steam
     wineWowPackages.stable
