@@ -5,12 +5,6 @@
   ...
 }:
 {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
   home-manager.users."${user}" = {
     xdg.configFile.nvim = {
       source = ./config;
