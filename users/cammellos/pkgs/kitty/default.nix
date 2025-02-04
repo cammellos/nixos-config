@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 {
   #nixpkgs.config.input-fonts.acceptLicense = true;
 
-  home-manager.users.cammellos = {
+  home-manager.users."${user}" = {
     home.file = {
       ".local/bin/remote-kitty.sh".source = ./remote-kitty.sh;
       ".local/bin/launch-kitty-scrollback.sh".source = ./launch-kitty-scrollback.sh;

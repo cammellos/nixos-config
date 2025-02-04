@@ -2,6 +2,11 @@
 {
   imports = [
     ./home.nix
+    (import ../cammellos/pkgs/kitty {
+      user = "andreamaria.piana";
+      inherit config;
+      inherit pkgs;
+    })
     (import ../../pkgs/neovim {
       user = "andreamaria.piana";
       inherit config;
@@ -12,4 +17,5 @@
       inherit config;
       inherit pkgs;
     })
+    ];
 }

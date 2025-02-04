@@ -12,7 +12,6 @@
     [
       pkgs.neovim
     ];
-    system.configurationRevision =  self.rev or self.dirtyRev or null;
-    system.stateVersion = 6;
+    system.stateVersion = 5;
     nixpkgs.hostPlatform = "aarch64-darwin";
-  };
+  }
