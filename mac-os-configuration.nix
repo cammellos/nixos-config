@@ -4,6 +4,15 @@
     ./users/andreamaria.piana
 
   ];
+
+  homebrew = {
+      enable = true;
+      # onActivation.cleanup = "uninstall";
+
+      taps = [];
+      brews = [];
+      casks = ["1password-cli"];
+  };
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -14,4 +23,5 @@
     ];
     system.stateVersion = 5;
     nixpkgs.hostPlatform = "aarch64-darwin";
+    security.pam.enableSudoTouchIdAuth = true;
   }

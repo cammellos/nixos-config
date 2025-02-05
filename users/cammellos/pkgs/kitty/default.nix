@@ -22,6 +22,7 @@
       };
       extraConfig = ''
 
+        shell fish
         shell_integration enabled
 
         # kitty-scrollback.nvim Kitten alias

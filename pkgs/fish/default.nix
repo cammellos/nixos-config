@@ -24,6 +24,10 @@
       enable = true;
       interactiveShellInit = "
     set fish_greeting
+    if test -d /opt/homebrew
+      # Homebrew is installed on MacOS
+      /opt/homebrew/bin/brew shellenv | source
+    end
     user_key_bindings
     fish_add_path -a $HOME/.local/bin
     ";

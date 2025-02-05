@@ -22,6 +22,11 @@
     ./pkgs/conky
     ./pkgs/taskwarrior
     ./pkgs/development.nix
+    (import ../../pkgs/direnv.nix {
+      user = "cammellos";
+      inherit config;
+      inherit pkgs;
+    })
     ./pkgs/direnv.nix
     (import ../../pkgs/neovim {
       user = "cammellos";
