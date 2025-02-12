@@ -72,6 +72,15 @@ vim.api.nvim_create_autocmd("TermOpen", {
   command = "startinsert"
 })
 
+vim.api.nvim_create_autocmd("TabEnter", {
+    pattern = "*",
+    callback = function()
+        if vim.bo.buftype == "terminal" then
+            vim.cmd("startinsert")
+        end
+    end
+})
+
 -- Close nvim if if last terminal is closed
 vim.api.nvim_create_autocmd("TermClose", {
   callback = function()
@@ -92,3 +101,4 @@ vim.api.nvim_create_autocmd("TermClose", {
     end
   end
 })
+
