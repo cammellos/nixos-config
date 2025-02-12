@@ -59,3 +59,36 @@ vim.opt.clipboard:append('unnamedplus')
 
 -- Enable relative line numbers
 vim.opt.relativenumber = true
+
+-- Disable line number in terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "setlocal nonumber norelativenumber"
+})
+
+-- Start terminal in insert mode
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "startinsert"
+})
+
+-- Close nvim if if last terminal is closed
+vim.api.nvim_create_autocmd("TermClose", {
+  callback = function()
+    local buf_list = vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), function(_, val)
+      return vim.fn.buflisted(val) == 1
+    end)
+   if #buf_list == 1 then
+      -- Get buffer content
+      local buf_contents = vim.api.nvim_buf_get_lines(buf_list[1], 0, -1, true)
+      local is_empty = (#buf_contents == 0) or (#buf_contents == 1 and buf_contents[1] == "")
+
+      -- Quit if the last buffer is empty
+      if is_empty then
+        vim.cmd('quit')
+      end
+    elseif #buf_list == 0 then
+      vim.cmd('quit')
+    end
+  end
+})
