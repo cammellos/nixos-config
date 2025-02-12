@@ -94,7 +94,7 @@ in
           };
         };
         input = {
-          "type:keyboard" = {
+          "1:1:AT_Translated_Set_2_keyboard" = {
             xkb_layout = "us";
             xkb_variant = "workman";
           };
@@ -102,69 +102,57 @@ in
 
         keybindings = {
           "${modifier}+Return" = "exec ${terminal}";
-          "${modifier}+c" = "exec '${menu}'";
-
-          "${modifier}+Shift+o" = "move right";
-          "${modifier}+Shift+y" = "move left";
-          "${modifier}+Shift+e" = "move up";
-          "${modifier}+Shift+n" = "move down";
+          "${modifier}+Space" = "exec '${menu}'";
 
           "${modifier}+Period" = "fullscreen toggle";
           "${modifier}+Shift+space" = "floating toggle";
-          "${modifier}+space" = "focus mode_toggle";
+
+          # simulate command+c/v/t
+          "${modifier}+c" = "exec ydotool key 29:1 46:1 46:0 29:0";
+          "${modifier}+v" = "exec ydotool key 29:1 42:1 47:1 47:0 42:0 29:0";
+          "${modifier}+w" = "exec ydotool key 29:1 17:1 17:0 29:0";
+          "${modifier}+t" = "exec ydotool key 29:1 20:1 20:0 29:0";
 
           "${modifier}+a" = "workspace ${workspace_0}";
           "${modifier}+s" =
             "exec swaymsg workspace ${workspace_1}; exec --no-startup-id \"pgrep ${browser} || exec ${browser}\"";
           "${modifier}+h" = "workspace ${workspace_2}";
-          "${modifier}+t" = "workspace ${workspace_3}";
+          #"${modifier}+t" = "workspace ${workspace_3}";
           "${modifier}+g" = "workspace ${workspace_4}";
-          "${modifier}+y" =
-            "exec swaymsg workspace ${workspace_5}; exec \"pgrep keepassxc || exec keepassxc\"";
-          "${modifier}+n" = "workspace ${workspace_6}";
-          "${modifier}+e" = "workspace ${workspace_7}";
-          "${modifier}+o" = "workspace ${workspace_8}";
+          "${modifier}+u" = "workspace ${workspace_6}";
+          "${modifier}+p" = "workspace ${workspace_7}";
+          "${modifier}+Semicolon" =
+            "exec swaymsg workspace ${workspace_8}; exec \"pgrep keepassxc || exec keepassxc\"";
           "${modifier}+i" =
             "exec swaymsg workspace ${workspace_9}; exec \"pgrep ${media_player} || exec ${media_player}\"";
 
           "${modifier}+Super_R+a" = "move container to workspace ${workspace_0}";
           "${modifier}+Super_R+s" = "move container to workspace ${workspace_1}";
           "${modifier}+Super_R+h" = "move container to workspace ${workspace_2}";
-          "${modifier}+Super_R+t" = "move container to workspace ${workspace_3}";
           "${modifier}+Super_R+g" = "move container to workspace ${workspace_4}";
           "${modifier}+Super_R+y" = "move container to workspace ${workspace_5}";
-          "${modifier}+Super_R+n" = "move container to workspace ${workspace_6}";
-          "${modifier}+Super_R+e" = "move container to workspace ${workspace_7}";
-          "${modifier}+Super_R+o" = "move container to workspace ${workspace_8}";
+          "${modifier}+Super_R+u" = "move container to workspace ${workspace_6}";
+          "${modifier}+Super_R+p" = "move container to workspace ${workspace_7}";
+          "${modifier}+Super_R+Semicolon" = "move container to workspace ${workspace_8}";
           "${modifier}+Super_R+i" = "move container to workspace ${workspace_9}";
 
           # needs to be added on inverse order otherwise is order-dependent
           "${modifier}+Super_L+a" = "move container to workspace ${workspace_0}";
           "${modifier}+Super_L+s" = "move container to workspace ${workspace_1}";
           "${modifier}+Super_L+h" = "move container to workspace ${workspace_2}";
-          "${modifier}+Super_L+t" = "move container to workspace ${workspace_3}";
           "${modifier}+Super_L+g" = "move container to workspace ${workspace_4}";
           "${modifier}+Super_L+y" = "move container to workspace ${workspace_5}";
-          "${modifier}+Super_L+n" = "move container to workspace ${workspace_6}";
-          "${modifier}+Super_L+e" = "move container to workspace ${workspace_7}";
-          "${modifier}+Super_L+o" = "move container to workspace ${workspace_8}";
+          "${modifier}+Super_L+u" = "move container to workspace ${workspace_6}";
+          "${modifier}+Super_L+p" = "move container to workspace ${workspace_7}";
+          "${modifier}+Super_L+Semicolon" = "move container to workspace ${workspace_8}";
           "${modifier}+Super_L+i" = "move container to workspace ${workspace_9}";
-
-          "${modifier}+d" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh d";
-          "${modifier}+r" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh r";
-          "${modifier}+w" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh w";
-          "${modifier}+f" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh b";
-          "${modifier}+u" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh j";
-          "${modifier}+p" = "exec --no-startup-id /home/cammellos/.local/bin/remote-kitty.sh f";
-          "${modifier}+Semicolon" =
-            "exec --no-startup-id /home/cammellos/.local/bin/launch-kitty-scrollback.sh";
 
           "${modifier}+Super_R+q" = "kill";
           "${modifier}+Super_L+q" = "kill";
 
           "${modifier}+8" = "workspace prev";
           "${modifier}+9" = "workspace next";
-          "${modifier}+k" = "workspace back_and_forth";
+          "${modifier}+Tab" =  "exec ${pkgs.rofi-wayland}/bin/rofi -show window -show-icons";
 
           "${modifier}+2" = "exec playerctl play-pause";
           "${modifier}+3" = "exec playerctl previous";
@@ -196,7 +184,7 @@ in
 
                 assign [app_id="${browser}"] workspace ${workspace_1}
                 assign [class="steam"] workspace ${workspace_4}
-                assign [app_id="${keepass}"] workspace ${workspace_5}
+                assign [app_id="${keepass}"] workspace ${workspace_8}
                 assign [app_id="${media_player}"] workspace ${workspace_9}
                 for_window [class="mtgo.exe"] floating enable
                 for_window [class="qemu-system-x86_64-wrapped"] fullscreen enable

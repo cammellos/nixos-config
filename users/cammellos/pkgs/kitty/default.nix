@@ -27,6 +27,10 @@
         # kitty-scrollback.nvim Kitten alias
         action_alias kitty_scrollback_nvim kitten ${pkgs.kitty-scrollback}/python/kitty_scrollback_nvim.py
 
+        map super+y previous_tab
+        map super+o next_tab
+        map ctrl+t new_tab_with_cwd
+        map ctrl+w close_tab
         # Browse scrollback buffer in nvim
         map kitty_mod+h kitty_scrollback_nvim
         # Browse output of the last shell command in nvim

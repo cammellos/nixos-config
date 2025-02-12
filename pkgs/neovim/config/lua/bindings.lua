@@ -55,16 +55,11 @@ local function WorkmanKeyboard()
 
   -- Split mapping
   vim.api.nvim_set_keymap('n', ',a', '<C-w>v', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', ',r', '<C-w>k', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', ',h', '<C-w>j', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', ',r', '<C-w>l', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', ',d', '<C-w>h', { noremap = true, silent = true })
 
   -- Tab remapping
-  vim.api.nvim_set_keymap('n', ',w', ':tabnew<CR>', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', ',g', ':tabnext<CR>', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', ',t', ':tabprevious<CR>', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', ',1', ':Neomake<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', ',t', ':tabnew<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', ',r', ':tabnext<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', ',d', ':tabprevious<CR>', { noremap = true, silent = true })
 
   -- terminal
   vim.api.nvim_set_keymap('n', ',s', ':term<CR>', { noremap = true, silent = true })

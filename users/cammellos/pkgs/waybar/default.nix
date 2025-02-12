@@ -92,13 +92,11 @@ in
         format-icons = {
           "0:a" = "<span></span>";
           "1:s" = "<span></span>";
-          "2:h" = "<span>󰰁</span>";
-          "3:t" = "<span>󰰥</span>";
+          "2:h" = "<span>h</span>";
           "4:g" = "<span></span>";
-          "5:y" = "<span></span>";
-          "6:e" = "<span>󰯸</span>";
-          "7:e" = "<span>󰯸</span>";
-          "8:o" = "<span>󰰖</span>";
+          "6:n" = "<span>u</span>";
+          "7:e" = "<span>p</span>";
+          "8:o" = "<span></span>";
           "9:i" = "<span>󰽯</span>";
         };
         window-format = "{name}";

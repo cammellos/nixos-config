@@ -14,8 +14,10 @@
     ./pkgs/greetd.nix
     ./pkgs/printing.nix
     ./pkgs/console
+    ./pkgs/ydotool.nix
     ./pkgs/fonts.nix
     ./pkgs/docker.nix
+    ./pkgs/keyball44.nix
     ./pkgs/localization.nix
     ./pkgs/gnupg.nix
     ./users/root

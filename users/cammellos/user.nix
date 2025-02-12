@@ -5,6 +5,7 @@
     description = "cammellos";
     extraGroups = [
       "networkmanager"
+      "input"
       "wheel"
       "audio"
       "adbusers"
