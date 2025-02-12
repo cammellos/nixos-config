@@ -5,7 +5,7 @@ let
   browser = "librewolf";
   keepass = "org.keepassxc.KeePassXC";
   media_player = "tidal-hifi";
-  terminal_command = "kitty -e nvim -c \"terminal\"";
+
   social = "ferdium";
   workspace_0 = "0:a";
   workspace_1 = "1:s";
@@ -20,7 +20,7 @@ let
   modifier = "Mod4";
   menu = "${pkgs.rofi-wayland}/bin/rofi -combi-modi window,drun -show combi";
   keybindings = ''
-          bindsym ${modifier}+Return exec ${terminal_command};
+          bindsym ${modifier}+Return exec sh -c 'random_id=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 8); echo "launch env NVIM_SOCKET=/tmp/nvim_$random_id.socket nvim -c terminal --listen /tmp/nvim_$random_id.socket" | kitty --session -'
           bindsym ${modifier}+Space exec "${menu}";
 
           bindsym ${modifier}+Period fullscreen toggle;

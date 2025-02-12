@@ -63,7 +63,8 @@ local function WorkmanKeyboard()
 
   -- terminal
   vim.api.nvim_set_keymap('n', ',s', ':term<CR>', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('t', 'uu', [[<C-\><C-n>]], { noremap = true, silent = true })
+  -- use esc to leave terminal mode
+  vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 end
 
 WorkmanKeyboard()
