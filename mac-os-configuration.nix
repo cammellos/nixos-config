@@ -2,7 +2,6 @@
 {
   imports = [
     ./users/andreamaria.piana
-
   ];
 
   homebrew = {

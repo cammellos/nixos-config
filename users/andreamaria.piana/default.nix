@@ -3,10 +3,12 @@
   users.users."andreamaria.piana".packages =  [
     pkgs-kubectl.kubectl
     pkgs.silver-searcher
-    pkgs.awscli
+    pkgs.awscli2
 
   ];
   imports = [
+    ./remotectl.nix
+    ./keyboard.nix
     ./home.nix
     (import ../../pkgs/tmux {
       user = "andreamaria.piana";

@@ -27,6 +27,7 @@
     if test -d /opt/homebrew
       # Homebrew is installed on MacOS
       /opt/homebrew/bin/brew shellenv | source
+      set AWS_DEFAULT_PROFILE sts
     end
     user_key_bindings
     fish_add_path -a $HOME/.local/bin
