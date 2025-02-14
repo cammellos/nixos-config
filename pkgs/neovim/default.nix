@@ -25,6 +25,15 @@
           type = "lua";
         }
         {
+          plugin = term-edit-nvim;
+          config = ''
+            require('term-edit').setup({
+              prompt_end = '%$ ',
+            })
+          '';
+          type = "lua";
+        }
+        {
           plugin = oil-nvim;
           config = ''
             require("oil").setup()
