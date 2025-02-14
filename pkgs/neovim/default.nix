@@ -34,7 +34,7 @@
         {
           plugin = project-nvim;
           config = ''
-           require("project_nvim").setup {}
+            require("project_nvim").setup {}
           '';
           type = "lua";
         }

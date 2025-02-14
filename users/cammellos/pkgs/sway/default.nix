@@ -20,124 +20,122 @@ let
   modifier = "Mod4";
   menu = "${pkgs.rofi-wayland}/bin/rofi -combi-modi window,drun -show combi";
   keybindings = ''
-          bindsym ${modifier}+Return exec sh -c 'random_id=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 8); echo "launch env NVIM_SOCKET=/tmp/nvim_$random_id.socket nvim -c terminal --listen /tmp/nvim_$random_id.socket" | kitty --session -'
-          bindsym ${modifier}+Space exec "${menu}";
+    bindsym ${modifier}+Return exec sh -c 'random_id=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 8); echo "launch env NVIM_SOCKET=/tmp/nvim_$random_id.socket nvim -c terminal --listen /tmp/nvim_$random_id.socket" | kitty --session -'
+    bindsym ${modifier}+Space exec "${menu}";
 
-          bindsym ${modifier}+Period fullscreen toggle;
-          bindsym ${modifier}+Shift+space floating toggle;
+    bindsym ${modifier}+Period fullscreen toggle;
+    bindsym ${modifier}+Shift+space floating toggle;
 
-          # simulate command+c/v/t
-          bindsym ${modifier}+c exec ydotool key 29:1 46:1 46:0 29:0;
-          bindsym ${modifier}+v exec ydotool key 29:1 42:1 47:1 47:0 42:0 29:0;
-          bindsym ${modifier}+w exec ydotool key 29:1 17:1 17:0 29:0;
+    # simulate command+c/v/t
+    bindsym ${modifier}+c exec ydotool key 29:1 46:1 46:0 29:0;
+    bindsym ${modifier}+v exec ydotool key 29:1 42:1 47:1 47:0 42:0 29:0;
+    bindsym ${modifier}+w exec ydotool key 29:1 17:1 17:0 29:0;
 
-          bindsym ${modifier}+a workspace ${workspace_0};
-          bindsym ${modifier}+s exec swaymsg workspace ${workspace_1}; exec --no-startup-id "pgrep ${browser} || exec ${browser}";
-          bindsym ${modifier}+h workspace ${workspace_2};
-          #"${modifier}+t workspace ${workspace_3};
-          bindsym ${modifier}+g workspace ${workspace_4};
-          bindsym ${modifier}+u workspace ${workspace_6};
-          bindsym ${modifier}+p workspace ${workspace_7};
-          bindsym ${modifier}+Semicolon exec swaymsg workspace ${workspace_8}; exec "pgrep keepassxc || exec keepassxc";
-          bindsym ${modifier}+i exec swaymsg workspace ${workspace_9}; exec "pgrep ${media_player} || exec ${media_player}";
+    bindsym ${modifier}+a workspace ${workspace_0};
+    bindsym ${modifier}+s exec swaymsg workspace ${workspace_1}; exec --no-startup-id "pgrep ${browser} || exec ${browser}";
+    bindsym ${modifier}+h workspace ${workspace_2};
+    #"${modifier}+t workspace ${workspace_3};
+    bindsym ${modifier}+g workspace ${workspace_4};
+    bindsym ${modifier}+u workspace ${workspace_6};
+    bindsym ${modifier}+p workspace ${workspace_7};
+    bindsym ${modifier}+Semicolon exec swaymsg workspace ${workspace_8}; exec "pgrep keepassxc || exec keepassxc";
+    bindsym ${modifier}+i exec swaymsg workspace ${workspace_9}; exec "pgrep ${media_player} || exec ${media_player}";
 
-          bindsym ${modifier}+Super_R+a move container to workspace ${workspace_0};
-          bindsym ${modifier}+Super_R+s move container to workspace ${workspace_1};
-          bindsym ${modifier}+Super_R+h move container to workspace ${workspace_2};
-          bindsym ${modifier}+Super_R+g move container to workspace ${workspace_4};
-          bindsym ${modifier}+Super_R+y move container to workspace ${workspace_5};
-          bindsym ${modifier}+Super_R+u move container to workspace ${workspace_6};
-          bindsym ${modifier}+Super_R+p move container to workspace ${workspace_7};
-          bindsym ${modifier}+Super_R+Semicolon move container to workspace ${workspace_8};
-          bindsym ${modifier}+Super_R+i move container to workspace ${workspace_9};
+    bindsym ${modifier}+Super_R+a move container to workspace ${workspace_0};
+    bindsym ${modifier}+Super_R+s move container to workspace ${workspace_1};
+    bindsym ${modifier}+Super_R+h move container to workspace ${workspace_2};
+    bindsym ${modifier}+Super_R+g move container to workspace ${workspace_4};
+    bindsym ${modifier}+Super_R+y move container to workspace ${workspace_5};
+    bindsym ${modifier}+Super_R+u move container to workspace ${workspace_6};
+    bindsym ${modifier}+Super_R+p move container to workspace ${workspace_7};
+    bindsym ${modifier}+Super_R+Semicolon move container to workspace ${workspace_8};
+    bindsym ${modifier}+Super_R+i move container to workspace ${workspace_9};
 
-          # needs to be added on inverse order otherwise is order-dependent
-          bindsym ${modifier}+Super_L+a move container to workspace ${workspace_0};
-          bindsym ${modifier}+Super_L+s move container to workspace ${workspace_1};
-          bindsym ${modifier}+Super_L+h move container to workspace ${workspace_2};
-          bindsym ${modifier}+Super_L+g move container to workspace ${workspace_4};
-          bindsym ${modifier}+Super_L+y move container to workspace ${workspace_5};
-          bindsym ${modifier}+Super_L+u move container to workspace ${workspace_6};
-          bindsym ${modifier}+Super_L+p move container to workspace ${workspace_7};
-          bindsym ${modifier}+Super_L+Semicolon move container to workspace ${workspace_8};
-          bindsym ${modifier}+Super_L+i move container to workspace ${workspace_9};
+    # needs to be added on inverse order otherwise is order-dependent
+    bindsym ${modifier}+Super_L+a move container to workspace ${workspace_0};
+    bindsym ${modifier}+Super_L+s move container to workspace ${workspace_1};
+    bindsym ${modifier}+Super_L+h move container to workspace ${workspace_2};
+    bindsym ${modifier}+Super_L+g move container to workspace ${workspace_4};
+    bindsym ${modifier}+Super_L+y move container to workspace ${workspace_5};
+    bindsym ${modifier}+Super_L+u move container to workspace ${workspace_6};
+    bindsym ${modifier}+Super_L+p move container to workspace ${workspace_7};
+    bindsym ${modifier}+Super_L+Semicolon move container to workspace ${workspace_8};
+    bindsym ${modifier}+Super_L+i move container to workspace ${workspace_9};
 
-          bindsym ${modifier}+Super_R+q kill;
-          bindsym ${modifier}+Super_L+q kill;
+    bindsym ${modifier}+Super_R+q kill;
+    bindsym ${modifier}+Super_L+q kill;
 
-          bindsym ${modifier}+8 workspace prev;
-          bindsym ${modifier}+9 workspace next;
-          bindsym ${modifier}+Tab exec ${pkgs.rofi-wayland}/bin/rofi -show window -show-icons;
+    bindsym ${modifier}+8 workspace prev;
+    bindsym ${modifier}+9 workspace next;
+    bindsym ${modifier}+Tab exec ${pkgs.rofi-wayland}/bin/rofi -show window -show-icons;
 
-          bindsym ${modifier}+2 exec playerctl play-pause;
-          bindsym ${modifier}+3 exec playerctl previous;
-          bindsym ${modifier}+4 exec playerctl next;
+    bindsym ${modifier}+2 exec playerctl play-pause;
+    bindsym ${modifier}+3 exec playerctl previous;
+    bindsym ${modifier}+4 exec playerctl next;
 
-          # show existing or start new dropdown terminal
-          bindsym Mod4+Comma exec swaymsg '[app_id="$social-id"] scratchpad show' \
-            || $social \
-            && sleep .1 && swaymsg '[app_id="$social-id"] $social-resize'
-        '';
+    # show existing or start new dropdown terminal
+    bindsym Mod4+Comma exec swaymsg '[app_id="$social-id"] scratchpad show' \
+      || $social \
+      && sleep .1 && swaymsg '[app_id="$social-id"] $social-resize'
+  '';
 
 in
 {
 
-home-manager.users.cammellos = {
-  home.file = {
-    ".local/bin/reset-sway-mode.sh".source = ./config/reset-sway-mode.sh;
-  };
+  home-manager.users.cammellos = {
+    home.file = {
+      ".local/bin/reset-sway-mode.sh".source = ./config/reset-sway-mode.sh;
+    };
 
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      {
-        timeout = 600;
-        command = "${pkgs.libnotify}/bin/notify-send 'Locking in 5 seconds' -t 5000";
-      }
-      {
-        timeout = 605;
-        command = "${pkgs.swaylock}/bin/swaylock -f -i ${lock-image}";
-      }
-      {
-        timeout = 660;
-        command = "${pkgs.sway}/bin/swaymsg 'output * dpms off'";
-        resumeCommand = "${pkgs.sway}/bin/swaymsg 'output * dpms on'";
-      }
+    services.swayidle = {
+      enable = true;
+      timeouts = [
+        {
+          timeout = 600;
+          command = "${pkgs.libnotify}/bin/notify-send 'Locking in 5 seconds' -t 5000";
+        }
+        {
+          timeout = 605;
+          command = "${pkgs.swaylock}/bin/swaylock -f -i ${lock-image}";
+        }
+        {
+          timeout = 660;
+          command = "${pkgs.sway}/bin/swaymsg 'output * dpms off'";
+          resumeCommand = "${pkgs.sway}/bin/swaymsg 'output * dpms on'";
+        }
+      ];
+      events = [
+        {
+          event = "before-sleep";
+          command = "${pkgs.swaylock}/bin/swaylock";
+        }
+      ];
+    };
+    home.packages = with pkgs; [
+      swaybg
+      swaylock
+      swayidle
+      wl-clipboard
     ];
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock";
-      }
-    ];
-  };
-  home.packages = with pkgs; [
-    swaybg
-    swaylock
-    swayidle
-    wl-clipboard
-  ];
-  wayland.windowManager.sway = {
-    enable = true;
+    wayland.windowManager.sway = {
+      enable = true;
 
-    config = {
+      config = {
 
+        workspaceAutoBackAndForth = true;
 
-      workspaceAutoBackAndForth = true;
+        focus = {
+          followMouse = "yes";
+        };
 
-      focus = {
-        followMouse = "yes";
-      };
+        window = {
+          border = 0;
+          titlebar = false;
+        };
+        floating.titlebar = false;
 
-      window = {
-        border = 0;
-        titlebar = false;
-      };
-      floating.titlebar = false;
-
-
-      modifier = modifier;
-      keybindings = {};
+        modifier = modifier;
+        keybindings = { };
         bars = [
           {
             command = "${pkgs.waybar}/bin/waybar";
@@ -176,7 +174,7 @@ home-manager.users.cammellos = {
           { command = "${pkgs.pasystray}/bin/pasystray"; }
           { command = "${pkgs.dropbox}/bin/dropbox"; }
           { command = "${pkgs.conky}/bin/conky"; }
-          { command = "/home/cammellos/.local/bin/reset-sway-mode.sh";}
+          { command = "/home/cammellos/.local/bin/reset-sway-mode.sh"; }
           { command = "XDG_CURRENT_DESKTOP=sway"; }
           { command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all"; }
           {

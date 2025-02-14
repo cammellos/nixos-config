@@ -1,4 +1,9 @@
-{ config, pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 {
   #nixpkgs.config.input-fonts.acceptLicense = true;
 

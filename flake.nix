@@ -10,7 +10,14 @@
   };
 
   outputs =
-    { self, nix-darwin, nixpkgs, home-manager, nixpkgs-kubectl, ... }@inputs:
+    {
+      self,
+      nix-darwin,
+      nixpkgs,
+      home-manager,
+      nixpkgs-kubectl,
+      ...
+    }@inputs:
     {
       darwinConfigurations.moosel = nix-darwin.lib.darwinSystem rec {
         system = "aarch64-darwin";

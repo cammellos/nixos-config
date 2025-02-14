@@ -1,6 +1,11 @@
-{ config, pkgs, pkgs-kubectl, ...}:
 {
-  users.users."andreamaria.piana".packages =  [
+  config,
+  pkgs,
+  pkgs-kubectl,
+  ...
+}:
+{
+  users.users."andreamaria.piana".packages = [
     pkgs-kubectl.kubectl
     pkgs.silver-searcher
     pkgs.awscli2
@@ -35,5 +40,5 @@
       inherit config;
       inherit pkgs;
     })
-    ];
+  ];
 }
