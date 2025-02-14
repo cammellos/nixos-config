@@ -26,6 +26,11 @@
     ./pkgs/conky
     ./pkgs/taskwarrior
     ./pkgs/development.nix
+    (import ../../pkgs/elixir.nix {
+      user = "cammellos";
+      inherit config;
+      inherit pkgs;
+    })
     (import ../../pkgs/direnv.nix {
       user = "cammellos";
       inherit config;

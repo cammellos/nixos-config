@@ -55,6 +55,8 @@ local function WorkmanKeyboard()
 
   -- Split mapping
   vim.api.nvim_set_keymap('n', ',a', '<C-w>v', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', ',d', '<C-w>h', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', ',r', '<C-w>l', { noremap = true, silent = true })
 
   -- Tab remapping
   vim.api.nvim_set_keymap('n', ',t', ':tabnew<CR>', { noremap = true, silent = true })

@@ -20,6 +20,11 @@
       inherit config;
       inherit pkgs;
     })
+    (import ../../pkgs/elixir.nix {
+      user = "andreamaria.piana";
+      inherit config;
+      inherit pkgs;
+    })
     (import ../../pkgs/direnv.nix {
       user = "andreamaria.piana";
       inherit config;

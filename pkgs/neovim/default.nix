@@ -95,6 +95,10 @@
              lspconfig.gopls.setup { on_attach = lspformat.on_attach }
              lspconfig.dartls.setup { on_attach = lspformat.on_attach }
              lspconfig.clojure_lsp.setup({on_attach = lspformat.on_attach})
+             lspconfig.elixirls.setup({
+               cmd = { "${pkgs.elixir-ls}/bin/elixir-ls"},
+               on_attach = lspformat.on_attach,
+             })
 
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
