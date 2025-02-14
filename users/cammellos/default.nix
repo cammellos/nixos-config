@@ -14,7 +14,11 @@
     ./pkgs/social.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix
-    ./pkgs/kitty
+    (import ./pkgs/kitty {
+      user = "cammellos";
+      inherit config;
+      inherit pkgs;
+    })
     ./pkgs/rofi.nix
     ./pkgs/sway
     ./pkgs/mako.nix
@@ -27,7 +31,6 @@
       inherit config;
       inherit pkgs;
     })
-    ./pkgs/direnv.nix
     (import ../../pkgs/neovim {
       user = "cammellos";
       inherit config;

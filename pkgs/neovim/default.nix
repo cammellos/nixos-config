@@ -32,6 +32,13 @@
           type = "lua";
         }
         {
+          plugin = project-nvim;
+          config = ''
+           require("project_nvim").setup {}
+          '';
+          type = "lua";
+        }
+        {
           plugin = telescope-nvim;
           config = ''
 

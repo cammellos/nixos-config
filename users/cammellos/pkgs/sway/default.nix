@@ -30,9 +30,6 @@ let
           bindsym ${modifier}+c exec ydotool key 29:1 46:1 46:0 29:0;
           bindsym ${modifier}+v exec ydotool key 29:1 42:1 47:1 47:0 42:0 29:0;
           bindsym ${modifier}+w exec ydotool key 29:1 17:1 17:0 29:0;
-          bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
-          #"${modifier}+o exec ydotool key 56:1 24:1 24:0 56:0;
-          bindsym ${modifier}+y exec ydotool key 56:1 21:1 21:0 56:0;
 
           bindsym ${modifier}+a workspace ${workspace_0};
           bindsym ${modifier}+s exec swaymsg workspace ${workspace_1}; exec --no-startup-id "pgrep ${browser} || exec ${browser}";
@@ -244,14 +241,28 @@ home-manager.users.cammellos = {
                 }
 
                 mode "kitty" {
+                  #bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
+                  #bindsym ${modifier}+y exec ydotool key 56:1 21:1 21:0 56:0;
+                  #bindsym ${modifier}+o exec ydotool key 56:1 24:1 24:0 56:0;
+                  bindsym ${modifier}+o exec ydotool key 51:1 24:1 24:0 51:0;
+                  bindsym ${modifier}+y exec ydotool key 51:1 21:1 21:0 51:0;
+                  bindsym ${modifier}+t exec ydotool key 51:1 20:1 20:0 51:0;
+
                   ${keybindings}
                 }
 
                 mode "nvim" {
+                  bindsym ${modifier}+o exec ydotool key 51:1 24:1 24:0 51:0;
+                  bindsym ${modifier}+y exec ydotool key 51:1 21:1 21:0 51:0;
+                  bindsym ${modifier}+t exec ydotool key 51:1 20:1 20:0 51:0;
+
                   ${keybindings}
                 }
 
                 mode "librewolf" {
+                  bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
+                  # do firefox y + o to move tabs
+
                   ${keybindings}
                 }
 

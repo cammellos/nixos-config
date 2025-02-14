@@ -8,7 +8,7 @@ switch_mode() {
       ;;
     "firefox")
       echo "ENTERING FIREFOX"
-      swaymsg mode "firefox"
+      swaymsg mode "librewolf"
       ;;
     "kitty")
       container_name=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .name')
