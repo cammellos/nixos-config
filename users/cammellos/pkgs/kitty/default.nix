@@ -35,6 +35,8 @@
 
         map alt+y previous_tab
         map alt+o next_tab
+        map cmd+o next_tab
+        map cmd+y previous_tab
         map ctrl+t new_tab_with_cwd
         map ctrl+w close_tab
         # Browse scrollback buffer in nvim
