@@ -75,30 +75,45 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd("TabEnter", {
     pattern = "*",
     callback = function()
-        if vim.bo.buftype == "terminal" then
+	local buf_list = vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), function(_, val)
+	  return vim.fn.buflisted(val) == 1
+	end)
+
+	-- if it's the only tab and is a terminal, go to insert mode
+        if #buf_list == 1 and vim.bo.buftype == "terminal" then
             vim.cmd("startinsert")
         end
     end
 })
 
 -- Close nvim if if last terminal is closed
+--vim.api.nvim_create_autocmd("TermClose", {
+--  callback = function()
+--    local buf_list = vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), function(_, val)
+--      return vim.fn.buflisted(val) == 1
+--    end)
+--   if #buf_list == 1 then
+--      -- Get buffer content
+--      local buf_contents = vim.api.nvim_buf_get_lines(buf_list[1], 0, -1, true)
+--      local is_empty = (#buf_contents == 0) or (#buf_contents == 1 and buf_contents[1] == "")
+--
+--      -- Quit if the last buffer is empty
+--      if is_empty then
+--        vim.cmd('quit')
+--      end
+--    elseif #buf_list == 0 then
+--      vim.cmd('quit')
+--    end
+--  end
+--})
+
+
 vim.api.nvim_create_autocmd("TermClose", {
   callback = function()
-    local buf_list = vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), function(_, val)
-      return vim.fn.buflisted(val) == 1
-    end)
-   if #buf_list == 1 then
-      -- Get buffer content
-      local buf_contents = vim.api.nvim_buf_get_lines(buf_list[1], 0, -1, true)
-      local is_empty = (#buf_contents == 0) or (#buf_contents == 1 and buf_contents[1] == "")
-
-      -- Quit if the last buffer is empty
-      if is_empty then
-        vim.cmd('quit')
-      end
-    elseif #buf_list == 0 then
-      vim.cmd('quit')
+    local bufnr = vim.fn.expand("<abuf>")
+    -- If the buffer is valid, delete it
+    if vim.api.nvim_buf_is_valid(bufnr) then
+      vim.api.nvim_buf_delete(bufnr, { force = true })
     end
   end
 })
-

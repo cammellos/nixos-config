@@ -259,6 +259,8 @@ in
 
                 mode "librewolf" {
                   bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
+                  bindsym ${modifier}+y exec ydotool key 29:1 42:1 15:1 15:0 42:0 29:0;
+                  bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
                   # do firefox y + o to move tabs
 
                   ${keybindings}

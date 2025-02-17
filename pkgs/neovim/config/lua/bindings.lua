@@ -60,6 +60,9 @@ local function WorkmanKeyboard()
 
   -- Tab remapping
   vim.api.nvim_set_keymap('n', ',t', ':tabnew<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("i", ",t", "<Esc>:tabnew<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("t", ",t", "<C-\\><C-N>:tabnew<CR><C-\\><C-N>", { noremap = true, silent = true })
+
   vim.api.nvim_set_keymap('n', ',o', ':tabnext<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', ',y', ':tabprevious<CR>', { noremap = true, silent = true })
 
