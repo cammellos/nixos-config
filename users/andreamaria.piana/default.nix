@@ -15,6 +15,11 @@
     ./remotectl.nix
     ./keyboard.nix
     ./home.nix
+    (import ../../pkgs/taskwarrior {
+      user = "andreamaria.piana";
+      inherit config;
+      inherit pkgs;
+    })
     (import ../../pkgs/tmux {
       user = "andreamaria.piana";
       inherit config;

@@ -24,7 +24,11 @@
     ./pkgs/mako.nix
     ./pkgs/waybar
     ./pkgs/conky
-    ./pkgs/taskwarrior
+    (import ../../pkgs/taskwarrior {
+      user = "cammellos";
+      inherit config;
+      inherit pkgs;
+    })
     ./pkgs/development.nix
     (import ../../pkgs/elixir.nix {
       user = "cammellos";
