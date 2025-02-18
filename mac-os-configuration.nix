@@ -10,7 +10,7 @@
 
     taps = [ ];
     brews = [ ];
-    casks = [ "1password-cli" ];
+    casks = [ "1password-cli" "karabiner-elements" "kitty"];
   };
   nix.settings.experimental-features = [
     "nix-command"
