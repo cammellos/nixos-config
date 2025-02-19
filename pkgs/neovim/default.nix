@@ -53,6 +53,8 @@
 
             local telescope_builtin = require('telescope.builtin')
             vim.keymap.set('n', ',h', telescope_builtin.find_files, {})
+            vim.keymap.set('n', ',g', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
+            vim.keymap.set('n', 'fr', telescope_builtin.lsp_references, { noremap = true, silent = true })
 
           '';
           type = "lua";
@@ -105,7 +107,6 @@
              })
 
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
             vim.api.nvim_set_keymap('n', 'gb', ':pop<CR>', { noremap = true, silent = true })
           '';
