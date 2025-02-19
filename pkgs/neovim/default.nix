@@ -5,6 +5,9 @@
   ...
 }:
 {
+  environment.variables = {
+    EDITOR = "nvim";
+  };
   home-manager.users."${user}" = {
     xdg.configFile.nvim = {
       source = ./config;
