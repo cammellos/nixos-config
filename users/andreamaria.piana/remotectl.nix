@@ -5,7 +5,7 @@ let
     version = "latest";
     src = pkgs.fetchurl {
       url = "https://internal-tools.niceremote.com/remotectl/latest/remotectl-darwin-arm64";
-      sha256 = "sha256-M3XMXAs1W4q9UJnZq3bcO6A8mr+P5IbWt94VdtX6htQ=";
+      sha256 = "sha256-aC2i2Me+Zo7l0F5A3uOz28uTRgouqS/5vYGyvcrjoXk=";
     };
 
     dontUnpack = true;

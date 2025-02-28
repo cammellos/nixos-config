@@ -9,7 +9,7 @@
     pkgs-kubectl.kubectl
     pkgs.silver-searcher
     pkgs.awscli2
-
+    pkgs.postman
   ];
   imports = [
     ./remotectl.nix

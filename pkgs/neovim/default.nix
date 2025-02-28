@@ -20,6 +20,15 @@
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
+
+        {
+          plugin = typescript-tools-nvim;
+          config = ''
+              require('typescript-tools').setup({})
+          '';
+
+          type = "lua";
+        }
         {
           plugin = pkgs.kitty-scrollback;
           config = ''
