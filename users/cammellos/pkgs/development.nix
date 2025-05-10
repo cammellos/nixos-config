@@ -5,6 +5,7 @@
     silver-searcher
     jq
     gh
+    python3
     gnumake
     unzip
     gcc
