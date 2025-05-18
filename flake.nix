@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
 
     nixpkgs-kubectl.url = "github:nixos/nixpkgs/10b813040df67c4039086db0f6eaf65c536886c6";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs =
@@ -14,6 +15,7 @@
       self,
       nix-darwin,
       nixpkgs,
+      unstable,
       home-manager,
       nixpkgs-kubectl,
       ...
@@ -60,6 +62,7 @@
             ];
           }
         ];
+        specialArgs = { inherit inputs; };
       };
     };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     ./user.nix
@@ -44,6 +44,7 @@
       user = "cammellos";
       inherit config;
       inherit pkgs;
+      inherit inputs;
     })
     (import ../../pkgs/fish {
       user = "cammellos";

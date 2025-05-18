@@ -1,13 +1,35 @@
 {
   config,
   pkgs,
+  inputs,
   user,
   ...
 }:
+let
+  unstable = inputs.unstable.legacyPackages.${pkgs.system};
+  goose-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "goose-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "azorng";
+      repo = "goose.nvim";
+      rev = "5a72d3b3f7a2a01d174100c8c294da8cd3a2aeeb";
+      hash = "sha256-jVWggPmdINFNVHJSCpbTZq8wKwGjldu6PNSkb7naiQE=";
+    };
+  };
+in
 {
   environment.variables = {
     EDITOR = "nvim";
   };
+  environment.systemPackages = [
+    unstable.goose-cli
+    pkgs.pass
+    pkgs.pass-wayland
+  ];
+  services.dbus.packages = with pkgs; [
+    pass-secret-service
+  ];
+  services.passSecretService.enable = true;
   home-manager.users."${user}" = {
     xdg.configFile.nvim = {
       source = ./config;
@@ -20,7 +42,6 @@
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
-
         {
           plugin = typescript-tools-nvim;
           config = ''
@@ -84,6 +105,24 @@
           type = "lua";
         }
         plenary-nvim
+        {
+          plugin = goose-nvim;
+          config = ''
+
+            require('goose').setup({});
+          '';
+          type = "lua";
+        }
+        # dependency for goose
+        {
+          plugin = render-markdown-nvim;
+          config = ''
+          require('render-markdown').setup({
+            anti_conceal = { enabled = false }
+          });
+          '';
+          type = "lua";
+        }
         {
           plugin = flutter-tools-nvim;
           config = ''

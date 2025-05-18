@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     ./home.nix
@@ -6,6 +6,7 @@
       user = "root";
       inherit config;
       inherit pkgs;
+      inherit inputs;
     })
     (import ../../pkgs/fish {
       user = "root";
