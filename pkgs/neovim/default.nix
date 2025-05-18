@@ -201,21 +201,6 @@
           '';
           type = "lua";
         }
-        {
-          plugin = ChatGPT-nvim;
-          config = ''
-            local home = vim.fn.expand("$HOME")
-            require("chatgpt").setup({
-              api_key_cmd = home .. "/.local/bin/chat-gpt-key.sh",
-              chat = {
-                keymaps = {
-                  edit_message = "<C-e>",
-                },
-              },
-            })
-          '';
-          type = "lua";
-        }
       ];
       extraConfig = ''
         :luafile ~/.config/nvim/lua/init.lua

@@ -15,7 +15,7 @@ in
 
     home.file.".config/rofi/config.rasi".text = ''
       configuration {
-      font: "Inconsolata Nerd Font Mono 13";
+      font: "JetBrainsMono Nerd Font Propo 13";
       line-margin: 10;
       }
 

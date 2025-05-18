@@ -18,7 +18,7 @@
       enable = true;
       themeFile = "Nord";
       font = {
-        name = "Inconsolata Nerd Font Mono";
+        name = "JetBrainsMono Nerd Font Propo";
         size = 12.0;
       };
       settings = {

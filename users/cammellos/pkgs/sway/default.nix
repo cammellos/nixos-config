@@ -160,11 +160,11 @@ in
         input = {
           "7504:24868:Ultimate_Gadget_Laboratories_UHK_60_v2" = {
             xkb_layout = "us";
-            xkb_variant = "workman";
+            xkb_variant = "workman-p";
           };
           "1:1:AT_Translated_Set_2_keyboard" = {
             xkb_layout = "us";
-            xkb_variant = "workman";
+            xkb_variant = "workman-p";
           };
 
         };
