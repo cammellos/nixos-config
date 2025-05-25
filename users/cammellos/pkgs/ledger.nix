@@ -20,7 +20,7 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="1011", MODE="0660", GROUP="plugdev"
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="1015", MODE="0660", GROUP="plugdev"
 
-    KERNEL=="hidraw*", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="7011", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
+    KERNEL=="hidraw*", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="7000", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
 
 
     SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", ATTR{idProduct}=="2765", MODE="0666", GROUP="plugdev"
