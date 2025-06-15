@@ -6,7 +6,8 @@
   ...
 }:
 let
-  unstable = inputs.unstable.legacyPackages.${pkgs.system};
+
+  plenary = pkgs.vimPlugins.plenary-nvim;
   goose-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "goose-nvim";
     src = pkgs.fetchFromGitHub {
@@ -15,6 +16,7 @@ let
       rev = "5a72d3b3f7a2a01d174100c8c294da8cd3a2aeeb";
       hash = "sha256-jVWggPmdINFNVHJSCpbTZq8wKwGjldu6PNSkb7naiQE=";
     };
+    buildInputs = [ plenary ];
   };
 in
 {
@@ -22,7 +24,7 @@ in
     EDITOR = "nvim";
   };
   environment.systemPackages = [
-    unstable.goose-cli
+    pkgs.goose-cli
     pkgs.pass
     pkgs.pass-wayland
   ];

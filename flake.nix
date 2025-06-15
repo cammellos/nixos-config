@@ -1,10 +1,13 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-25.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixpkgs-kubectl.url = "github:nixos/nixpkgs/10b813040df67c4039086db0f6eaf65c536886c6";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";

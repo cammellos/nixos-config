@@ -7,7 +7,8 @@
   };
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.inconsolata
+    nerd-fonts.jetbrains-mono
     font-awesome
     pango
   ];
