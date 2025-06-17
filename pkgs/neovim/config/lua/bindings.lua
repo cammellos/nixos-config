@@ -60,8 +60,8 @@ local function WorkmanKeyboard()
 
   -- Tab remapping
   vim.api.nvim_set_keymap('n', ',t', ':tabnew<CR>', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("i", ",t", "<Esc>:tabnew<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("t", ",t", "<C-\\><C-N>:tabnew<CR><C-\\><C-N>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('i', ',t', '<Esc>:tabnew<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('t', ',t', '<C-\\><C-N>:tabnew<CR><C-\\><C-N>', { noremap = true, silent = true })
 
   vim.api.nvim_set_keymap('n', ',o', ':tabnext<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', ',y', ':tabprevious<CR>', { noremap = true, silent = true })
@@ -70,6 +70,9 @@ local function WorkmanKeyboard()
   vim.api.nvim_set_keymap('n', ',s', ':term<CR>', { noremap = true, silent = true })
   -- use esc to leave terminal mode
   vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.keymap.set("t", ",o", "<C-\\><C-N>:tabnext<CR>", opts)
+vim.keymap.set("t", ",y", "<C-\\><C-N>:tabprevious<CR>", opts)
+
 end
 
 WorkmanKeyboard()
