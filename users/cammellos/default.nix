@@ -4,6 +4,7 @@
     ./user.nix
     ./home.nix
     ./pkgs/audio.nix
+    ./pkgs/remote.nix
     ./pkgs/obs.nix
     ./pkgs/android.nix
     ./pkgs/ledger.nix
