@@ -82,7 +82,6 @@ let
 in
 {
 
-
   #gtk = {
   #  enable = true;
   #  cursorTheme = {
@@ -91,7 +90,6 @@ in
   #      size = 22;
   #    };
   #  };
-
 
   home-manager.users.cammellos = {
     home = {
@@ -102,7 +100,7 @@ in
         size = 22;
       };
       file = {
-      ".local/bin/reset-sway-mode.sh".source = ./config/reset-sway-mode.sh;
+        ".local/bin/reset-sway-mode.sh".source = ./config/reset-sway-mode.sh;
       };
     };
 
