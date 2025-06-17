@@ -47,7 +47,7 @@ in
         {
           plugin = typescript-tools-nvim;
           config = ''
-              require('typescript-tools').setup({})
+            require('typescript-tools').setup({})
           '';
 
           type = "lua";
@@ -119,9 +119,9 @@ in
         {
           plugin = render-markdown-nvim;
           config = ''
-          require('render-markdown').setup({
-            anti_conceal = { enabled = false }
-          });
+            require('render-markdown').setup({
+              anti_conceal = { enabled = false }
+            });
           '';
           type = "lua";
         }

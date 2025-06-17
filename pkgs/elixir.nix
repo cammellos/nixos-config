@@ -5,5 +5,9 @@
   ...
 }:
 {
-  users.users."${user}".packages = with pkgs; [ elixir-ls elixir_1_18 lexical ];
+  users.users."${user}".packages = with pkgs; [
+    elixir-ls
+    elixir_1_18
+    lexical
+  ];
 }

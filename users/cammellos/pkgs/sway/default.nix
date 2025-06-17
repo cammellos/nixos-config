@@ -134,7 +134,7 @@ in
         };
         floating.titlebar = false;
 
-        modifier = modifier;
+        inherit modifier;
         keybindings = { };
         bars = [
           {

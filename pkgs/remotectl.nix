@@ -1,4 +1,12 @@
-{ config, pkgs, user, os, arch, sha256, ... }:
+{
+  config,
+  pkgs,
+  user,
+  os,
+  arch,
+  sha256,
+  ...
+}:
 
 let
   derivation = pkgs.stdenv.mkDerivation rec {
@@ -7,7 +15,7 @@ let
 
     src = pkgs.fetchurl {
       url = "https://internal-tools.niceremote.com/remotectl/latest/remotectl-${os}-${arch}";
-      sha256 = sha256;
+      inherit sha256;
     };
 
     dontUnpack = true;

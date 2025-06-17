@@ -29,6 +29,6 @@ let
 in
 {
   users.users."andreamaria.piana".packages = [
-    (derivation)
+    derivation
   ];
 }
