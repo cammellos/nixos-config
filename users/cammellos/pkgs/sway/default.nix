@@ -82,9 +82,28 @@ let
 in
 {
 
+
+  #gtk = {
+  #  enable = true;
+  #  cursorTheme = {
+  #      package = pkgs.bibata-cursors;
+  #      name = "Bibata-Modern-Ice";
+  #      size = 22;
+  #    };
+  #  };
+
+
   home-manager.users.cammellos = {
-    home.file = {
+    home = {
+      pointerCursor = {
+        gtk.enable = true;
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Ice";
+        size = 22;
+      };
+      file = {
       ".local/bin/reset-sway-mode.sh".source = ./config/reset-sway-mode.sh;
+      };
     };
 
     services.swayidle = {
@@ -118,9 +137,16 @@ in
       wl-clipboard
     ];
     wayland.windowManager.sway = {
+
       enable = true;
 
       config = {
+
+        seat = {
+          "*" = {
+            xcursor_theme = "Bibata-Modern-Ice 22";
+          };
+        };
 
         workspaceAutoBackAndForth = true;
 
