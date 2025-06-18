@@ -2,6 +2,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
@@ -19,6 +21,7 @@
       nix-darwin,
       nixpkgs,
       unstable,
+      sops-nix,
       home-manager,
       nixpkgs-kubectl,
       ...
@@ -50,11 +53,15 @@
         };
 
       };
+
       nixosConfigurations.moosel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-
         # Use modules to set configuration and overlays
         modules = [
+          sops-nix.nixosModules.sops
+          {
+            home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
+          }
           ./configuration.nix
 
           # Additional configurations via specialArgs
