@@ -42,7 +42,6 @@
         vim = "nvim";
       };
       functions = {
-        nvim = builtins.readFile ./functions/nvim.fish;
         fish_prompt = builtins.readFile ./functions/fish_prompt.fish;
         user_key_bindings = builtins.readFile ./functions/user_key_bindings.fish;
         nix-shell = builtins.readFile ./functions/nix-shell.fish;
