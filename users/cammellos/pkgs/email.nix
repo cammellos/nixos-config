@@ -27,6 +27,9 @@
     };
 
     programs = {
+      neomutt = {
+        enable = true;
+      };
       mbsync = {
         enable = true;
       };
@@ -43,6 +46,28 @@
       accounts."andrea.maria.piana@gmail.com" = {
         address = "andrea.maria.piana@gmail.com";
         imap.host = "imap.gmail.com";
+        neomutt = {
+          enable = true;
+          extraConfig = ''
+            # Set the root of your mail
+            set folder = "~/Maildir/andrea.maria.piana@gmail.com"
+
+            # Set inbox (relative to `folder`)
+            set spoolfile = "+Inbox"
+
+            # Sent mail
+            set record = "+Sent"
+
+            # Drafts
+            set postponed = "+Drafts"
+
+            # Trash
+            set trash = "+Trash"
+
+            # Set the mailbox type (Maildir)
+            set mbox_type = Maildir
+          '';
+        };
         mbsync = {
           enable = true;
           create = "maildir";
