@@ -261,6 +261,8 @@ in
 
                 mode "$social-id" {
                   ${keybindings}
+                  bindsym ${modifier}+y exec ydotool key 29:1 42:1 15:1 15:0 42:0 29:0;
+                  bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
                 }
 
                 mode "kitty" {
