@@ -20,8 +20,12 @@ let
   };
 in
 {
+  users.users."${user}".packages = with pkgs; [ neovide ];
+
   environment.variables = {
     EDITOR = "nvim";
+    # doesn't play well with nested nvim
+    GIT_EDITOR = "neovide --no-fork";
   };
   environment.systemPackages = [
     pkgs.goose-cli

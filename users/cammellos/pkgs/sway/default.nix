@@ -225,6 +225,7 @@ in
                 assign [app_id="${media_player}"] workspace ${workspace_9}
                 for_window [class="mtgo.exe"] floating enable
                 for_window [class="qemu-system-x86_64-wrapped"] fullscreen enable
+                for_window [app_id="neovide"] fullscreen enable
 
                 # Start with specific app_id/class
                 set $ddterm-id dropdown-terminal
