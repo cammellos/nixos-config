@@ -38,7 +38,7 @@ let
     bindsym ${modifier}+g workspace ${workspace_4};
     bindsym ${modifier}+u workspace ${workspace_6};
     bindsym ${modifier}+p workspace ${workspace_7};
-    bindsym ${modifier}+Semicolon exec swaymsg workspace ${workspace_8}; exec "pgrep keepassxc || exec keepassxc";
+    bindsym ${modifier}+Semicolon workspace ${workspace_8};
     bindsym ${modifier}+i exec swaymsg workspace ${workspace_9}; exec "pgrep ${media_player} || exec ${media_player}";
 
     bindsym ${modifier}+Super_R+a move container to workspace ${workspace_0};
@@ -204,6 +204,9 @@ in
           {
             command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway";
           }
+          {
+            command = "${pkgs.keepassxc}/bin/keepassxc ~/Dropbox/passwords.kdbx";
+          }
         ];
         fonts = {
           names = [ "JetBrainsMono Nerd Font Mono Bold" ];
@@ -221,9 +224,9 @@ in
 
                 assign [app_id="${browser}"] workspace ${workspace_1}
                 assign [class="steam"] workspace ${workspace_4}
-                assign [app_id="${keepass}"] workspace ${workspace_8}
                 assign [app_id="${media_player}"] workspace ${workspace_9}
                 for_window [class="mtgo.exe"] floating enable
+                for_window [app_id="${keepass}"] floating enable
                 for_window [class="qemu-system-x86_64-wrapped"] fullscreen enable
                 for_window [app_id="neovide"] fullscreen enable
 
