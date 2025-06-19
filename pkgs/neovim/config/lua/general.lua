@@ -108,12 +108,12 @@ vim.api.nvim_create_autocmd("TabEnter", {
 --})
 
 
-vim.api.nvim_create_autocmd("TermClose", {
-  callback = function()
-    local bufnr = vim.fn.expand("<abuf>")
+--vim.api.nvim_create_autocmd("TermClose", {
+--  callback = function()
+--    local bufnr = vim.fn.expand("<abuf>")
     -- If the buffer is valid, delete it
-    if vim.api.nvim_buf_is_valid(bufnr) then
-      vim.api.nvim_buf_delete(bufnr, { force = true })
-    end
-  end
-})
+--    if vim.api.nvim_buf_is_valid(bufnr) then
+--      vim.api.nvim_buf_delete(bufnr, { force = true })
+--    end
+--  end
+--})
