@@ -1,7 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
-  users.users.cammellos.packages = with pkgs; [ libsecret ];
+  users.users.cammellos.packages = with pkgs; [
+    libsecret
+    gmailctl
+  ];
+
   home-manager.users.cammellos = {
+
     systemd.user.services.mbsync = {
       Unit = {
         Description = "Run mbsync to sync mail";
@@ -71,6 +76,11 @@
         mbsync = {
           enable = true;
           create = "maildir";
+          extraConfig = {
+            channel = {
+              CopyArrivalDate = "yes";
+            };
+          };
         };
         msmtp.enable = true;
         notmuch.enable = true;

@@ -10,7 +10,7 @@
     ./user.nix
     ./home.nix
     ./pkgs/sops.nix
-    ./pkgs/email.nix
+    ./pkgs/email
     ./pkgs/audio.nix
     ./pkgs/remote.nix
     ./pkgs/obs.nix
