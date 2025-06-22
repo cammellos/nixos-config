@@ -1,8 +1,13 @@
 {
   config,
+  pkgs,
   ...
 }:
 {
+  users.users.cammellos.packages = with pkgs; [
+    sops
+  ];
+
   home-manager.users.cammellos = {
     sops = {
       age.sshKeyPaths = [ "${config.home-manager.users.cammellos.home.homeDirectory}/.ssh/id_sops" ];
