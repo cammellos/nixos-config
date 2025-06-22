@@ -61,6 +61,7 @@
         imap.host = "imap.gmail.com";
         neomutt = {
           enable = true;
+          showDefaultMailbox = false;
           extraConfig = ''
             # Sent mail
             set record = "+Sent"
@@ -141,7 +142,7 @@
           neomutt.virtualMailboxes = [
             {
               name = "inbox";
-              query = "tag:inbox and not tag:spam and not tag:skip-inbox and date:6month..";
+              query = "not tag:spam and not tag:skip-inbox and date:6month..";
             }
           ];
 
