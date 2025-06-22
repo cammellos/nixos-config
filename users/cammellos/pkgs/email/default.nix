@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   users.users.cammellos.packages = with pkgs; [
     libsecret
@@ -31,9 +31,12 @@
       };
     };
 
+
+    home.packages = with pkgs; [ neomutt ];
     programs = {
       neomutt = {
         enable = true;
+        package = inputs.neomutt-custom.packages.${pkgs.system}.default;
       };
       mbsync = {
         enable = true;
@@ -73,8 +76,6 @@
 
             set editor = "neovide --no-fork";
 
-            set sidebar_visible = yes
-            set sidebar_new_mail_only = no
             set use_threads=threads
             set sort=last-date
             set sort_aux=date
@@ -86,9 +87,15 @@
             bind index o select-entry
             bind pager y exit
 
+            set sidebar_visible = yes
+            set sidebar_new_mail_only = no
+            set sidebar_next_new_wrap = yes
+            set sidebar_next_wrap = yes
+
+            bind index \t sidebar-next
+            bind index l sidebar-open
             bind index \Cn sidebar-next
             bind index \Ce sidebar-prev
-            bind index \Co sidebar-open
 
             color normal		default default             # default colours
             color index		brightblue default ~N       # new messages

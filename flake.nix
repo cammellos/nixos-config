@@ -6,6 +6,8 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    neomutt-custom.url = "github:cammellos/neomutt?ref=feat/add-sidebar-next-wrap-option";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,9 +42,6 @@
           }
           {
             nixpkgs.config.allowUnfree = true; # Set allowUnfree here
-            nixpkgs.overlays = [
-              (import ./pkgs/neovim/kitty-scrollback.nix)
-            ];
           }
         ];
         specialArgs = {
@@ -68,7 +67,9 @@
           {
             nixpkgs.config.allowUnfree = true; # Set allowUnfree here
             nixpkgs.overlays = [
-              (import ./pkgs/neovim/kitty-scrollback.nix)
+              (final: prev: {
+                neomutt = inputs.neomutt-custom.packages.${prev.system}.default;
+              })
             ];
           }
         ];

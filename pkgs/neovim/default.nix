@@ -58,13 +58,6 @@ in
           type = "lua";
         }
         {
-          plugin = pkgs.kitty-scrollback;
-          config = ''
-            require('kitty-scrollback').setup()
-          '';
-          type = "lua";
-        }
-        {
           plugin = term-edit-nvim;
           config = ''
             require('term-edit').setup({
