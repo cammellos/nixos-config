@@ -10,7 +10,7 @@ set trash = "+Trash"
 # Set the mailbox type (Maildir)
 set mbox_type = Maildir
 
-set editor = "neovide --no-fork";
+set editor = "neovide --no-fork --grid 120x30";
 
 set use_threads=threads
 set sort=last-date

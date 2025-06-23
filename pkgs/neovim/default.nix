@@ -25,8 +25,8 @@ in
   environment.variables = {
     EDITOR = "nvim";
     # doesn't play well with nested nvim
-    GIT_EDITOR = "neovide --no-fork";
-    SOPS_EDITOR = "neovide --no-fork";
+    GIT_EDITOR = "neovide --no-fork --grid 120x30";
+    SOPS_EDITOR = "neovide --no-fork --grid 120x30";
   };
   environment.systemPackages = [
     pkgs.goose-cli
