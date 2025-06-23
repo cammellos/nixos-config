@@ -1,4 +1,9 @@
-{ pkgs, config, inputs, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
 {
   users.users.cammellos.packages = with pkgs; [
     libsecret
@@ -30,7 +35,6 @@
         WantedBy = [ "default.target" ];
       };
     };
-
 
     home.packages = with pkgs; [ neomutt ];
     programs = {
@@ -77,7 +81,11 @@
           neomutt.virtualMailboxes = [
             {
               name = "inbox";
-              query = "not tag:spam and (tag:Sent or not tag:skip-inbox) and date:6month..";
+              query = "not tag:spam and not tag:Trash and (tag:Sent or not tag:skip-inbox) and date:6month..";
+            }
+            {
+              name = "to-act-on";
+              query = "tag:to-act-on";
             }
           ];
 
