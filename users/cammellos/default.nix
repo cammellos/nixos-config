@@ -23,6 +23,7 @@
     ./pkgs/social.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix
+    ./pkgs/qutebrowser.nix
     (import ./pkgs/kitty {
       user = "cammellos";
       inherit config;
