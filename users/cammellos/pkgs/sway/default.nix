@@ -41,29 +41,17 @@ let
     bindsym ${modifier}+Semicolon workspace ${workspace_8};
     bindsym ${modifier}+i exec swaymsg workspace ${workspace_9}; exec "pgrep ${media_player} || exec ${media_player}";
 
-    bindsym ${modifier}+Super_R+a move container to workspace ${workspace_0};
-    bindsym ${modifier}+Super_R+s move container to workspace ${workspace_1};
-    bindsym ${modifier}+Super_R+h move container to workspace ${workspace_2};
-    bindsym ${modifier}+Super_R+g move container to workspace ${workspace_4};
-    bindsym ${modifier}+Super_R+y move container to workspace ${workspace_5};
-    bindsym ${modifier}+Super_R+u move container to workspace ${workspace_6};
-    bindsym ${modifier}+Super_R+p move container to workspace ${workspace_7};
-    bindsym ${modifier}+Super_R+Semicolon move container to workspace ${workspace_8};
-    bindsym ${modifier}+Super_R+i move container to workspace ${workspace_9};
+    bindsym ${modifier}+Shift+a move container to workspace ${workspace_0};
+    bindsym ${modifier}+Shift+s move container to workspace ${workspace_1};
+    bindsym ${modifier}+Shift+h move container to workspace ${workspace_2};
+    bindsym ${modifier}+Shift+g move container to workspace ${workspace_4};
+    bindsym ${modifier}+Shift+y move container to workspace ${workspace_5};
+    bindsym ${modifier}+Shift+u move container to workspace ${workspace_6};
+    bindsym ${modifier}+Shift+p move container to workspace ${workspace_7};
+    bindsym ${modifier}+Shift+Semicolon move container to workspace ${workspace_8};
+    bindsym ${modifier}+Shift+i move container to workspace ${workspace_9};
 
-    # needs to be added on inverse order otherwise is order-dependent
-    bindsym ${modifier}+Super_L+a move container to workspace ${workspace_0};
-    bindsym ${modifier}+Super_L+s move container to workspace ${workspace_1};
-    bindsym ${modifier}+Super_L+h move container to workspace ${workspace_2};
-    bindsym ${modifier}+Super_L+g move container to workspace ${workspace_4};
-    bindsym ${modifier}+Super_L+y move container to workspace ${workspace_5};
-    bindsym ${modifier}+Super_L+u move container to workspace ${workspace_6};
-    bindsym ${modifier}+Super_L+p move container to workspace ${workspace_7};
-    bindsym ${modifier}+Super_L+Semicolon move container to workspace ${workspace_8};
-    bindsym ${modifier}+Super_L+i move container to workspace ${workspace_9};
-
-    bindsym ${modifier}+Super_R+q kill;
-    bindsym ${modifier}+Super_L+q kill;
+    bindsym ${modifier}+q kill;
 
     bindsym ${modifier}+8 workspace prev;
     bindsym ${modifier}+9 workspace next;
@@ -81,16 +69,6 @@ let
 
 in
 {
-
-  #gtk = {
-  #  enable = true;
-  #  cursorTheme = {
-  #      package = pkgs.bibata-cursors;
-  #      name = "Bibata-Modern-Ice";
-  #      size = 22;
-  #    };
-  #  };
-
   home-manager.users.cammellos = {
     home = {
       pointerCursor = {
@@ -274,9 +252,6 @@ in
                 }
 
                 mode "kitty" {
-                  #bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
-                  #bindsym ${modifier}+y exec ydotool key 56:1 21:1 21:0 56:0;
-                  #bindsym ${modifier}+o exec ydotool key 56:1 24:1 24:0 56:0;
                   bindsym ${modifier}+o exec ydotool key 51:1 24:1 24:0 51:0;
                   bindsym ${modifier}+y exec ydotool key 51:1 21:1 21:0 51:0;
                   bindsym ${modifier}+t exec ydotool key 51:1 20:1 20:0 51:0;
@@ -296,7 +271,6 @@ in
                   bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
                   bindsym ${modifier}+y exec ydotool key 29:1 42:1 15:1 15:0 42:0 29:0;
                   bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
-                  # do firefox y + o to move tabs
 
                   ${keybindings}
                 }

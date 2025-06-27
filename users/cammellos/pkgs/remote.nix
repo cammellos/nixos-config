@@ -10,6 +10,13 @@
       arch = "amd64";
     })
   ];
+  home-manager.users.cammellos.sops.secrets.tparners = {
+    format = "binary";
+    mode = "0555";
+    path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tpartners.sh";
+    sopsFile = ../../../secrets/cammellos/remote/tpartners.sh;
+
+  };
 
   users.users.cammellos.packages = with pkgs; [
     awscli2

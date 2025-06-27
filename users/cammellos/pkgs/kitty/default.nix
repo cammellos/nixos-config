@@ -9,7 +9,6 @@
 
   home-manager.users."${user}" = {
     home.file = {
-      ".local/bin/remote-kitty.sh".source = ./remote-kitty.sh;
       ".config/kitty/launch.conf".source = ./launch.conf;
     };
 
