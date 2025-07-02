@@ -10,12 +10,26 @@
       arch = "amd64";
     })
   ];
-  home-manager.users.cammellos.sops.secrets.tparners = {
-    format = "binary";
-    mode = "0555";
-    path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tpartners.sh";
-    sopsFile = ../../../secrets/cammellos/remote/tpartners.sh;
+  home-manager.users.cammellos.sops.secrets = {
+    tparners = {
+      format = "binary";
+      mode = "0555";
+      path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tpartners.sh";
+      sopsFile = ../../../secrets/cammellos/remote/tpartners.sh;
 
+    };
+    tprod = {
+      format = "binary";
+      mode = "0555";
+      path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tprod.sh";
+      sopsFile = ../../../secrets/cammellos/remote/tprod.sh;
+    };
+    tsand = {
+      format = "binary";
+      mode = "0555";
+      path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tsand.sh";
+      sopsFile = ../../../secrets/cammellos/remote/tsand.sh;
+    };
   };
 
   users.users.cammellos.packages = with pkgs; [
