@@ -69,6 +69,8 @@ let
 
 in
 {
+  # so it doesn't interfere
+  services.logind.lidSwitch = "ignore";
   home-manager.users.cammellos = {
     home = {
       pointerCursor = {
@@ -204,6 +206,7 @@ in
                 assign [class="steam"] workspace ${workspace_4}
                 assign [app_id="${media_player}"] workspace ${workspace_9}
                 for_window [class="mtgo.exe"] floating enable
+                for_window [class="Godot"] floating enable
                 for_window [app_id="${keepass}"] floating enable
                 for_window [class="qemu-system-x86_64-wrapped"] fullscreen enable
                 for_window [app_id="neovide"] {

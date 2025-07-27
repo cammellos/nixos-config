@@ -20,6 +20,7 @@
     ./pkgs/keepassxc.nix
     ./pkgs/git.nix
     ./pkgs/gaming.nix
+    ./pkgs/gaming-development.nix
     ./pkgs/social.nix
     ./pkgs/clojure.nix
     ./pkgs/media.nix

@@ -5,20 +5,6 @@
   user,
   ...
 }:
-let
-
-  plenary = pkgs.vimPlugins.plenary-nvim;
-  goose-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "goose-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "azorng";
-      repo = "goose.nvim";
-      rev = "5a72d3b3f7a2a01d174100c8c294da8cd3a2aeeb";
-      hash = "sha256-jVWggPmdINFNVHJSCpbTZq8wKwGjldu6PNSkb7naiQE=";
-    };
-    buildInputs = [ plenary ];
-  };
-in
 {
   users.users."${user}".packages = with pkgs; [ neovide ];
 
@@ -27,10 +13,14 @@ in
     # doesn't play well with nested nvim
     GIT_EDITOR = "neovide --no-fork --grid 120x30";
     SOPS_EDITOR = "neovide --no-fork --grid 120x30";
+    # since we run everything through the terminal, is not available on
+    # to the editor when direnv is used
+    RUST_ANALYZER_USE_SYSROOT = "true";
   };
   environment.systemPackages = [
-    pkgs.goose-cli
     pkgs.pass
+    # for copilot
+    pkgs.nodejs
     pkgs.pass-wayland
   ];
   services.dbus.packages = with pkgs; [
@@ -49,6 +39,7 @@ in
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
+        plenary-nvim
         {
           plugin = typescript-tools-nvim;
           config = ''
@@ -106,20 +97,22 @@ in
         }
         plenary-nvim
         {
-          plugin = goose-nvim;
+          plugin = CopilotChat-nvim;
           config = ''
-
-            require('goose').setup({});
+            require("copilot").setup({});
+            require("CopilotChat").setup {
+              -- See Configuration section for options
+            }
           '';
           type = "lua";
         }
-        # dependency for goose
         {
-          plugin = render-markdown-nvim;
+          plugin = telescope-ui-select-nvim;
           config = ''
-            require('render-markdown').setup({
-              anti_conceal = { enabled = false }
-            });
+            require("telescope").setup {
+              extensions = { ["ui-select"] = {}}
+            }
+            require("telescope").load_extension("ui-select")
           '';
           type = "lua";
         }
