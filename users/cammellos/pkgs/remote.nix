@@ -10,53 +10,55 @@
       arch = "amd64";
     })
   ];
-  home-manager.users.cammellos.sops.secrets = {
-    remote_partners_base_url = {
-      key = "partners_base_url";
-      path = "%r/secrets/remote/envs/partners/open_api_key";
-      sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
+  home-manager.users.cammellos = {
+    sops.secrets = {
+      remote_partners_base_url = {
+        key = "partners_base_url";
+        path = "%r/secrets/remote/envs/partners/open_api_key";
+        sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
+      };
+      remote_partners_client_id = {
+        key = "partners_client_id";
+        path = "%r/secrets/remote/envs/partners/client_id";
+        sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
+      };
+      remote_partners_client_secret = {
+        key = "partners_client_secret";
+        path = "%r/secrets/remote/envs/partners/client_secret";
+        sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
+      };
+      tparners = {
+        format = "binary";
+        mode = "0555";
+        path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tpartners.sh";
+        sopsFile = ../../../secrets/cammellos/remote/tpartners.sh;
+
+      };
+      tprod = {
+        format = "binary";
+        mode = "0555";
+        path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tprod.sh";
+        sopsFile = ../../../secrets/cammellos/remote/tprod.sh;
+      };
+      tsand = {
+        format = "binary";
+        mode = "0555";
+        path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tsand.sh";
+        sopsFile = ../../../secrets/cammellos/remote/tsand.sh;
+      };
     };
-    remote_partners_client_id = {
-      key = "partners_client_id";
-      path = "%r/secrets/remote/envs/partners/client_id";
-      sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
-    };
-    remote_partners_client_secret = {
-      key = "partners_client_secret";
-      path = "%r/secrets/remote/envs/partners/client_secret";
-      sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
-    };
-    tparners = {
-      format = "binary";
-      mode = "0555";
-      path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tpartners.sh";
-      sopsFile = ../../../secrets/cammellos/remote/tpartners.sh;
+    home.sessionVariables = {
+      REMOTE_PARTNERS_BASE_URL = ''
+        $(cat /home/cammellos/.config/sops-nix/secrets/remote_partners_base_url)
+      '';
+      REMOTE_PARTNERS_CLIENT_ID = ''
+        $(cat /home/cammellos/.config/sops-nix/secrets/remote_partners_client_id)
+      '';
+      REMOTE_PARTNERS_CLIENT_SECRET = ''
+        $(cat /home/cammellos/.config/sops-nix/secrets/remote_partners_client_secret)
+      '';
 
     };
-    tprod = {
-      format = "binary";
-      mode = "0555";
-      path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tprod.sh";
-      sopsFile = ../../../secrets/cammellos/remote/tprod.sh;
-    };
-    tsand = {
-      format = "binary";
-      mode = "0555";
-      path = "${config.home-manager.users.cammellos.home.homeDirectory}/.local/bin/tsand.sh";
-      sopsFile = ../../../secrets/cammellos/remote/tsand.sh;
-    };
-  };
-
-  environment.variables = {
-    REMOTE_PARTNERS_BASE_URL = ''
-      $(cat ${toString (builtins.getEnv "XDG_RUNTIME_DIR")}/secrets/remote/envs/partners/base_url)
-    '';
-    REMOTE_PARTNERS_CLIENT_ID = ''
-      $(cat ${toString (builtins.getEnv "XDG_RUNTIME_DIR")}/secrets/remote/envs/partners/client_id)
-    '';
-    REMOTE_PARTNERS_CLIENT_SECRET = ''
-      $(cat ${toString (builtins.getEnv "XDG_RUNTIME_DIR")}/secrets/remote/envs/partners/client_id)
-    '';
   };
 
   users.users.cammellos.packages = with pkgs; [

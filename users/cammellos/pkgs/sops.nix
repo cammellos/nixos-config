@@ -27,12 +27,11 @@
 
     home.sessionVariables = {
       OPEN_API_KEY_FILE = "$XDG_RUNTIME_DIR/sops/secrets/open_api_key";
+      OPEN_API_KEY = ''
+        $(cat /home/cammellos/.config/sops-nix/secrets/open_api_key)
+      '';
+
     };
   };
 
-  environment.variables = {
-    OPEN_API_KEY = ''
-      $(cat ${toString (builtins.getEnv "XDG_RUNTIME_DIR")}/secrets/open_api_key)
-    '';
-  };
 }
