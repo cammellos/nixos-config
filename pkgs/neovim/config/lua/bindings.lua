@@ -80,6 +80,26 @@ local function WorkmanKeyboard()
 
   -- Escape from terminal mode
   vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', opts)
+
+  vim.keymap.set('v', 'E', function()
+    -- Yank selection into the "v register
+    vim.cmd('normal! "vy')
+
+    -- Get yanked text and clean it up
+    local text = vim.fn.getreg('v'):gsub("^%s+", ""):gsub("%s+$", "")
+
+    if text == "" then
+      vim.notify("❌ Nothing was yanked. Make sure you selected text.", vim.log.levels.WARN)
+      return
+    end
+
+    -- Build the string to type: a → insert mode, then the command, then Enter (CR), then ESC
+    local cmd = "a" .. "nvim " .. text .. "\r" .. "\027"  -- \r = Enter, \027 = ESC
+
+    -- Feed the keys into Neovim
+    local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+    vim.api.nvim_feedkeys(keys, "n", false)
+  end, { desc = "Insert and execute 'nvim <selection>'", silent = true })
 end
 
 WorkmanKeyboard()

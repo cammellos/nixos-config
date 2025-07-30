@@ -27,6 +27,8 @@
     extraModulePackages = [ ];
   };
 
+  services.fwupd.enable = true;
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/d1aa00d9-f52c-4f1f-9180-4e9d03fdf03e";

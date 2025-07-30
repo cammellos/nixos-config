@@ -5,6 +5,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     neomutt-custom.url = "github:cammellos/neomutt?ref=feat/add-sidebar-next-wrap-option";
 
@@ -21,6 +22,7 @@
     {
       self,
       nix-darwin,
+      nixos-hardware,
       nixpkgs,
       unstable,
       sops-nix,
@@ -58,6 +60,7 @@
         # Use modules to set configuration and overlays
         modules = [
           sops-nix.nixosModules.sops
+          nixos-hardware.nixosModules.framework-13-7040-amd
           {
             home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
           }

@@ -25,6 +25,12 @@
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.kernelParams = [
+    "amd_pstate=active"
+    "video=efifb:off"
+    "video=simplefb:off"
+  ];
   hardware = {
     graphics = {
       enable32Bit = true; # For 32 bit applications

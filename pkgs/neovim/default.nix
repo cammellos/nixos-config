@@ -141,8 +141,8 @@
              lspconfig.gopls.setup { on_attach = lspformat.on_attach }
              lspconfig.dartls.setup { on_attach = lspformat.on_attach }
              lspconfig.clojure_lsp.setup({on_attach = lspformat.on_attach})
-             lspconfig.lexical.setup({
-               cmd = { "${pkgs.lexical}/bin/lexical"},
+             lspconfig.elixirls.setup({
+               cmd = { "${pkgs.elixir-ls}/bin/elixir-ls"},
                root_dir = function(fname)
                   return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
                end,
