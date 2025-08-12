@@ -10,7 +10,7 @@
 
   home-manager.users.cammellos = {
     sops = {
-      age.sshKeyPaths = [ "${config.home-manager.users.cammellos.home.homeDirectory}/.ssh/id_sops" ];
+      age.sshKeyPaths = [ "${config.home-manager.users.cammellos.home.homeDirectory}/.ssh/id_ed25519" ];
       defaultSopsFile = ../../../secrets/cammellos/secrets.yaml;
       secrets = {
         open_api_key = {
@@ -27,9 +27,7 @@
 
     home.sessionVariables = {
       OPEN_API_KEY_FILE = "$XDG_RUNTIME_DIR/sops/secrets/open_api_key";
-      OPEN_API_KEY = ''
-        $(cat /home/cammellos/.config/sops-nix/secrets/open_api_key)
-      '';
+      OPEN_API_KEY = ''$(cat /home/cammellos/.config/sops-nix/secrets/open_api_key)'';
 
     };
   };

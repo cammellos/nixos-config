@@ -204,6 +204,8 @@ in
 
                 assign [app_id="${browser}"] workspace ${workspace_1}
                 assign [class="steam"] workspace ${workspace_4}
+                for_window [class="steam"] inhibit_idle fullscreen
+
                 assign [app_id="${media_player}"] workspace ${workspace_9}
                 for_window [class="mtgo.exe"] floating enable
                 for_window [class="Godot"] floating enable
