@@ -12,9 +12,15 @@
   ];
   home-manager.users.cammellos = {
     sops.secrets = {
+      gitlab_token = {
+        key = "gitlab_token";
+        path = "%r/secrets/remote/envs/partners/gitlab_token";
+        sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
+      };
+
       remote_partners_base_url = {
         key = "partners_base_url";
-        path = "%r/secrets/remote/envs/partners/open_api_key";
+        path = "%r/secrets/remote/envs/partners/remote_partners_base_url";
         sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
       };
       remote_partners_client_id = {
@@ -29,7 +35,7 @@
       };
       remote_staging_base_url = {
         key = "staging_base_url";
-        path = "%r/secrets/remote/envs/staging/open_api_key";
+        path = "%r/secrets/remote/envs/staging/remote_staging_base_url";
         sopsFile = ../../../secrets/cammellos/remote/secrets.yml;
       };
       remote_staging_client_id = {
@@ -75,6 +81,7 @@
       };
     };
     home.sessionVariables = {
+      GITLAB_TOKEN = ''$(cat /home/cammellos/.config/sops-nix/secrets/gitlab_token)'';
       REMOTE_PARTNERS_BASE_URL = ''$(cat /home/cammellos/.config/sops-nix/secrets/remote_partners_base_url)'';
       REMOTE_PARTNERS_CLIENT_ID = ''$(cat /home/cammellos/.config/sops-nix/secrets/remote_partners_client_id)'';
       REMOTE_PARTNERS_CLIENT_SECRET = ''$(cat /home/cammellos/.config/sops-nix/secrets/remote_partners_client_secret)'';

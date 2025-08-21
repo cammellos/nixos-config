@@ -48,6 +48,10 @@
 
           type = "lua";
         }
+        # gitlab plugin depedency
+        diffview-nvim
+        # gitlab plugin depedency
+        dressing-nvim
         {
           plugin = term-edit-nvim;
           config = ''
