@@ -5,6 +5,10 @@
   user,
   ...
 }:
+
+let
+  gitlab-nvim = import ./gitlab.nix { inherit pkgs; };
+in
 {
   users.users."${user}".packages = with pkgs; [ neovide ];
 
@@ -48,10 +52,30 @@
 
           type = "lua";
         }
+        {
+          plugin = nord-vim;
+          config = ''
+            vim.cmd('colorscheme nord')
+          '';
+          type = "lua";
+        }
         # gitlab plugin depedency
-        diffview-nvim
+        {
+          plugin = diffview-nvim;
+          type = "lua";
+          config = ''
+          require("diffview").setup({});
+          '';
+        }
         # gitlab plugin depedency
         dressing-nvim
+        {
+          plugin = gitlab-nvim;
+          type = "lua";
+          config = ''
+          require("gitlab").setup({});
+          '';
+        }
         {
           plugin = term-edit-nvim;
           config = ''
@@ -145,6 +169,7 @@
              lspconfig.gopls.setup { on_attach = lspformat.on_attach }
              lspconfig.dartls.setup { on_attach = lspformat.on_attach }
              lspconfig.clojure_lsp.setup({on_attach = lspformat.on_attach})
+             lspconfig.gleam.setup({on_attach = lspformat.on_attach})
              lspconfig.elixirls.setup({
                cmd = { "${pkgs.elixir-ls}/bin/elixir-ls"},
                root_dir = function(fname)
@@ -230,13 +255,6 @@
         vim-nix
         vim-gitgutter
         vim-go
-        {
-          plugin = nord-vim;
-          config = ''
-            vim.cmd('colorscheme nord')
-          '';
-          type = "lua";
-        }
       ];
       extraConfig = ''
         :luafile ~/.config/nvim/lua/init.lua

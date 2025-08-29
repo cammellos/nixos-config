@@ -60,6 +60,9 @@ vim.opt.clipboard:append('unnamedplus')
 -- Enable relative line numbers
 vim.opt.relativenumber = true
 
+-- Disable status bar
+vim.opt.laststatus = 0
+
 -- Disable line number in terminal
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",
