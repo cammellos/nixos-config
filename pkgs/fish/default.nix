@@ -21,10 +21,6 @@
       set AWS_DEFAULT_PROFILE sts
     end
 
-    if test /home/${user}/.config/sops-nix/secrets/open_api_key
-      set OPEN_API_KEY (cat /home/${user}/.config/sops-nix/secrets/open_api_key)
-    end
-
     user_key_bindings
 
     fish_add_path -a $HOME/.local/bin

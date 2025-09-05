@@ -64,7 +64,7 @@ in
           plugin = diffview-nvim;
           type = "lua";
           config = ''
-          require("diffview").setup({});
+            require("diffview").setup({});
           '';
         }
         # gitlab plugin depedency
@@ -73,7 +73,7 @@ in
           plugin = gitlab-nvim;
           type = "lua";
           config = ''
-          require("gitlab").setup({});
+            require("gitlab").setup({});
           '';
         }
         {
