@@ -60,6 +60,11 @@ local function WorkmanKeyboard()
   vim.keymap.set('i', ',t', '<Esc>:tabnew<CR>', opts)
   vim.keymap.set('t', ',t', '<C-\\><C-N>:tabnew<CR><C-\\><C-N>', opts)
 
+  -- Tabs with terminal
+  vim.keymap.set('n', ',d', ':tabnew | terminal<CR>', opts)
+  vim.keymap.set('i', ',d', '<Esc>:tabnew | terminal<CR>', opts)
+  vim.keymap.set('t', ',d', '<C-\\><C-N>:tabnew | terminal<CR>', opts)
+
   -- Tab navigation
   vim.keymap.set({ 'n', 'i', 't' }, ',o', function()
     vim.cmd('tabnext')
@@ -100,6 +105,41 @@ local function WorkmanKeyboard()
     local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
     vim.api.nvim_feedkeys(keys, "n", false)
   end, { desc = "Insert and execute 'nvim <selection>'", silent = true })
+
+  vim.keymap.set('v', 'T', function()
+    -- Yank selection into the "v register
+    vim.cmd('normal! "vy')
+
+    -- Get yanked text and clean it up
+    local text = vim.fn.getreg('v'):gsub("^%s+", ""):gsub("%s+$", "")
+
+    if text == "" then
+      vim.notify("❌ Nothing was yanked. Make sure you selected text.", vim.log.levels.WARN)
+      return
+    end
+
+    local ext = text:match("([^.]+)$")
+    local base
+
+    if ext == "exs" or ext == "ex" then
+      base = "mix test.watch "
+    elseif ext == "py" then
+      base = "pytest -k "
+    elseif ext == "js" or ext == "ts" then
+      base = "npm test -- "
+    else
+      vim.notify("❌ No default command for *." .. ext, vim.log.levels.WARN)
+      return
+    end
+
+    -- Build the string to type: a → insert mode, then the command, then Enter (CR), then ESC
+    local cmd = "a" .. base .. text .. " | tee /tmp/output.txt" .. "\r" .. "\027"  -- \r = Enter, \027 = ESC
+
+    -- Feed the keys into Neovim
+    local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+    vim.api.nvim_feedkeys(keys, "n", false)
+  end, { desc = "Insert and execute 'nvim <selection>'", silent = true })
+
 end
 
 WorkmanKeyboard()
