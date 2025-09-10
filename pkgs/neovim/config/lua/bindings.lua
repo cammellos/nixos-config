@@ -61,9 +61,9 @@ local function WorkmanKeyboard()
   vim.keymap.set('t', ',t', '<C-\\><C-N>:tabnew<CR><C-\\><C-N>', opts)
 
   -- Tabs with terminal
-  vim.keymap.set('n', ',d', ':tabnew | terminal<CR>', opts)
-  vim.keymap.set('i', ',d', '<Esc>:tabnew | terminal<CR>', opts)
-  vim.keymap.set('t', ',d', '<C-\\><C-N>:tabnew | terminal<CR>', opts)
+  vim.keymap.set('n', ',x', ':tabnew | terminal<CR>', opts)
+  vim.keymap.set('i', ',x', '<Esc>:tabnew | terminal<CR>', opts)
+  vim.keymap.set('t', ',x', '<C-\\><C-N>:tabnew | terminal<CR>', opts)
 
   -- Tab navigation
   vim.keymap.set({ 'n', 'i', 't' }, ',o', function()
