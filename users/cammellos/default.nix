@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unstable,
   inputs,
   ...
 }:
@@ -45,6 +46,7 @@
       user = "cammellos";
       inherit config;
       inherit pkgs;
+      inherit unstable;
     })
     (import ../../pkgs/direnv.nix {
       user = "cammellos";

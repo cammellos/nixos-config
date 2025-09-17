@@ -1,12 +1,13 @@
 {
   pkgs,
   config,
+  unstable,
   user,
   ...
 }:
 {
   users.users."${user}".packages = with pkgs; [
-    elixir-ls
+    (unstable.elixir-ls)
     elixir_1_18
     lexical
   ];
