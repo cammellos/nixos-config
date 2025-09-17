@@ -53,8 +53,8 @@ let
 
     bindsym ${modifier}+q kill;
 
-    bindsym ${modifier}+8 workspace prev;
-    bindsym ${modifier}+9 workspace next;
+    bindsym ${modifier}+n workspace prev;
+    bindsym ${modifier}+e workspace next;
     bindsym ${modifier}+Tab exec ${pkgs.rofi-wayland}/bin/rofi -show window -show-icons;
 
     bindsym ${modifier}+2 exec playerctl play-pause;
@@ -254,6 +254,12 @@ in
                   ${keybindings}
                   bindsym ${modifier}+y exec ydotool key 29:1 42:1 15:1 15:0 42:0 29:0;
                   bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
+
+                  # open new chatgpt chat
+                  bindsym ${modifier}+t exec ydotool key 29:1 42:1 24:1 24:0 42:0 29:0;
+
+                  # search with slash
+                  bindsym ${modifier}+slash exec ydotool key 29:1 37:1 37:0 29:0;
                 }
 
                 mode "kitty" {
@@ -276,6 +282,9 @@ in
                   bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
                   bindsym ${modifier}+y exec ydotool key 29:1 42:1 15:1 15:0 42:0 29:0;
                   bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
+
+                  # search with slash
+                  bindsym ${modifier}+slash exec ydotool key 29:1 33:1 33:0 29:0;
 
                   ${keybindings}
                 }
