@@ -25,8 +25,6 @@
 
     fish_add_path -a $HOME/.local/bin
 
-    pre_exec
-    post_exec
     ";
       shellAbbrs = {
         gst = "git status";
@@ -41,15 +39,6 @@
         vim = "nvim";
       };
       functions = {
-        pre_exec = {
-          body = builtins.readFile ./functions/pre_exec.fish;
-          onEvent = "fish_preexec";
-        };
-        post_exec = {
-          body = builtins.readFile ./functions/post_exec.fish;
-          onEvent = "fish_postexec";
-        };
-
         nvim = builtins.readFile ./functions/nvim.fish;
         fish_prompt = builtins.readFile ./functions/fish_prompt.fish;
         user_key_bindings = builtins.readFile ./functions/user_key_bindings.fish;

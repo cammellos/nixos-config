@@ -77,6 +77,13 @@ in
           '';
         }
         {
+          plugin = tabby-nvim;
+          type = "lua";
+          config = ''
+            require('tabby').setup({});
+          '';
+        }
+        {
           plugin = term-edit-nvim;
           config = ''
             require('term-edit').setup({
