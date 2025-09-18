@@ -283,6 +283,9 @@ in
                   bindsym ${modifier}+y exec ydotool key 29:1 42:1 15:1 15:0 42:0 29:0;
                   bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
 
+                  # bar
+                  bindsym ${modifier}+l exec ydotool key 29:1 38:1 38:0 29:0;
+
                   # search with slash
                   bindsym ${modifier}+slash exec ydotool key 29:1 33:1 33:0 29:0;
 

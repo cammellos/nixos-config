@@ -63,6 +63,10 @@ vim.opt.relativenumber = true
 -- Disable status bar
 vim.opt.laststatus = 0
 
+
+-- Always show tabar
+vim.o.showtabline = 2
+
 -- Disable line number in terminal
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",
