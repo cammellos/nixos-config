@@ -1,9 +1,14 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   users.users.cammellos.packages = with pkgs; [
     pasystray
-    tidal-hifi
     playerctl
     pavucontrol
+    inputs.tidaLuna.packages.${system}.default
   ];
 }

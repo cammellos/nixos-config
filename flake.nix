@@ -6,6 +6,7 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    tidaLuna.url = "github:Inrixia/TidaLuna";
 
     neomutt-custom.url = "github:cammellos/neomutt?ref=feat/add-sidebar-next-wrap-option";
 
@@ -76,7 +77,10 @@
             ];
           }
         ];
-        specialArgs = { inherit inputs; unstable = import unstable { system = "x86_64-linux";};} ;
+        specialArgs = {
+          inherit inputs;
+          unstable = import unstable { system = "x86_64-linux"; };
+        };
       };
     };
 }

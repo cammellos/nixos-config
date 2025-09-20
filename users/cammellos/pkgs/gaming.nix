@@ -12,10 +12,12 @@
     steam-devices-udev-rules
     wineWowPackages.stable
     wineWowPackages.waylandFull
-    (retroarch.withCores (cores: with cores; [
-      snes9x
-      mgba
-    ]))
+    (retroarch.withCores (
+      cores: with cores; [
+        snes9x
+        mgba
+      ]
+    ))
 
   ];
 }
