@@ -144,8 +144,8 @@ in
           {
             command = "${pkgs.waybar}/bin/waybar";
             position = "top";
-            #hiddenState = "hide";
-            #mode = "hide";
+            hiddenState = "hide";
+            mode = "hide";
             extraConfig = ''
               modifier ${modifier}
 
