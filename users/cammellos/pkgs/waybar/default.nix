@@ -92,7 +92,8 @@ in
         format-icons = {
           "0:a" = "<span></span>";
           "1:s" = "<span></span>";
-          "2:h" = "<span>h</span>";
+          "2:h" = "<span>󰇋</span>";
+          "3:t" = "<span>󰇌</span>";
           "4:g" = "<span></span>";
           "6:n" = "<span>u</span>";
           "7:e" = "<span>p</span>";

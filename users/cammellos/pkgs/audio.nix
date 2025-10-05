@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -9,6 +8,5 @@
     pasystray
     playerctl
     pavucontrol
-    inputs.tidaLuna.packages.${system}.default
   ];
 }

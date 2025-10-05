@@ -4,7 +4,6 @@ let
   lock-image = ./background/trout.jpeg;
   browser = "librewolf";
   keepass = "org.keepassxc.KeePassXC";
-  media_player = "tidal-hifi";
 
   social = "ferdium";
   workspace_0 = "0:a";
@@ -13,10 +12,6 @@ let
   workspace_3 = "3:t";
   workspace_4 = "4:g";
   workspace_5 = "5:y";
-  workspace_6 = "6:n";
-  workspace_7 = "7:e";
-  workspace_8 = "8:o";
-  workspace_9 = "9:i";
   modifier = "Mod4";
   menu = "${pkgs.rofi-wayland}/bin/rofi -combi-modi window,drun -show combi";
   keybindings = ''
@@ -34,27 +29,17 @@ let
     bindsym ${modifier}+a workspace ${workspace_0};
     bindsym ${modifier}+s exec swaymsg workspace ${workspace_1}; exec --no-startup-id "pgrep ${browser} || exec ${browser}";
     bindsym ${modifier}+h workspace ${workspace_2};
-    #"${modifier}+t workspace ${workspace_3};
+    bindsym ${modifier}+t workspace ${workspace_3};
     bindsym ${modifier}+g workspace ${workspace_4};
-    bindsym ${modifier}+u workspace ${workspace_6};
-    bindsym ${modifier}+p workspace ${workspace_7};
-    bindsym ${modifier}+Semicolon workspace ${workspace_8};
-    bindsym ${modifier}+i exec swaymsg workspace ${workspace_9}; exec "pgrep ${media_player} || exec ${media_player}";
 
     bindsym ${modifier}+Shift+a move container to workspace ${workspace_0};
     bindsym ${modifier}+Shift+s move container to workspace ${workspace_1};
     bindsym ${modifier}+Shift+h move container to workspace ${workspace_2};
     bindsym ${modifier}+Shift+g move container to workspace ${workspace_4};
     bindsym ${modifier}+Shift+y move container to workspace ${workspace_5};
-    bindsym ${modifier}+Shift+u move container to workspace ${workspace_6};
-    bindsym ${modifier}+Shift+p move container to workspace ${workspace_7};
-    bindsym ${modifier}+Shift+Semicolon move container to workspace ${workspace_8};
-    bindsym ${modifier}+Shift+i move container to workspace ${workspace_9};
 
     bindsym ${modifier}+q kill;
 
-    bindsym ${modifier}+n workspace prev;
-    bindsym ${modifier}+e workspace next;
     bindsym ${modifier}+Tab exec ${pkgs.rofi-wayland}/bin/rofi -show window -show-icons;
 
     bindsym ${modifier}+2 exec playerctl play-pause;
@@ -206,7 +191,6 @@ in
                 assign [class="steam"] workspace ${workspace_4}
                 for_window [class="steam"] inhibit_idle fullscreen
 
-                assign [app_id="${media_player}"] workspace ${workspace_9}
                 for_window [class="mtgo.exe"] floating enable
                 for_window [class="Godot"] floating enable
                 for_window [app_id="${keepass}"] floating enable
@@ -256,7 +240,7 @@ in
                   bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
 
                   # open new chatgpt chat
-                  bindsym ${modifier}+t exec ydotool key 29:1 42:1 24:1 24:0 42:0 29:0;
+                  bindsym ${modifier}+n exec ydotool key 29:1 42:1 24:1 24:0 42:0 29:0;
 
                   # search with slash
                   bindsym ${modifier}+slash exec ydotool key 29:1 37:1 37:0 29:0;
@@ -265,7 +249,7 @@ in
                 mode "kitty" {
                   bindsym ${modifier}+o exec ydotool key 51:1 24:1 24:0 51:0;
                   bindsym ${modifier}+y exec ydotool key 51:1 21:1 21:0 51:0;
-                  bindsym ${modifier}+t exec ydotool key 51:1 20:1 20:0 51:0;
+                  bindsym ${modifier}+n exec ydotool key 51:1 20:1 20:0 51:0;
 
                   ${keybindings}
                 }
@@ -273,13 +257,13 @@ in
                 mode "nvim" {
                   bindsym ${modifier}+o exec ydotool key 51:1 24:1 24:0 51:0;
                   bindsym ${modifier}+y exec ydotool key 51:1 21:1 21:0 51:0;
-                  bindsym ${modifier}+t exec ydotool key 51:1 20:1 20:0 51:0;
+                  bindsym ${modifier}+n exec ydotool key 51:1 20:1 20:0 51:0;
 
                   ${keybindings}
                 }
 
                 mode "librewolf" {
-                  bindsym ${modifier}+t exec ydotool key 29:1 20:1 20:0 29:0;
+                  bindsym ${modifier}+n exec ydotool key 29:1 20:1 20:0 29:0;
                   bindsym ${modifier}+y exec ydotool key 29:1 42:1 15:1 15:0 42:0 29:0;
                   bindsym ${modifier}+o exec ydotool key 29:1 15:1 15:0 29:0;
 
