@@ -23,8 +23,6 @@ in
   };
   environment.systemPackages = [
     pkgs.pass
-    # for copilot
-    pkgs.nodejs
     pkgs.pass-wayland
   ];
   services.dbus.packages = with pkgs; [
@@ -131,16 +129,6 @@ in
           type = "lua";
         }
         plenary-nvim
-        {
-          plugin = CopilotChat-nvim;
-          config = ''
-            require("copilot").setup({});
-            require("CopilotChat").setup {
-              -- See Configuration section for options
-            }
-          '';
-          type = "lua";
-        }
         {
           plugin = telescope-ui-select-nvim;
           config = ''

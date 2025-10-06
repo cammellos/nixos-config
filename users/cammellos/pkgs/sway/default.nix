@@ -16,7 +16,6 @@ let
   menu = "${pkgs.rofi-wayland}/bin/rofi -combi-modi window,drun -show combi";
   keybindings = ''
     bindsym ${modifier}+Return exec sh -c 'random_id=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 8); echo "launch env NVIM_SOCKET=/tmp/nvim_$random_id.socket nvim -c terminal --listen /tmp/nvim_$random_id.socket" | kitty --session -'
-    bindsym ${modifier}+Space exec "${menu}";
 
     bindsym ${modifier}+Period fullscreen toggle;
     bindsym ${modifier}+Shift+space floating toggle;
@@ -40,7 +39,7 @@ let
 
     bindsym ${modifier}+q kill;
 
-    bindsym ${modifier}+Tab exec ${pkgs.rofi-wayland}/bin/rofi -show window -show-icons;
+    bindsym ${modifier}+Tab exec "${menu}";
 
     bindsym ${modifier}+2 exec playerctl play-pause;
     bindsym ${modifier}+3 exec playerctl previous;
@@ -191,10 +190,13 @@ in
                 assign [class="steam"] workspace ${workspace_4}
                 for_window [class="steam"] inhibit_idle fullscreen
 
+
+
                 for_window [class="mtgo.exe"] floating enable
                 for_window [class="Godot"] floating enable
                 for_window [app_id="${keepass}"] floating enable
                 for_window [class="qemu-system-x86_64-wrapped"] fullscreen enable
+                assign [class="qemu-system-x86_64-wrapped"] workspace ${workspace_4}
                 for_window [app_id="neovide"] {
                   floating enable
                   $social-resize
