@@ -38,6 +38,7 @@ let
     bindsym ${modifier}+Shift+y move container to workspace ${workspace_5};
 
     bindsym ${modifier}+q kill;
+    bindsym ${modifier}+k exec keepassxc;
 
     bindsym ${modifier}+Tab exec "${menu}";
 
@@ -194,15 +195,8 @@ in
 
                 for_window [class="mtgo.exe"] floating enable
                 for_window [class="Godot"] floating enable
-                for_window [app_id="${keepass}"] floating enable
                 for_window [class="qemu-system-x86_64-wrapped"] fullscreen enable
                 assign [class="qemu-system-x86_64-wrapped"] workspace ${workspace_4}
-                for_window [app_id="neovide"] {
-                  floating enable
-                  $social-resize
-                  move to scratchpad
-                  scratchpad show
-                }
 
                 # Start with specific app_id/class
                 set $ddterm-id dropdown-terminal
@@ -232,6 +226,18 @@ in
                 for_window [app_id="$social-id"] {
                   floating enable
                   $social-resize
+                  move to scratchpad
+                  scratchpad show
+                }
+
+                for_window [app_id="${keepass}"] {
+                  floating enable
+                  resize set 100ppt 30ppt, move position 0 0
+                }
+
+                for_window [app_id="neovide"] {
+                  floating enable
+                  resize set 100ppt 30ppt, move position 0 0
                   move to scratchpad
                   scratchpad show
                 }
